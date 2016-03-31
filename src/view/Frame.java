@@ -14,7 +14,7 @@ public class Frame {
     private JPanel menu_panel;
     public GamePanel game_panel;
     private int frame_width = 680;
-    private int frame_height = 520;
+    private int frame_height = 500;
 
     public JFrame getFrame() {return this.frame;}
     public GamePanel getGame_panel() {return this.game_panel;}
@@ -32,6 +32,7 @@ public class Frame {
         frame.addKeyListener(new InputListener.KeyboardListener());
         frame.setFocusable(true);
         frame.setVisible(true);
+        frame.setResizable(false);
     }
 
 
@@ -49,15 +50,17 @@ public class Frame {
 
     public void new_game_panel() {}
 
-    public void start_new_game(int[][] chunks,Player player) {
+    public void start_new_game(int[][] chunks,Player player, Map map) {
         menu_panel.remove(start_button);
         quit_button = new JButton("quit");
         menu_panel.add(quit_button);
         quit_button.addMouseListener(new InputListener.ButtonListener("menu"));
         main_panel.revalidate();
         main_panel.repaint();
-        game_panel = new GamePanel(chunks,player);
-        main_panel.add(game_panel,BorderLayout.CENTER);
+        game_panel = new GamePanel(chunks,player,map);
+        game_panel.setSize(new Dimension(100,100));
+        game_panel.setBackground(Color.BLACK);
+        main_panel.add(game_panel);
         main_panel.revalidate();
         main_panel.repaint();
     }

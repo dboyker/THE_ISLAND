@@ -1,4 +1,4 @@
-package model;
+package model.Chunk;
 
 /**
  * Created by davidboyker on 30/03/16.

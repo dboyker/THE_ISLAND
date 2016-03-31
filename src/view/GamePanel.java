@@ -10,42 +10,50 @@ import java.awt.*;
 
 public class GamePanel extends JPanel {
 
+    private Map map;
     private int[][] chunks;
     //building
     private Player player;
     //NPC
     //items
 
-    GamePanel(int[][] chunks, Player player) {
+    GamePanel(int[][] chunks, Player player, Map map) {
+        this.map = map;
         this.chunks = chunks;
         this.player = player;
-        //this.setPreferredSize(new Dimension(1040,1040));
     }
 
     public Player getPlayer() {return this.player;}
 
     public void paint(Graphics g)
     {
-        //generate map
-        for (int i = 0; i < 21; i++) {
-            for (int j = 0; j < 26; j ++) {
+        //generate map and put it around the player
+        for (int i = 0; i < map.getHeight(); i++) {
+            for (int j = 0; j < map.getWidth(); j ++) {
                 int a = chunks[j][i];
                 Color color = Color.black;
                 if (a == 0) {color = Color.BLUE;}
                 else if (a == 1) {color = Color.GREEN;}
                 else if (a == 2) {color = Color.GRAY;}
                 g.setColor(color);
-                g.fillRect(j*40,i*40,40,40);
+                int chunk_size = map.getChunk_size();
+                g.fillRect(j*chunk_size,i*chunk_size ,chunk_size, chunk_size);
             }
         }
+
         //generate player
         int x = player.getPosition()[0];
         int y = player.getPosition()[1];
         g.setColor(Color.RED);
-        g.fillRect(x+5,y+5,20,20);
+        g.fillRect(x+map.getChunk_size()/4,y+map.getChunk_size()/4, map.getChunk_size()/2,map.getChunk_size()/2);
+
     }
 
-    public void move_window() {
+    public void move_player(float dx, float dy) {
+        double x = this.getX();
+        double y = this.getY();
+        this.setLocation((int) (x-dx), (int) (y-dy));
+        this.repaint();
     }
 }
 

@@ -7,13 +7,29 @@ import view.*;
 
 public class Map {
     private int chunks[][];
-    private int chunk_size = 40;
+    private int chunk_size = 4;
+    private int width = 100;  // in terms of number of chunks
+    private int height = 100;  // in terms of number of chunks
 
     public Map() {
-        //generate map
-        chunks = new int[26][21];
-        for (int i = 0; i < 21; i++) {for (int j = 0; j < 26; j++) {chunks[j][i] = (int) Math.floor(Math.random() * 3);}}
+        chunks = new int[width][height];
+        generate_map();
         }
 
     public int[][] getChunks() {return this.chunks;}
+
+    public int getHeight() {return this.height;}
+    public int getWidth() {return this.width;}
+    public int getChunk_size() {return this.chunk_size;}
+
+    public void generate_map() {
+        //to be completed
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (i < 5 || i > 95 || j < 5 || j > 95) {chunks[j][i] = 0;}
+                else {chunks[j][i] = 1;}
+
+            }
+        }
+    }
 }

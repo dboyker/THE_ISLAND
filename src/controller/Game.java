@@ -22,17 +22,11 @@ public class Game implements Runnable{
         //create NPC
         //create player
         player = new Player();
-        frame.start_new_game(chunks,player);
+        frame.start_new_game(chunks, player, map);
+        (new Thread(new PlayerThread(player,frame))).start();
     }
 
     //main loop
     public void run() {
-        //display map
-        while (true) {
-            //move player
-            player.move(frame);
-            //move npc
-            //game's event
-        }
     }
 }

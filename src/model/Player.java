@@ -18,18 +18,18 @@ public class Player extends Person {
         position[1] = 400;
     }
 
-    public void setDx(float dx) {this.dx = dx;}
-    public void setDy(float dy) {this.dy = dy;}
+    public void setDx(float dx) {this.dx = dx*4;}
+    public void setDy(float dy) {this.dy = dy*4;}
 
     public void move(Frame frame) {
-        if (dx != 0 || position[0] % 40 != 0) {  // need to move in the x-axis
+        if (dx != 0 || position[0] % 4 != 0) {  // need to move in the x-axis
             position[0] += dx;
-            frame.game_panel.repaint();
+            frame.game_panel.move_player(dx,0);
             this.dx = 0;
         }
-        if (dy != 0 || position[1] % 40 != 0) {  // need to move in the y-axis
+        if (dy != 0 || position[1] % 4 != 0) {  // need to move in the y-axis
             position[1] += dy;
-            frame.game_panel.repaint();
+            frame.game_panel.move_player(0,dy);
             this.dy = 0;
         }
 

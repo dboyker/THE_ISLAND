@@ -44,11 +44,11 @@ public class InputListener {
             float dx = 0;
             float dy = 0;
             Player player = frame.getGame_panel().getPlayer();
-            if (e.getKeyCode() == KeyEvent.VK_UP) {dy = -40;} //key up pressed
-            if (e.getKeyCode() == KeyEvent.VK_DOWN) {dy = 40;} //key down pressed
+            if (e.getKeyCode() == KeyEvent.VK_UP) {dy = -1;} //key up pressed
+            if (e.getKeyCode() == KeyEvent.VK_DOWN) {dy = 1;} //key down pressed
             player.setDy(dy);
-            if (e.getKeyCode() == KeyEvent.VK_LEFT) {dx = -40;} //key left pressed
-            if (e.getKeyCode() == KeyEvent.VK_RIGHT) {dx = 40;} //key right pressed
+            if (e.getKeyCode() == KeyEvent.VK_LEFT) {dx = -1;} //key left pressed
+            if (e.getKeyCode() == KeyEvent.VK_RIGHT) {dx = 1;} //key right pressed
             player.setDx(dx);
 
 
