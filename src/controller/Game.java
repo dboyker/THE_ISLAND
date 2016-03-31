@@ -1,17 +1,25 @@
 package controller;
-import model.*;
+import model.Chunk.*;
+import model.Map;
+import model.Person.*;
 import view.*;
+
+import java.io.Serializable;
 
 /**
  * Created by davidboyker on 28/03/16.
  */
-public class Game implements Runnable{
+public class Game implements Serializable {
     private Frame frame;
-    //map
     private Map map;
-    private int chunks[][];
-    //persons
+    private Chunk chunks[][];
     private Player player;
+    private NPC NPC[] = new NPC[1];
+
+    public Chunk[][] getChunk() {return chunks;}
+    public Player getPlayer() {return player;}
+    public Map getMap() {return map;}
+    public NPC[] getNPC() {return NPC;}
 
     public Game(Frame frame) {
         this.frame = frame;
@@ -21,12 +29,10 @@ public class Game implements Runnable{
         //create items
         //create NPC
         //create player
-        player = new Player();
-        frame.start_new_game(chunks, player, map);
-        (new Thread(new PlayerThread(player,frame))).start();
-    }
+        player = new Player(map);
+        NPC[0] = new NPC(map);
 
-    //main loop
-    public void run() {
+        (new Thread(new PlayerThread(player,frame))).start();
+        frame.start_new_game(this);
     }
 }

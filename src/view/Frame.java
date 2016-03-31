@@ -1,7 +1,11 @@
 package view;
 import controller.*;
 import model.*;
+import model.Chunk.Chunk;
+import model.Person.Player;
+
 import java.awt.*;
+import java.io.Serializable;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -50,16 +54,15 @@ public class Frame {
 
     public void new_game_panel() {}
 
-    public void start_new_game(int[][] chunks,Player player, Map map) {
+    public void start_new_game(Game game) {
+
         menu_panel.remove(start_button);
         quit_button = new JButton("quit");
         menu_panel.add(quit_button);
         quit_button.addMouseListener(new InputListener.ButtonListener("menu"));
         main_panel.revalidate();
         main_panel.repaint();
-        game_panel = new GamePanel(chunks,player,map);
-        game_panel.setSize(new Dimension(100,100));
-        game_panel.setBackground(Color.BLACK);
+        game_panel = new GamePanel(game);
         main_panel.add(game_panel);
         main_panel.revalidate();
         main_panel.repaint();

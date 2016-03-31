@@ -1,6 +1,6 @@
 package controller;
 
-import model.Player;
+import model.Person.Player;
 import view.Frame;
 
 /**

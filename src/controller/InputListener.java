@@ -1,8 +1,6 @@
 package controller;
-import model.*;
-import view.*;
-import javax.swing.*;
-import java.awt.*;
+import model.Person.Player;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
