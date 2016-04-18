@@ -1,6 +1,8 @@
 package controller;
 import java.io.*;
-import java.util.Optional;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 /**
  * Created by davidboyker on 31/03/16.
@@ -15,7 +17,17 @@ public class SerialManager {
     public void save_game(Game game) {
     try
     {
-        FileOutputStream fileOut = new FileOutputStream("SavedGames.ser");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        Date date = new Date();
+        String name = dateFormat.format(date);
+
+        String path = "src/saved_games/"+name+".ser";
+        File f = new File(path);
+        f.getParentFile().mkdirs();
+        f.createNewFile();
+
+
+        FileOutputStream fileOut = new FileOutputStream("src/saved_games/"+name+".ser");
         ObjectOutputStream out = new ObjectOutputStream(fileOut);
         out.writeObject(game);
         out.close();
@@ -24,11 +36,12 @@ public class SerialManager {
     catch(IOException i) {i.printStackTrace();}
     }
 
-    public Game load_game() {
+    public Game load_game(String name) {
+        System.out.println("load game");
         Game game;
 
         try {
-            FileInputStream fileIn = new FileInputStream("SavedGames.ser");
+            FileInputStream fileIn = new FileInputStream("src/saved_games/"+name);
             ObjectInputStream in = new ObjectInputStream(fileIn);
             game = (Game) in.readObject();
             in.close();

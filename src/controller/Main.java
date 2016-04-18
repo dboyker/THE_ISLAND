@@ -1,5 +1,7 @@
 package controller;
 import view.*;
+import view.GameDisplay.InventoryPanel;
+
 /**
  * Created by davidboyker on 28/03/16.
  */
@@ -12,19 +14,7 @@ public class Main {
         frame.run();
         frame.main_menu();
         new InputListener(frame); // add listener for keyboard/mouse events
+        new ButtonCallback(frame); // add calback functions to buttons
     }
-
-    static public void start_new_game() {
-        new Game(frame);
-    }
-
-    static public void load_new_game() {}
-
-    static public void go_to_main_menu() {frame.main_menu();}
-
-    static public void go_to_load_menu() {}
-
-    static public void go_to_new_game_menu() {}
-
 }
 

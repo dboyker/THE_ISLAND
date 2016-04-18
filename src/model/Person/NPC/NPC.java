@@ -1,16 +1,17 @@
-package model.Person;
+package model.Person.NPC;
 
 import model.Map;
+import model.Person.Person;
+
+import java.awt.*;
+import java.io.Serializable;
 
 /**
  * Created by davidboyker on 31/03/16.
  */
-public class NPC extends Player {
+public class NPC extends Person {
     public NPC(Map map) {
-        super(map);
-        position = new int[2];
-        position[0] = 50;
-        position[1] = 50;
+        super(map,50,50, Color.blue);
     }
 
     public void setDx(float dx) {this.dx = dx;}
