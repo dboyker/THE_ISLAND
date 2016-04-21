@@ -1,5 +1,6 @@
 package view;
 import controller.*;
+import model.Game;
 import view.GameDisplay.GamePanel;
 
 import java.awt.*;

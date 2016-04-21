@@ -19,7 +19,7 @@ public class LoadGamePanel extends JPanel {
 
     public LoadGamePanel() {
 
-        this.setBackground(Color.CYAN);
+        this.setBackground(Color.DARK_GRAY);
         back_button = new JButton("back");
         back_button.addMouseListener(new InputListener.ButtonListener(new ButtonCallback.go_to_main_menu()));
         this.add(back_button);

@@ -8,7 +8,7 @@ public class MiniMapThread implements Runnable {
 
     private Frame frame;
 
-    MiniMapThread(Frame frame) {
+    public MiniMapThread(Frame frame) {
         this.frame = frame;
     }
 

@@ -21,7 +21,7 @@ public class NewGamePanel extends JPanel {
     private JButton start_button;
 
     public NewGamePanel() {
-        this.setBackground(Color.ORANGE);
+        this.setBackground(Color.DARK_GRAY);
         back_button = new JButton("back");
         back_button.addMouseListener(new InputListener.ButtonListener(new ButtonCallback.go_to_main_menu()));
         start_button = new JButton("start");

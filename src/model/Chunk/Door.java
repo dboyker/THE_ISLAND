@@ -1,6 +1,5 @@
 package model.Chunk;
 import model.*;
-import controller.*;
 
 import java.awt.*;
 
@@ -25,12 +24,17 @@ public class Door extends Chunk {
         for (int i = 0; i < newMap.getHeight(); i++) {
             for (int j = 0; j < newMap.getWidth(); j++) {
                 if (newMap.getChunks()[j][i] == leadTo) { //  move player to this position
-                    int[] position = {j,i};
+                    float[] position = new float[2];
+                    position[0] = j;
+                    if (this.map.getClass() == model.BuildingMap.class) {position[1] = i+1;}
+                    else {position[1] = i-1;}
                     game.getPlayer().setPosition(position);
+                    game.getPlayer().setMap(leadTo.map);
+                    game.getFrame().game_panel.mini_map.setMap(leadTo.map); // change mini map displayed map
                 }
             }
         }
-        game.getFrame().game_panel.game_screen.setMap(newMap);  // set new map to game panel
+        game.getFrame().game_panel.game_screen.setMap(newMap);  // make the game screen display the new map
 
     }
 }

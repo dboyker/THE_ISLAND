@@ -18,8 +18,7 @@ public class MAPThread implements Runnable {
             } catch(InterruptedException ex) {
                 Thread.currentThread().interrupt();
             }
-            frame.game_panel.game_screen.repaint();
-
+            frame.game_panel.update();
         }
     }
 }

@@ -8,6 +8,6 @@ import java.awt.*;
 public class Water extends Chunk {
 
     public Water() {
-        super(new Color(41,62,81),false);
+        super(new Color(35,137,218),false);
     }
 }

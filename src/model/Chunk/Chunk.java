@@ -1,7 +1,8 @@
 package model.Chunk;
-import javafx.scene.paint.Color;
 import model.*;
+import model.Person.Person;
 import model.Person.Player.Player;
+import model.Item.*;
 
 import java.io.Serializable;
 
@@ -13,7 +14,8 @@ public class Chunk implements Serializable {
     protected Map map;
     private boolean default_walkable;
     private boolean walkable;
-    private Player player;
+    private Person person;
+    private Item item;
     public java.awt.Color color;
 
     public Chunk(java.awt.Color color, boolean walkable) {
@@ -27,8 +29,9 @@ public class Chunk implements Serializable {
         if (walkable == false) {this.walkable = false;}
         else {this.walkable = this.default_walkable;}}
 
-    public Player getPlayer() {return this.player;}
+    public Person getPerson() {return this.person;}
+    public void setPerson(Person person) {this.person = person;}
 
-    public void interact() {}
+    public void interact() {};
 
 }

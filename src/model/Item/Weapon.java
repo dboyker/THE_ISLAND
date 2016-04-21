@@ -1,14 +1,16 @@
-package model.Item.Weapon;
+package model.Item;
+
+import model.Item.Item;
 
 /**
  * Created by davidboyker on 17/04/16.
  */
-public class Weapon {
+public class Weapon extends Item{
 
     private int damage;
     private int cooldown;
 
-    Weapon(int damage, int cooldown) {
+    public Weapon(int damage, int cooldown) {
         this.damage = damage;
     }
 

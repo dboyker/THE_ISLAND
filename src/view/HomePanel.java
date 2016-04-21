@@ -1,9 +1,7 @@
 package view;
 
 import controller.ButtonCallback;
-import controller.Game;
 import controller.InputListener;
-import controller.Main;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,7 +15,7 @@ public class HomePanel extends JPanel {
     private JButton load_game_button;
 
     public HomePanel() {
-        this.setBackground(Color.CYAN);
+        this.setBackground(Color.DARK_GRAY);
         new_game_button = new JButton("New game");
         load_game_button = new JButton("Load game");
         new_game_button.addMouseListener(new InputListener.ButtonListener(new ButtonCallback.go_to_new_game_menu()));

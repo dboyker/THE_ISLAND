@@ -18,8 +18,8 @@ public class PlayerThread implements Runnable {
 
     public void run() {
         while (true) {
-            try {
-                Thread.sleep(10);
+           try {
+                Thread.sleep(5);
             } catch(InterruptedException ex) {
                 Thread.currentThread().interrupt();
             }

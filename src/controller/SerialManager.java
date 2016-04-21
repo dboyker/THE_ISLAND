@@ -1,4 +1,6 @@
 package controller;
+import model.Game;
+
 import java.io.*;
 import java.util.Date;
 import java.text.DateFormat;

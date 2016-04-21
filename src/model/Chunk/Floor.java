@@ -8,7 +8,7 @@ import java.awt.*;
 public class Floor extends Chunk {
 
     public Floor() {
-        super(Color.gray,true);
+        super(Color.GRAY,true);
     }
 
 }
