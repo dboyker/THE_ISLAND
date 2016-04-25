@@ -29,12 +29,12 @@ public class InputListener {
 
     public static class KeyboardListener implements KeyListener {
         private Game game;
-        public KeyboardListener(Game game) {this.game = game;}
+        private Player player;
+        public KeyboardListener(Game game) {this.game = game; this.player = game.getPlayer();}
         public void keyTyped(KeyEvent e) {}
         public void keyReleased(KeyEvent e) {
             int dx;
             int dy;
-            Player player = game.getPlayer();
             if (e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_DOWN) {
                 dy = 0;
                 player.setDy(dy);
@@ -46,13 +46,11 @@ public class InputListener {
         }
         public void keyPressed(KeyEvent e) {
             if (e.getKeyCode() == KeyEvent.VK_A) {
-                Player player = game.getPlayer();
                 player.melee_attack();
             }
             else {
                 int dx;
                 int dy;
-                Player player = game.getPlayer();
                 if (e.getKeyCode() == KeyEvent.VK_UP) {
                     dx = 0;
                     dy = -1;
@@ -77,7 +75,6 @@ public class InputListener {
                     player.setDx(dx);
                     player.setDy(dy);
                 } //key right pressed
-                //player.move(frame);
             }
         }
     }

@@ -4,6 +4,7 @@ import model.Person.Person;
 import model.Person.Player.Player;
 import model.Item.*;
 
+import java.awt.*;
 import java.io.Serializable;
 
 /**
@@ -12,25 +13,21 @@ import java.io.Serializable;
 public class Chunk implements Serializable {
 
     protected Map map;
-    private boolean default_walkable;
-    private boolean walkable;
-    private Person person;
-    private Item item;
+    protected boolean walkable;
     public java.awt.Color color;
+    protected Image image;
 
-    public Chunk(java.awt.Color color, boolean walkable) {
+    public Chunk(Image image, java.awt.Color color, boolean walkable) {
+        this.image = image;
         this.color = color;
         this.walkable = walkable;
-        this.default_walkable = walkable;
+     //   this.default_walkable = walkable;
     }
 
     public boolean getWalkable() {return this.walkable;}
-    public void setWalkable(boolean walkable) {
-        if (walkable == false) {this.walkable = false;}
-        else {this.walkable = this.default_walkable;}}
+    //public void setWalkable(boolean walkable) {}
 
-    public Person getPerson() {return this.person;}
-    public void setPerson(Person person) {this.person = person;}
+    public Image getImage() {return this.image;}
 
     public void interact() {};
 

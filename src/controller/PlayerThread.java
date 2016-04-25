@@ -9,11 +9,9 @@ import view.Frame;
 public class PlayerThread implements Runnable {
 
     private Player player;
-    private Frame frame;
 
-    public PlayerThread(Player player, Frame frame) {
+    public PlayerThread(Player player) {
         this.player = player;
-        this.frame = frame;
     }
 
     public void run() {
@@ -23,7 +21,7 @@ public class PlayerThread implements Runnable {
             } catch(InterruptedException ex) {
                 Thread.currentThread().interrupt();
             }
-            player.move(frame);
+            player.move();
         }
     }
 }

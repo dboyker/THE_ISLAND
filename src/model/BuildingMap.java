@@ -1,5 +1,8 @@
 package model;
 import model.Chunk.*;
+import model.Person.NPC.NPC;
+
+import java.awt.*;
 
 /**
  * Created by davidboyker on 4/04/16.
@@ -19,17 +22,40 @@ public class BuildingMap extends Map {
 
     @Override
     public void generate_map() {
-        for (int j = 0; j < height; j++) {
-            for (int i = 0; i < width; i++) {
+        // put exit door
+        chunks[entrance_door_position[0]][entrance_door_position[1]] = exit_door;
+        int randomx = (int) (width/2 + Math.random()*width/4 - width/8);
+        if (randomx == entrance_door_position[0]) { randomx += 1; }
+        int randomy = (int) (height/2 + Math.random()*height/4 - height/8);
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                if (i == entrance_door_position[0] && j == entrance_door_position[1]) {continue;}
                 Chunk new_chunk;
-                if (i == 0 || i == width-1 || j == 0 || j == height-1 ) { new_chunk = new Wall(); }
+                // Premièrement: murs et pièces
+                if (i == randomx && j!= 3 && j != height - 3) {new_chunk = new Wall();}
+                else if (j == randomy && i!= 3 && i != width - 3) {new_chunk = new Wall();}
+                else if (i == 0 || i == width-1 || j == 0 || j == height-1 ) { new_chunk = new Wall(); }
                 else {  new_chunk = new Floor(); }
                 chunks[i][j] = new_chunk;
             }
         }
-        // put exit door
-        chunks[entrance_door_position[0]][entrance_door_position[1]] = exit_door;
+        // NPC
+        int random_npc_number = (int) (Math.random()*3) + 3;
+        int i = 1;
+        while (i <= random_npc_number) {
+            randomx = (int) (Math.random() * width);
+            randomy = (int) (Math.random() * height);
+            if (chunks[randomx][randomy].getWalkable() == false || persons[randomx][randomy] != null || chunks[randomx][randomy].getClass() == model.Chunk.Door.class) {
+                continue;
+            } else {
+                float[] position = new float[2];
+                position[0] = randomx;
+                position[1] = randomy;
+                NPC new_npc = new NPC(this, position, Color.blue);
+                this.persons[randomx][randomy] = new_npc;
+                i ++;
+            }
+        }
+        // Items
     }
-
-
 }

@@ -1,5 +1,6 @@
 package model.Chunk;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -8,7 +9,7 @@ import java.awt.*;
 public class Wall extends Chunk {
 
     public Wall() {
-        super(Color.darkGray,false);
+        super(null, Color.darkGray, false);
     }
 
 }

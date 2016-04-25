@@ -17,6 +17,7 @@ public class StatusBar extends JPanel {
     private JButton menu_button;
     private JLabel health_label;
     private JLabel money_label;
+    private JLabel villagers_label;
 
     public StatusBar(Game game) {
         this.game = game;
@@ -36,10 +37,13 @@ public class StatusBar extends JPanel {
         health_label = new JLabel("<3 "+health+"");
         int money = game.getPlayer().getMoney();
         money_label = new JLabel("$ "+money+"");
+        int number_of_villagers = game.count_villagers();  // calcul du nombre de villageois
+        villagers_label = new JLabel("number of villager: "+number_of_villagers+"");
         this.add(inventory_button);
         this.add(menu_button);
         this.add(health_label);
         this.add(money_label);
+        this.add(villagers_label);
     }
 
     public void update() {
@@ -47,6 +51,8 @@ public class StatusBar extends JPanel {
         int money = game.getPlayer().getMoney();
         this.health_label.setText("<3 "+health+"");
         this.money_label.setText("$ "+money);
+        int number_of_villagers = game.count_villagers();  // calcul du nombre de villageois
+        this.villagers_label.setText("number of villager: "+number_of_villagers+"");
     }
 
 }

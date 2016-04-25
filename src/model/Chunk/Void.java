@@ -7,6 +7,6 @@ import java.awt.*;
  */
 public class Void extends Chunk{
     public Void() {
-        super(Color.black,true);
+        super(null, Color.black, false);
     }
 }

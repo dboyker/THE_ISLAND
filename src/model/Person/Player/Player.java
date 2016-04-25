@@ -1,9 +1,11 @@
 package model.Person.Player;
+import controller.PlayerThread;
 import model.Item.*;
 import model.Item.Weapon;
 import model.Map;
 import model.Person.Person;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -22,7 +24,13 @@ public class Player extends Person {
         Drug drug = new Drug();
         this.inventory.setItems(medi_kit);
         this.inventory.setItems(drug);
-
+        this.speed = 20;
+        this.image_up = new ImageIcon("image/player/playeru.png").getImage();
+        this.image_down = new ImageIcon("image/player/playerd.png").getImage();
+        this.image_left = new ImageIcon("image/player/playerl.png").getImage();
+        this.image_right = new ImageIcon("image/player/playerr.png").getImage();
+        this.image = this.image_down;
+        this.thread = new Thread(new PlayerThread(this));
     }
 
     public Inventory getInventory() {

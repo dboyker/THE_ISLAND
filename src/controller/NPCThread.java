@@ -9,22 +9,19 @@ import view.Frame;
 public class NPCThread implements Runnable {
 
     private NPC npc;
-    private Frame frame;
 
-    public NPCThread(NPC npc, Frame frame) {
+    public NPCThread(NPC npc) {
         this.npc = npc;
-        this.frame = frame;
     }
 
     public void run() {
         while (true) {
             try {
-                Thread.sleep(500);
+                Thread.sleep(1000);
             } catch(InterruptedException ex) {
                 Thread.currentThread().interrupt();
             }
-
-            int random1 = (Math.random()<0.5)?0:1;
+           int random1 = (Math.random()<0.5)?0:1;
             int random2 = (Math.random()<0.5)?0:1;
             int random3 = (Math.random()<0.5)?0:1;
             int a;
@@ -32,7 +29,7 @@ public class NPCThread implements Runnable {
             else {a = -1;}
             if (random1 == 1) {npc.setDx(a*random2);}
             else {npc.setDy(a*random2);}
-            npc.move(frame);
+            npc.move();
         }
     }
 }

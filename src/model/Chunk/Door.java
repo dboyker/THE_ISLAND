@@ -1,6 +1,7 @@
 package model.Chunk;
 import model.*;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -12,10 +13,13 @@ public class Door extends Chunk {
     protected Door leadTo;
 
     public Door(Map map) {
-        super(Color.BLACK,true);this.map = map;
+        super(new ImageIcon("image/door.png").getImage(), Color.BLACK, true);
+        this.map = map;
     }
 
     public void setLeadTo(Door leadTo) {this.leadTo = leadTo;}
+    public Door getLeadTo() {return this.leadTo;}
+    public Map getMap() {return this.map;}
 
     public void interact() {
         //get new map and set player to opposite door
@@ -28,8 +32,9 @@ public class Door extends Chunk {
                     position[0] = j;
                     if (this.map.getClass() == model.BuildingMap.class) {position[1] = i+1;}
                     else {position[1] = i-1;}
-                    game.getPlayer().setPosition(position);
+                    map.getPersons()[(int) game.getPlayer().getPosition()[0]][(int) game.getPlayer().getPosition()[1]] = null;
                     game.getPlayer().setMap(leadTo.map);
+                    game.getPlayer().setPosition(position);
                     game.getFrame().game_panel.mini_map.setMap(leadTo.map); // change mini map displayed map
                 }
             }

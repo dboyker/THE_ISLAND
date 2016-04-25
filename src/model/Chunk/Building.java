@@ -8,6 +8,6 @@ import java.awt.*;
 public class Building extends Chunk {
 
         public Building() {
-            super(Color.lightGray,false);
+            super(null, Color.lightGray,false);
         }
 }

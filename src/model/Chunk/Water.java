@@ -1,5 +1,6 @@
 package model.Chunk;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -8,6 +9,6 @@ import java.awt.*;
 public class Water extends Chunk {
 
     public Water() {
-        super(new Color(35,137,218),false);
+        super(new ImageIcon("image/water.png").getImage(), new Color(35,137,218),false);
     }
 }

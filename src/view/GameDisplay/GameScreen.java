@@ -8,6 +8,7 @@ import model.Person.Player.Player;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * Created by davidboyker on 16/04/16.
@@ -58,28 +59,33 @@ public class GameScreen extends JPanel {
                 float xabs = (float) (Math.round(((j-offsetx)*chunk_size) * 100.0) / 100.0);
                 float yabs = (float) (Math.round(((i-offsety)*chunk_size) * 100.0) / 100.0);
                 try {
-                    if (chunks[j][i].getClass() == model.Chunk.Grass.class) {
-                        g.drawImage(new ImageIcon("image/grass.png").getImage(), (int) xabs, (int) yabs, chunk_size, chunk_size, null);
-                    } else {
+                    Image img = chunks[j][i].getImage();
+                    if (img != null) {
+                        g.drawImage(chunks[j][i].getImage(), (int) xabs, (int) yabs, chunk_size, chunk_size, null);
+                    }
+                    else {
                         g.fillRect((int) (xabs), (int) (yabs), chunk_size, chunk_size);
                     }
                 }
                 catch (ArrayIndexOutOfBoundsException e) {}
-                //check if person on this chunk
-                try {if (chunks[j][i].getPerson() != null) {
-                    Person person = chunks[j][i].getPerson();
-                    if (person.getClass() == model.Person.NPC.NPC.class) {
-                        g.setColor(person.getColor());
-                        g.fillOval((int) ((j - offsetx) * chunk_size), (int) ((i - offsety) * chunk_size), chunk_size, chunk_size);
-                    }
-                }}
-                catch (ArrayIndexOutOfBoundsException u) {}
             }
         }
-        //player
-        //g.setColor(player.getColor());
-        //g.fillOval((int) ((x-offsetx)*map.getChunk_size()), (int) ((y-offsety)*map.getChunk_size()), map.getChunk_size(),map.getChunk_size());
-        g.drawImage(new ImageIcon("image/playerd.png").getImage(),(int) ((x-offsetx)*map.getChunk_size()), (int) ((y-offsety)*map.getChunk_size()), map.getChunk_size(),map.getChunk_size(), null);
+
+        Person persons[][];
+        persons = map.getPersons();
+        for (int i = 0; i < map.getWidth(); i++) {
+            for (int j = 0; j < map.getHeight(); j++) {
+                Person person = persons[i][j];
+                if (person != null && person.getClass() != model.Person.Player.Player.class) {
+                    float pos_x = person.getPosition()[0];
+                    float pos_y = person.getPosition()[1];
+                    //  g.setColor(person.getColor());
+                    //  g.fillOval((int) ((pos_x-offsetx)*map.getChunk_size()), (int) ((pos_y-offsety)*map.getChunk_size()),map.getChunk_size(),map.getChunk_size());
+                    g.drawImage(person.getImage(), (int) ((pos_x - offsetx) * map.getChunk_size()), (int) ((pos_y - offsety) * map.getChunk_size()), map.getChunk_size(), map.getChunk_size(), null);
+                }
+            }
+        }
+        g.drawImage(game.getPlayer().getImage(), (int) ((x - offsetx) * map.getChunk_size()), (int) ((y - offsety) * map.getChunk_size()), map.getChunk_size(), map.getChunk_size(), null);
     }
 }
 

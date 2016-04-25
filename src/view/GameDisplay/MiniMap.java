@@ -28,7 +28,9 @@ public class MiniMap extends JPanel {
     {
         Player player = game.getPlayer();
         Chunk[][] chunks = map.getChunks();
-        int pixel_size = 1;
+        //this.getWidth();
+        //map.getWidth();
+        int pixel_size = (int) (this.getWidth()/map.getWidth());
 
         super.paint(g);
         //generate map

@@ -1,5 +1,6 @@
 package model.Chunk;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -8,7 +9,7 @@ import java.awt.*;
 public class Floor extends Chunk {
 
     public Floor() {
-        super(Color.GRAY,true);
+        super(new ImageIcon("image/floor.png").getImage(), Color.GRAY,true);
     }
 
 }

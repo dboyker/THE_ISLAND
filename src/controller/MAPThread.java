@@ -14,7 +14,7 @@ public class MAPThread implements Runnable {
     public void run() {
         while (true) {
             try {
-                Thread.sleep(10);
+                Thread.sleep(5);
             } catch(InterruptedException ex) {
                 Thread.currentThread().interrupt();
             }
