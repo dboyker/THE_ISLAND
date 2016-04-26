@@ -22,6 +22,7 @@ public class Map implements Serializable{
     protected int chunk_size;
     protected int width;  // in terms of number of chunks
     protected int height;  // in terms of number of chunks
+    protected int number_of_building = 15;
 
     public Map(int width, int height, int chunk_size, Game game) {
         this.width = width;
@@ -43,26 +44,27 @@ public class Map implements Serializable{
         // grass, water and sand
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
-
                 int random1 = (int) (Math.random() * 4);
                 int random2 = (int) (Math.random() * 4);
-                if (i < (int) (width/4)+random1 || i > width-((int) (width/4)) || j < (int) (width/4) || j > width-((int) (width/4))) {chunks[i][j] = new Water();}
-                else if (i < (int) (width/4)+random2 || i > width-((int) (width/4))-random2 || j < (int) (width/4)+random2 || j > width-((int) (width/4))-random2) {chunks[i][j] = new Sand();}
-                else {chunks[i][j] = new Grass();}
+                if (i < width/4 || i > width*3/4 || j < width/4 || j > width*3/4) {chunks[i][j] = new Water();}
+                else {
+                    chunks[i][j] = new Grass();
+                }
             }
         }
+
         // buildings
-        int c = 0;
-        while (c <= 10) {
+        int c = 1;
+        while (c <= number_of_building) {
             int randomx = (int) (Math.random() * width);
             int randomy = (int) (Math.random() * height);
             int building_height;
             int building_width;
-                building_height = (int) (Math.random()*3) + 3;
-                building_width = (int) (Math.random()*4) + 6;
+                building_height = 3;
+                building_width = (int) (Math.random()*4) + 5;
             boolean cont = true;
-            for (int i = randomx-2; i <= randomx + building_width+2; i++) {
-                for (int j = randomy-2; j <= randomy + building_height+2; j++) {
+            for (int i = randomx - 2; i <= randomx + building_width+2; i++) {
+                for (int j = randomy - 2; j <= randomy + building_height+2; j++) {
                     try{
                     if (chunks[i][j].getWalkable() == false) {
                         cont = false;
@@ -72,17 +74,35 @@ public class Map implements Serializable{
             }
             if (!cont) {continue;}
             else {
-                for (int i = randomx; i <= randomx + building_width; i++) {
-                    for (int j = randomy; j <= randomy + building_height; j++) {
-                        chunks[i][j] = new Building();
+                for (int i = randomx; i < randomx + building_width; i++) {
+                    for (int j = randomy; j < randomy + building_height; j++) {
+                        if (j == randomy) {
+                            if (i == randomx) {chunks[i][j] = new Building("rtl");}
+                            else if (i == randomx + building_width - 1) {chunks[i][j] = new Building("rtr");}
+                            else {chunks[i][j] = new Building("rtm");}
+                        }
+                        else if (j == randomy + 1) {
+                            if (i == randomx) {chunks[i][j] = new Building("rbl");}
+                            else if (i == randomx + building_width - 1) {chunks[i][j] = new Building("rbr");}
+                            else {chunks[i][j] = new Building("rbm");}
+                        }
+                        else {  // building base
+                            if (i == randomx) {chunks[i][j] = new Building("bbl");}
+                            else if (i == randomx + building_width - 1) {chunks[i][j] = new Building("bbr");}
+                            else {
+                                int random = (Math.random()<0.5)?0:1;
+                                if (random == 1) { chunks[i][j] = new Building("bbmw"); }
+                                else { chunks[i][j] = new Building("bbm"); }
+                            }
+                        }
                     }
                 }
                 // for each building, put a door
                 int randomd = (int) (Math.random()*(building_width-2))+1;
                 Door entrance_door = new Door(this);
-                chunks[randomx+randomd][randomy + building_height] = entrance_door;
+                chunks[randomx+randomd][randomy + building_height - 1] = entrance_door;
                 int[] pos = new int[2];
-                int magnificient_index = 3;
+                int magnificient_index = 4;  // coefficient that multiplies the dimension of the building, when entering it
                 pos[0] = randomd*magnificient_index;
                 pos[1] = (building_height*magnificient_index)-1;
                 // for each building, create a sub map and link the door
@@ -94,8 +114,8 @@ public class Map implements Serializable{
         }
         // trees
         c = 0;
-        int number_of_tress = (int) (width/3);
-        while (c < number_of_tress) {
+        int number_of_trees = (int) (width/3);
+        while (c < number_of_trees) {
             int randomx = (int) (Math.random()*width);
             int randomy = (int) (Math.random()*height);
 

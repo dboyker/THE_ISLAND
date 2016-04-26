@@ -1,7 +1,8 @@
 package model.Person.Player;
 import controller.PlayerThread;
-import model.Item.*;
-import model.Item.Weapon;
+import model.Item.Collectable.Drug;
+import model.Item.Collectable.MediKit;
+import model.Item.Weapon.Weapon;
 import model.Map;
 import model.Person.Person;
 

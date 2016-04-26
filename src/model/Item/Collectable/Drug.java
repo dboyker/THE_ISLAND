@@ -1,5 +1,6 @@
-package model.Item;
+package model.Item.Collectable;
 
+import model.Item.Item;
 import model.Person.Person;
 
 /**

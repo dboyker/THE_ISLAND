@@ -38,7 +38,7 @@ public class Game implements Serializable {
     public Game(Frame frame) {
         this.frame = frame;
         //generate map
-        Map map = new Map(100,100,25,this);
+        Map map = new Map(80,80,25,this);
         maps.add(map);
         map.generate_map();
         //start game

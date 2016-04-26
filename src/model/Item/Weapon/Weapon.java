@@ -1,4 +1,4 @@
-package model.Item;
+package model.Item.Weapon;
 
 import model.Item.Item;
 
@@ -14,5 +14,7 @@ public class Weapon extends Item{
         this.damage = damage;
     }
 
-    public int getDamage() {return this.damage;}
+    public int getDamage() {
+        return this.damage;
+    }
 }

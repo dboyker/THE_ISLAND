@@ -4,6 +4,7 @@ import controller.ButtonCallback;
 import controller.InputListener;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import model.Game;
 

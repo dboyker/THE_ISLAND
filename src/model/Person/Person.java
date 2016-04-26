@@ -1,8 +1,7 @@
 package model.Person;
-import model.Item.Weapon;
+import model.Item.Weapon.Weapon;
 import model.Map;
 import model.Chunk.*;
-import view.Frame;
 
 import java.awt.*;
 import java.io.Serializable;
@@ -36,7 +35,7 @@ public class Person implements Serializable {
         this.position = new float[2];
         this.position = position;
         this.chunk = this.map.getChunks()[(int)position[0]][(int)position[1]];
-        direction = new int[]{0, -1};
+        direction = new int[]{0, 1};
         this.color = color;
         this.health = 60;
         this.money = 30;
@@ -83,17 +82,24 @@ public class Person implements Serializable {
 
     public void move() {
         if (dx != 0 || dy != 0) {
-            //  changement de direction
-            if (dx != 0) {
-                this.direction[0] = (int) dx;
-                this.direction[1] = 0;
-                if (dx > 0) {this.image = this.image_right;}
-                else {this.image = this.image_left;}
-            } else if (dy != 0) {
-                this.direction[0] = 0;
-                this.direction[1] = (int) dy;
-                if (dy > 0) {this.image = this.image_down;}
-                else {this.image = this.image_up;}
+            if (dx != this.direction[0] || dy != this.direction[1]) { //  changement de direction
+                if (dx != 0) {
+                    this.direction[0] = (int) dx;
+                    this.direction[1] = 0;
+                    if (dx > 0) {
+                        this.image = this.image_right;
+                    } else {
+                        this.image = this.image_left;
+                    }
+                } else if (dy != 0) {
+                    this.direction[0] = 0;
+                    this.direction[1] = (int) dy;
+                    if (dy > 0) {
+                        this.image = this.image_down;
+                    } else {
+                        this.image = this.image_up;
+                    }
+                }
             }
             Chunk next_chunk = map.getChunks()[(int) (position[0]) + dx][(int) (position[1]) + dy];
             Person next_person = map.getPersons()[(int) (position[0]) + dx][(int) (position[1]) + dy];
@@ -102,6 +108,10 @@ public class Person implements Serializable {
                 this.dx = 0;
                 this.dy = 0;
             } else {  // move
+                if (dx != 0 && dy != 0) {
+                    // empêche les déplacements en diagonal
+                    dy = 0;
+                }
                 map.getPersons()[(int) position[0]][(int) position[1]] = null;  // person leaves old chunk
                 if (this.health > 0) {
                     map.getPersons()[(int) position[0] + dx][(int) position[1] + dy] = this;  // person is on the new chunk
@@ -127,6 +137,7 @@ public class Person implements Serializable {
         }
     }
 
+    // attaque de contact
     public void melee_attack() {
         //get the player at the next case
         float x = position[0] + direction[0];
@@ -147,4 +158,12 @@ public class Person implements Serializable {
             }
         }
     }
+
+    // mets le feu à un chunk
+    public void fire_attack() {
+
+    }
+
+    // attaque à l'arme à feu
+    public void shoot_attack() {}
 }
