@@ -5,6 +5,7 @@ import model.Chunk.Chunk;
 import model.Map;
 import model.Person.Person;
 import model.Person.Player.Player;
+import model.Item.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -70,7 +71,23 @@ public class GameScreen extends JPanel {
                 catch (ArrayIndexOutOfBoundsException e) {}
             }
         }
+        // items
+        Item items[][];
+        items = map.getItems();
+        for (int i = 0; i < map.getWidth(); i++) {
+            for (int j = 0; j < map.getHeight(); j++) {
+                Item item = items[i][j];
+                if (item != null) {
+                    if (item.getPosition() != null) {
+                        float pos_x = item.getPosition()[0];
+                        float pos_y = item.getPosition()[1];
+                        g.drawImage(item.getImage(), (int) ((pos_x - offsetx) * map.getChunk_size()), (int) ((pos_y - offsety) * map.getChunk_size()), map.getChunk_size(), map.getChunk_size(), null);
+                    }
+                }
+            }
+        }
 
+        // persons
         Person persons[][];
         persons = map.getPersons();
         for (int i = 0; i < map.getWidth(); i++) {
@@ -86,6 +103,7 @@ public class GameScreen extends JPanel {
             }
         }
         g.drawImage(game.getPlayer().getImage(), (int) ((x - offsetx) * map.getChunk_size()), (int) ((y - offsety) * map.getChunk_size()), map.getChunk_size(), map.getChunk_size(), null);
+        }
     }
-}
+
 

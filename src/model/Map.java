@@ -2,8 +2,10 @@ package model;
 import model.Chunk.*;
 import model.Person.NPC.NPC;
 import model.Item.*;
+import model.Person.NPC.Opponent;
 import model.Person.Person;
 import model.Person.Player.Player;
+import model.Person.NPC.Seller;
 
 import java.awt.*;
 import java.io.Serializable;
@@ -22,7 +24,7 @@ public class Map implements Serializable{
     protected int chunk_size;
     protected int width;  // in terms of number of chunks
     protected int height;  // in terms of number of chunks
-    protected int number_of_building = 15;
+    protected int number_of_building;
 
     public Map(int width, int height, int chunk_size, Game game) {
         this.width = width;
@@ -31,10 +33,12 @@ public class Map implements Serializable{
         this.chunks = new Chunk[width][height];
         this.persons = new Person[width][height];
         this.items = new Item[width][height];
+        this.number_of_building = (int) width/5;
         this.game = game;
         }
 
     public Chunk[][] getChunks() {return this.chunks;}
+    public Item[][] getItems() {return this.items;}
     public int getHeight() {return this.height;}
     public int getWidth() {return this.width;}
     public int getChunk_size() {return this.chunk_size;}
@@ -131,8 +135,8 @@ public class Map implements Serializable{
         }
         // NPC
          c = 1;
-       // int number_of_npc = (int) width/20;
-        int number_of_npc = 100;
+        int number_of_npc = (int) width/3;
+        //int number_of_npc = 100;
         while (c <= number_of_npc) {
             int randomx = (int) (Math.random()*width);
             int randomy = (int) (Math.random()*height);
@@ -141,18 +145,37 @@ public class Map implements Serializable{
                 float[] position = new float[2];
                 position[0] = randomx;
                 position[1] = randomy;
-                NPC new_npc = new NPC(this, position, Color.blue);
-                this.persons[randomx][randomy] = new_npc;
+                NPC new_opponent = new Opponent(this, position, Color.blue);
                 c += 1;
             }
         }
-        // Player
-        Player player;
-        float[] position = new float[2];
-        position[0] = (int) width/2;
-        position[1] = (int) height/2;
-        player = new Player(this, position, Color.lightGray);
-        player.setPosition(position);
-        this.game.setPlayer(player);
+        // Dock & player & chest & seller
+        for (int a=1; a <= 10; a++) {
+            chunks[(width/4) - a][(int) (height/2)] = new Dock("top");
+            chunks[(width/4) - a][(int) (height/2) + 1] = new Dock("top");
+            chunks[(width/4) - a][(int) (height/2) + 2] = new Dock("top");
+            chunks[(width/4) - a][(int) (height/2) + 3] = new Dock("bottom");
+            if (a == 10) {
+                // player
+                Player player;
+                float[] position = new float[2];
+                position[0] = (int) (width/4) - a;
+                position[1] = (int) (height/2 + 3);
+                player = new Player(this, position, Color.lightGray);
+                this.game.setPlayer(player);
+                // chest
+                chunks[(width/4) - a + 1][(height/2 )] = new Chest();
+                this.items[(width/4) - a + 1][(height/2 ) + 1] = new ChestActivator(null);
+                // seller
+                Seller seller;
+                position = new float[2];
+                position[0] = (int) (width/4) - a;
+                position[1] = (int) (height/2);
+                seller = new Seller(this, position, Color.lightGray);
+                this.items[(int) position[0]][(int) position[1] + 1] = new SellerActivator(null);
+
+            }
+
+        }
     }
 }

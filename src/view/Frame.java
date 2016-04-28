@@ -52,7 +52,8 @@ public class Frame implements Serializable {
 
     public void new_game_panel() {
         main_panel.removeAll();
-        new_game_panel = new NewGamePanel();
+        Game game = new Game(this);
+        new_game_panel = new NewGamePanel(game);
         main_panel.add(new_game_panel);
         main_panel.revalidate();
     }

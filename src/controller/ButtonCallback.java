@@ -6,6 +6,8 @@ import model.Person.Player.Inventory;
 import model.Person.Player.Player;
 import view.Frame;
 
+import javax.swing.*;
+
 /**
  * Created by davidboyker on 16/04/16.
  */
@@ -27,11 +29,17 @@ public class ButtonCallback {
     }
 
     public static class go_to_new_game_menu extends ButtonCallback {
-        public void execute() {frame.new_game_panel();}
+        public void execute() {
+            frame.new_game_panel();
+        }
     }
 
     public static class start_new_game extends ButtonCallback {
-        public void execute() {new Game(frame);}
+        private Game game;
+        public start_new_game(Game game) {
+            this.game = game;
+        }
+        public void execute() {game.start();}
     }
 
     public static class load_game extends ButtonCallback {

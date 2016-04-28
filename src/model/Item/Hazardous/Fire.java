@@ -4,21 +4,16 @@ import model.Item.Item;
 import model.Person.Person;
 import model.Person.Player.Player;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
  * Created by davidboyker on 26/04/16.
  */
-public class Fire extends Item {
+public class Fire extends Hazardous {
 
-    private int damage = -20;
-
-    public Fire(){
-        super("fire", Color.red, null);
-    }
-
-    @Override
-    public void interact(Person person) {
-        person.setHealth(damage);
+    public Fire(float[] position){
+        super("fire", new ImageIcon("image/fire.png").getImage(), position);
+        this.damage = -20;
     }
 }

@@ -1,6 +1,7 @@
 package model;
 import model.Chunk.*;
 import model.Person.NPC.NPC;
+import model.Person.NPC.Opponent;
 
 import java.awt.*;
 
@@ -51,7 +52,7 @@ public class BuildingMap extends Map {
                 float[] position = new float[2];
                 position[0] = randomx;
                 position[1] = randomy;
-                NPC new_npc = new NPC(this, position, Color.blue);
+                NPC new_npc = new Opponent(this, position, Color.blue);
                 this.persons[randomx][randomy] = new_npc;
                 i ++;
             }

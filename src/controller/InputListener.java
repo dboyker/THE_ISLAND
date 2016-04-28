@@ -48,6 +48,9 @@ public class InputListener {
             if (e.getKeyCode() == KeyEvent.VK_A) {
                 player.melee_attack();
             }
+            else if (e.getKeyCode() == KeyEvent.VK_S) {
+                player.fire_attack();
+            }
             else {
                 int dx;
                 int dy;

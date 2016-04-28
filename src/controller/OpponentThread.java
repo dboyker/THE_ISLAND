@@ -1,17 +1,18 @@
 package controller;
 
 import model.Person.NPC.NPC;
+import model.Person.NPC.Opponent;
 import model.Person.Player.*;
 
 /**
  * Created by davidboyker on 30/03/16.
  */
-public class NPCThread implements Runnable {
+public class OpponentThread implements Runnable {
 
-    private NPC npc;
+    private Opponent opponent;
 
-    public NPCThread(NPC npc) {
-        this.npc = npc;
+    public OpponentThread(Opponent opponent) {
+        this.opponent = opponent;
     }
 
     public void run() {
@@ -23,12 +24,12 @@ public class NPCThread implements Runnable {
             }
             Boolean need_to_act = false;
             // get player
-            Player player = npc.getMap().game.getPlayer();
+            Player player = opponent.getMap().game.getPlayer();
             //get his position and npc's position
-            float player_posx = player.getPosition()[0];
-            float player_posy = player.getPosition()[1];
-            float npc_posx = npc.getPosition()[0];
-            float npc_posy = npc.getPosition()[1];
+            float player_posx = (int) player.getPosition()[0];
+            float player_posy = (int) player.getPosition()[1];
+            float npc_posx = (int) opponent.getPosition()[0];
+            float npc_posy = (int) opponent.getPosition()[1];
             // compare the two positions
             int number_of_chunks_to_act = 10;
             if (Math.abs(npc_posx - player_posx) < number_of_chunks_to_act && Math.abs(npc_posy - player_posy) < number_of_chunks_to_act) {
@@ -37,32 +38,34 @@ public class NPCThread implements Runnable {
             }
             if (need_to_act) {
                 // Attack or flee
-                if (npc.getAttacker() && need_to_act) {  // atack
+                if (opponent.getAttacker() && need_to_act) {  // atack
                     // go in the direction of the player
                     if (player_posx != npc_posx) {  // move in x
                         int dx = (int) ((player_posx - npc_posx) / Math.abs(player_posx - npc_posx));
-                        npc.setDx(dx);
+                        opponent.setDx(dx);
                     }
                     else if (player_posx == npc_posx && player_posy != npc_posy){  // move in y
                         int dy = (int) ((player_posy - npc_posy) / Math.abs(player_posy - npc_posy));
-                        npc.setDy(dy);
+                        opponent.setDy(dy);
                     }
-                    if (Math.abs(player_posx - npc_posx) < 1 && Math.abs(player_posy - npc_posy) < 1) {npc.melee_attack();}
-                    // attack him if on the next case
-                } else if (npc.getCoward() && need_to_act) {  // flee: go in the opposite direction
+                    if (Math.abs(player_posx - npc_posx) < 2 && Math.abs(player_posy - npc_posy) < 2) {
+                        // attack player if on the next case
+                        //npc.melee_attack();
+                    }
+                } else if (opponent.getCoward() && need_to_act) {  // flee: go in the opposite direction
                     double random = Math.random();
                     if (random > 0.5) {
                         int dx = -1 * (int) ((player_posx - npc_posx) / Math.abs(player_posx - npc_posx));
-                        npc.setDx(dx);
+                        opponent.setDx(dx);
                     }
                     else {
                         int dy = -1 * (int) ((player_posy - npc_posy) / Math.abs(player_posy - npc_posy));
-                        npc.setDy(dy);
+                        opponent.setDy(dy);
                     }
                 }
             }
             // move
-            npc.move();
+            opponent.move();
         }
     }
 }

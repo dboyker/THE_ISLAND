@@ -1,7 +1,7 @@
 package model.Person;
-import model.Item.Weapon.Weapon;
 import model.Map;
 import model.Chunk.*;
+import model.Item.*;
 
 import java.awt.*;
 import java.io.Serializable;
@@ -22,7 +22,6 @@ public class Person implements Serializable {
     protected int[] direction;
     protected int dx = 0;
     protected int dy = 0;
-    protected Weapon melee_weapon;
     protected java.awt.Color color;
     protected Image image;
     protected Image image_up;
@@ -35,14 +34,14 @@ public class Person implements Serializable {
         this.position = new float[2];
         this.position = position;
         this.chunk = this.map.getChunks()[(int)position[0]][(int)position[1]];
+        this.map.getPersons()[(int)position[0]][(int)position[1]] = this;
         direction = new int[]{0, 1};
         this.color = color;
-        this.health = 60;
-        this.money = 30;
     }
 
     public void startThread() {
-        this.thread.start();
+        try {this.thread.start();}
+        catch (NullPointerException e) {}
     }
 
     public Image getImage() {return this.image;}
@@ -69,6 +68,7 @@ public class Person implements Serializable {
         if (this.health < 0) {  // dead
             this.color = Color.black;
             map.getPersons()[(int) position[0]][(int) position[1]] = null;  // remove the player
+            this.image = null;
         }
         if (this.health > 100) {  // maximum health is 100
             this.health = 100;
@@ -107,7 +107,8 @@ public class Person implements Serializable {
                 // impossible to move
                 this.dx = 0;
                 this.dy = 0;
-            } else {  // move
+            }
+            else {  // move
                 if (dx != 0 && dy != 0) {
                     // empêche les déplacements en diagonal
                     dy = 0;
@@ -116,6 +117,7 @@ public class Person implements Serializable {
                 if (this.health > 0) {
                     map.getPersons()[(int) position[0] + dx][(int) position[1] + dy] = this;  // person is on the new chunk
                 }
+                else {return;}
                 int c = 0;
                 int movex = dx;
                 int movey = dy;
@@ -133,6 +135,9 @@ public class Person implements Serializable {
                 }
                 chunk = map.getChunks()[(int) position[0]][(int) position[1]];
                 if (this.getClass() == model.Person.Player.Player.class) { chunk.interact(); }
+                Item item = map.getItems()[(int) position[0]][(int) position[1]];
+                try {item.interact(this);}
+                catch (NullPointerException e) {}
             }
         }
     }
@@ -145,7 +150,7 @@ public class Person implements Serializable {
         try {
             Person opponent;
             opponent = map.getPersons()[(int) x][(int) y];
-            int damage = this.melee_weapon.getDamage();
+            int damage = 20;
             opponent.setHealth(-1*damage);
             if (opponent.getHealth() < 0) {  // opponent is killed
                 this.setMoney(opponent.getMoney());
@@ -159,11 +164,4 @@ public class Person implements Serializable {
         }
     }
 
-    // mets le feu à un chunk
-    public void fire_attack() {
-
-    }
-
-    // attaque à l'arme à feu
-    public void shoot_attack() {}
 }
