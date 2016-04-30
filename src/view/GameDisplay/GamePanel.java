@@ -1,10 +1,9 @@
 package view.GameDisplay;
 import model.*;
-import controller.*;
 import model.Person.Player.Inventory;
+import view.GameDisplay.InGamePanel.*;
 
 import javax.swing.*;
-import java.awt.*;
 
 /**
  * Created by davidboyker on 29/03/16.
@@ -16,12 +15,11 @@ public class GamePanel extends JLayeredPane {
     public GameScreen game_screen;
     public StatusBar status_bar;
     public InventoryPanel inventory_panel;
+    public SellerPanel seller_panel;
+    public ChestPanel chest_panel;
     public MenuPanel menu_panel;
     private JFrame mini_map_frame;
     public MiniMap mini_map;
-    private JButton continue_button;
-    private JButton quit_button;
-    private JButton save_game_button;
 
     public GamePanel(Game game) {
         this.game = game;
@@ -42,6 +40,16 @@ public class GamePanel extends JLayeredPane {
         game_screen = new GameScreen(game);
         game_screen.setBounds(0,40,680,440);
         this.add(game_screen);
+        // seller panel
+        seller_panel = new SellerPanel(game);
+        seller_panel.setBounds(100,100,480,300);
+        seller_panel.setVisible(false);
+        this.add(seller_panel, new Integer(1),0);
+        // chest panel
+        chest_panel = new ChestPanel(game);
+        chest_panel.setBounds(100,100,480,300);
+        chest_panel.setVisible(false);
+        this.add(chest_panel, new Integer(1),0);
         //minimap
         mini_map_frame = new JFrame("mini map");
         mini_map_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -52,7 +60,6 @@ public class GamePanel extends JLayeredPane {
         mini_map_frame.setFocusable(true);
         mini_map_frame.setVisible(true);
         mini_map_frame.setResizable(false);
-
         this.requestFocus();
     }
 

@@ -24,12 +24,10 @@ public class Item {
         this.position = position;
     }
 
-    public String getName() {return this.name;}
     public Image getImage() {return this.image;}
     public Color getColor() {return this.color;}
     public float[] getPosition() {return this.position;}
 
-    public void use(Person person) {}
     public void interact(Person person) {}
 
 }

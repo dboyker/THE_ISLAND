@@ -17,8 +17,11 @@ public class Hazardous extends Item {
         super(name, Color.red, image, position);
     }
 
-    @Override
-    public void interact(Person person) {
-        person.setHealth(damage);
+    public int getDamage() {
+        return this.damage;
     }
+   /* @Override
+    public void interact(Person person) {
+      person.setHealth(damage);
+   }*/
 }

@@ -1,8 +1,7 @@
 package view;
 
-import controller.ButtonCallback;
-import controller.InputListener;
-import controller.Main;
+import controller.EventListener.ButtonCallback;
+import controller.EventListener.InputListener;
 
 import javax.swing.*;
 import java.awt.*;

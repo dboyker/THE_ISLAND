@@ -1,5 +1,6 @@
 package view;
-import controller.*;
+import controller.EventListener.GameController;
+import controller.EventListener.InputListener;
 import model.Game;
 import view.GameDisplay.GamePanel;
 
@@ -52,7 +53,9 @@ public class Frame implements Serializable {
 
     public void new_game_panel() {
         main_panel.removeAll();
-        Game game = new Game(this);
+        Game game = new Game();
+        GameController controller = new GameController(game, this);
+        game.setController(controller);
         new_game_panel = new NewGamePanel(game);
         main_panel.add(new_game_panel);
         main_panel.revalidate();

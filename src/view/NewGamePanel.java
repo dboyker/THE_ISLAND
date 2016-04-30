@@ -1,15 +1,13 @@
 package view;
 
-import controller.ButtonCallback;
-import controller.InputListener;
+import controller.EventListener.ButtonCallback;
+import controller.EventListener.InputListener;
 import model.Game;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 
 /**
  * Created by davidboyker on 29/03/16.
@@ -28,11 +26,11 @@ public class NewGamePanel extends JPanel {
         back_button.addMouseListener(new InputListener.ButtonListener(new ButtonCallback.go_to_main_menu()));
 
         //réglage taille: 100x100 ou 50x50
-        JRadioButton size_button_1 = new JRadioButton("Normal: 81x81");
-        size_button_1.setActionCommand("81");
+        JRadioButton size_button_1 = new JRadioButton("Normal: 100x100");
+        size_button_1.setActionCommand("100");
         size_button_1.setSelected(true);
-        JRadioButton size_button_2 = new JRadioButton("Small: 64x64");
-        size_button_2.setActionCommand("64");
+        JRadioButton size_button_2 = new JRadioButton("Small: 81x81");
+        size_button_2.setActionCommand("81");
         ButtonGroup button_size_group = new ButtonGroup();
         button_size_group.add(size_button_1);
         button_size_group.add(size_button_2);

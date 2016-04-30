@@ -1,8 +1,5 @@
 package model.Chunk;
-import model.*;
-import model.Person.Person;
-import model.Person.Player.Player;
-import model.Item.*;
+import model.Map.Map;
 
 import java.awt.*;
 import java.io.Serializable;
@@ -21,14 +18,12 @@ public class Chunk implements Serializable {
         this.image = image;
         this.color = color;
         this.walkable = walkable;
-     //   this.default_walkable = walkable;
     }
 
     public boolean getWalkable() {return this.walkable;}
-    //public void setWalkable(boolean walkable) {}
 
     public Image getImage() {return this.image;}
 
-    public void interact() {};
+    public void interact() {}
 
 }

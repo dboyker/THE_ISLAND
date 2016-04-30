@@ -23,6 +23,5 @@ public class Building extends Chunk {
             else if (type == "ml") {this.image = new ImageIcon("image/building/ml.png").getImage();}
             else if (type == "mr") {this.image = new ImageIcon("image/building/mr.png").getImage();}
             else if (type == "mm") {this.image = new ImageIcon("image/building/mm.png").getImage();}
-            else {}
         }
 }

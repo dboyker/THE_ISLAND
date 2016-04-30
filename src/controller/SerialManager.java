@@ -49,8 +49,8 @@ public class SerialManager {
             in.close();
             fileIn.close();
         }
-        catch(IOException i) {i.printStackTrace(); game = new Game(frame);}
-        catch(ClassNotFoundException c) {c.printStackTrace();game = new Game(frame);}
+        catch(IOException i) {i.printStackTrace(); game = new Game();}
+        catch(ClassNotFoundException c) {c.printStackTrace();game = new Game();}
         return game;
     }
 

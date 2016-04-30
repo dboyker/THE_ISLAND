@@ -5,7 +5,7 @@ import java.awt.*;
 
 import model.Chunk.Chunk;
 import model.Game;
-import model.Map;
+import model.Map.Map;
 import model.Person.Player.Player;
 
 /**
