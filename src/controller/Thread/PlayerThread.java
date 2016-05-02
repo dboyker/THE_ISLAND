@@ -1,3 +1,5 @@
+// Thread pour les joueurs
+
 package controller.Thread;
 
 import model.Person.Player.Player;

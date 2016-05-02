@@ -1,9 +1,10 @@
+// Class pour les sous maps secondaires: les building
+
 package model.Map;
 import model.Chunk.*;
 import model.Game;
 import model.Item.Heart;
 import model.Item.Coin;
-import model.Map.Map;
 import model.Person.NPC.Opponent;
 
 import java.awt.*;
@@ -25,8 +26,7 @@ public class BuildingMap extends Map {
     }
 
     @Override
-    public void generate_map() {
-        // put exit door
+    public void generate_map() {  // Cette fonction génère aléatoirement l'intérieur d'un building
         chunks[entrance_door_position[0]][entrance_door_position[1]] = exit_door;
         int randomx = (int) (width/2 + Math.random()*width/4 - width/8);
         if (randomx == entrance_door_position[0]) { randomx += 1; }
@@ -35,7 +35,7 @@ public class BuildingMap extends Map {
             for (int j = 0; j < height; j++) {
                 if (i == entrance_door_position[0] && j == entrance_door_position[1]) {continue;}
                 Chunk new_chunk;
-                // Premièrement: murs et pièces
+                // Placement des murs et pièces
                 if (i == randomx && j!= 3 && j != height - 3) {new_chunk = new Wall();}
                 else if (j == randomy && i!= 3 && i != width - 3) {new_chunk = new Wall();}
                 else if (i == 0 || i == width-1 || j == 0 || j == height-1 ) { new_chunk = new Wall(); }
@@ -43,7 +43,7 @@ public class BuildingMap extends Map {
                 chunks[i][j] = new_chunk;
             }
         }
-        // NPC
+        // Placement des PNJ
         int random_npc_number = (int) (Math.random()*3) + 3;
         int i = 1;
         while (i <= random_npc_number) {
@@ -60,7 +60,7 @@ public class BuildingMap extends Map {
                 i ++;
             }
         }
-        // Items
+        // Placement des objets
         int c = 1;
         int number_of_items = 8;
         while (c <= number_of_items) {

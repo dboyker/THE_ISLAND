@@ -1,4 +1,4 @@
-package view.GameDisplay;
+package view.GameDisplay.InGamePanel;
 
 import model.Game;
 import model.Chunk.Chunk;
@@ -6,6 +6,7 @@ import model.Map.Map;
 import model.Person.Person;
 import model.Person.Player.Player;
 import model.Item.*;
+import view.GameDisplay.GamePanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,9 +23,9 @@ public class GameScreen extends JPanel {
     private Player player;
     //items
 
-    public GameScreen(Game game) {
+    public GameScreen(Game game, GamePanel game_panel) {
         this.game = game;
-        this.player = game.getPlayer();
+        this.player = game_panel.getPlayer();
         this.map = player.getMap();
         this.chunks = map.getChunks();
     }
@@ -99,8 +100,16 @@ public class GameScreen extends JPanel {
                 }
             }
         }
-        g.drawImage(game.getPlayer().getImage(), (int) ((x - offsetx) * map.getChunk_size()), (int) ((y - offsety) * map.getChunk_size()), map.getChunk_size(), map.getChunk_size(), null);
-    }
+        g.drawImage(player.getImage(), (int) ((x - offsetx) * map.getChunk_size()), (int) ((y - offsety) * map.getChunk_size()), map.getChunk_size(), map.getChunk_size(), null);
+        if (game.getMultiplayer()) {
+            if (player == game.getPlayer_1()) {
+                g.drawImage(game.getPlayer_2().getImage(), (int) ((game.getPlayer_2().getPosition()[0] - offsetx) * map.getChunk_size()), (int) ((game.getPlayer_2().getPosition()[1] - offsety) * map.getChunk_size()), map.getChunk_size(), map.getChunk_size(), null);
+            }
+            else {
+                g.drawImage(game.getPlayer_1().getImage(), (int) ((game.getPlayer_1().getPosition()[0] - offsetx) * map.getChunk_size()), (int) ((game.getPlayer_1().getPosition()[1] - offsety) * map.getChunk_size()), map.getChunk_size(), map.getChunk_size(), null);
+            }
+            }
+        }
     }
 
 

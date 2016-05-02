@@ -2,6 +2,7 @@ package model.Chunk;
 import model.*;
 import model.Map.BuildingMap;
 import model.Map.Map;
+import model.Person.Player.Player;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,7 +24,7 @@ public class Door extends Chunk {
     public Door getLeadTo() {return this.leadTo;}
     public Map getMap() {return this.map;}
 
-    public void interact() {
+    public void interact(Player player) {
         //get new map and set player to opposite door
         Map newMap = leadTo.map;
         Game game = map.game;
@@ -34,15 +35,20 @@ public class Door extends Chunk {
                     position[0] = j;
                     if (this.map.getClass() == BuildingMap.class) {position[1] = i+1;}
                     else {position[1] = i-1;}
-                    map.getPersons()[(int) game.getPlayer().getPosition()[0]][(int) game.getPlayer().getPosition()[1]] = null;
-                    game.getPlayer().setMap(leadTo.map);
-                    game.getPlayer().setPosition(position);
-                    game.getController().getFrame().game_panel.mini_map.setMap(leadTo.map); // change mini map displayed map
+                    map.getPersons()[(int) player.getPosition()[0]][(int) player.getPosition()[1]] = null;
+                    player.setMap(leadTo.map);
+                    player.setPosition(position); // change mini map displayed map
+                    if (game.getController().getFrame().game_panel_1.getPlayer() == player) {
+                        game.getController().getFrame().game_panel_1.mini_map.setMap(leadTo.map);
+                        game.getController().getFrame().game_panel_1.game_screen.setMap(newMap);  // make the game screen display the new map
+                    }
+                    else {
+                        game.getController().getFrame().game_panel_2.mini_map.setMap(leadTo.map);
+                        game.getController().getFrame().game_panel_2.game_screen.setMap(newMap);  // make the game screen display the new map
+                    }
                 }
             }
         }
-        game.getController().getFrame().game_panel.game_screen.setMap(newMap);  // make the game screen display the new map
-
     }
 }
 

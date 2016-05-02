@@ -1,3 +1,5 @@
+// thread pour les objets de classe Bullet
+
 package controller.Thread;
 
 import model.Item.Hazardous.Bullet;
@@ -12,6 +14,11 @@ public class BulletThread implements Runnable {
     public BulletThread(Bullet bullet) {this.bullet = bullet;}
 
     public void run() {
+        try {
+            Thread.sleep(200);
+        } catch(InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
         while (true) {
             try {
                 Thread.sleep(10);

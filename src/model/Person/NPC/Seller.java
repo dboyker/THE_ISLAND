@@ -13,7 +13,7 @@ public class Seller extends Person implements NPC {
     public Seller(Map map, float[] position, Color color) {
         super(map, position, color);
         this.image = new ImageIcon("image/seller.png").getImage();
-        this.health = 1000;
+        this.health = 1;
     }
 
     public Boolean getAttacker() {return false;}

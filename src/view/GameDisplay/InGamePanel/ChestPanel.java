@@ -3,6 +3,7 @@ package view.GameDisplay.InGamePanel;
 import controller.EventListener.ButtonCallback;
 import controller.EventListener.InputListener;
 import model.Game;
+import view.GameDisplay.GamePanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,10 +14,12 @@ import java.awt.*;
 public class ChestPanel extends JPanel implements InGamePanel{
 
     private Game game;
+    private GamePanel game_panel;
 
-    public ChestPanel(Game game) {
+    public ChestPanel(Game game, GamePanel game_panel) {
         this.game = game;
-        this.setBackground(Color.DARK_GRAY);
+        this.game_panel = game_panel;
+        this.setBackground(new java.awt.Color(44, 61, 79));;
     }
 
     public void display() {
@@ -25,7 +28,7 @@ public class ChestPanel extends JPanel implements InGamePanel{
         this.setVisible(true);
         JButton resume_button = new JButton();
         resume_button.setText("resume");
-        resume_button.addMouseListener(new InputListener.ButtonListener(new ButtonCallback.resume_game(game)));
+        resume_button.addMouseListener(new InputListener.ButtonListener(new ButtonCallback.resume_game(game, game_panel)));
         resume_button.setFocusable(false);
         this.add(resume_button);
         this.revalidate();

@@ -1,5 +1,6 @@
+// Main class
+
 package controller;
-import controller.EventListener.ButtonCallback;
 import controller.EventListener.InputListener;
 import view.*;
 
@@ -10,10 +11,10 @@ import view.*;
 public class Main {
     public static Frame frame;
     public static void main(String[] args) {
-        //launch window & display main menu
+        // Lancement de l'application
         frame = new Frame();
         frame.run();
-        frame.main_menu();
+        frame.main_menu();  // affichage du menu principal
         new InputListener(frame); // add listener for keyboard/mouse events
     }
 }

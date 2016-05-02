@@ -1,3 +1,5 @@
+// Thread pour les objets de classe MiniMap
+
 package controller.Thread;
 import view.Frame;
 
@@ -19,7 +21,10 @@ public class MiniMapThread implements Runnable {
             } catch(InterruptedException ex) {
                 Thread.currentThread().interrupt();
             }
-            frame.game_panel.mini_map.repaint();
+            // rafraîchissement de la(les) frame(s) mini map toutes les 10 ms
+            frame.game_panel_1.mini_map.repaint();
+            try {frame.game_panel_2.mini_map.repaint();}
+            catch (NullPointerException e) {}
 
         }
     }

@@ -15,10 +15,12 @@ public class MiniMap extends JPanel {
 
     private Game game;
     private Map map;
+    private Player player;
 
-    MiniMap(Game game) {
+    MiniMap(Game game, Player player) {
         this.game = game;
-        this.map = this.game.getPlayer().getMap();
+        this.player = player;
+        this.map = player.getMap();
         this.setBackground(Color.white);
     }
 
@@ -26,10 +28,7 @@ public class MiniMap extends JPanel {
 
     public void paint(Graphics g)
     {
-        Player player = game.getPlayer();
         Chunk[][] chunks = map.getChunks();
-        //this.getWidth();
-        //map.getWidth();
         int pixel_size = (int) (this.getWidth()/map.getWidth());
 
         super.paint(g);
@@ -47,17 +46,29 @@ public class MiniMap extends JPanel {
             }
         }
 
-        //player
+        //player 1
         g.setColor(Color.RED);
-        g.fillOval((int) ((x-1)*pixel_size), (int) ((y-1)*pixel_size), pixel_size*3, pixel_size*3);
-
-        //NPC
-        /*for (int i = 0; i < NPC.length; i++) {
-            model.Person.NPC.NPC N = NPC[i];
-            x = N.getPosition()[0];
-            y = N.getPosition()[1];
-            g.setColor(Color.CYAN);
-            g.fillOval((int) ((x)*pixel_size), (int) ((y)*pixel_size), pixel_size, pixel_size);
-        }*/
+        if (map.getClass() == model.Map.BuildingMap.class) {
+            g.fillOval((int) (x * pixel_size), (int) (y * pixel_size), pixel_size, pixel_size);
+        }
+        else {
+            g.fillOval((int) ((x - 1) * pixel_size), (int) ((y - 1) * pixel_size), pixel_size * 3, pixel_size * 3);
+        }
+        // player 2
+        if (game.getMultiplayer()) {
+            g.setColor(Color.BLUE);
+            if (player != game.getPlayer_2()) {
+                x = game.getPlayer_2().getPosition()[0];
+                y = game.getPlayer_2().getPosition()[1];
+            }
+            else {
+                x = game.getPlayer_1().getPosition()[0];
+                y = game.getPlayer_1().getPosition()[1];
+            }
+            if (map.getClass() == model.Map.BuildingMap.class) {
+                g.fillOval((int) (x * pixel_size), (int) (y * pixel_size), pixel_size, pixel_size);
+            }
+            g.fillOval((int) ((x-1)*pixel_size), (int) ((y-1)*pixel_size), pixel_size*3, pixel_size*3);
+        }
     }
 }

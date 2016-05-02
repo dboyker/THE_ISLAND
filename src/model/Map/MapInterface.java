@@ -1,3 +1,5 @@
+// Interface pour les objets correspondants à des maps du jeu
+
 package model.Map;
 import model.Chunk.*;
 import model.Item.Item;

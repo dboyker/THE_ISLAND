@@ -1,5 +1,7 @@
 package model.Chunk;
 import model.Map.Map;
+import model.Person.Person;
+import model.Person.Player.Player;
 
 import java.awt.*;
 import java.io.Serializable;
@@ -24,6 +26,6 @@ public class Chunk implements Serializable {
 
     public Image getImage() {return this.image;}
 
-    public void interact() {}
+    public void interact(Player player) {}
 
 }

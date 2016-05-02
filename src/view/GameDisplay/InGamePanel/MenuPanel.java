@@ -12,14 +12,12 @@ import view.GameDisplay.InGamePanel.InGamePanel;
  * Created by davidboyker on 16/04/16.
  */
 public class MenuPanel extends JPanel implements InGamePanel {
-    private JButton continue_button;
     private JButton quit_button;
     private JButton save_game_button;
 
     public MenuPanel(Game game) {
-        //this.setLayout(new GridLayout(3,1));
         this.setBounds(0, 440, 680, 40);
-        this.setBackground(Color.DARK_GRAY);
+        this.setBackground(new java.awt.Color(44, 61, 79));;
         save_game_button = new JButton("save");
         quit_button = new JButton("quit");
         save_game_button.setFocusable(false);

@@ -2,6 +2,7 @@ package model.Item.Activator;
 
 import model.Item.Item;
 import model.Person.Person;
+import model.Person.Player.Player;
 
 import java.awt.*;
 
@@ -17,6 +18,8 @@ public class SellerActivator extends Item {
     @Override
     public void interact(Person person) {
         // launch the seller interface
-        person.getMap().game.getController().seller();
+        if (person.getClass() == model.Person.Player.Player.class) {
+            person.getMap().game.getController().seller((Player) person);
+        }
     }
 }

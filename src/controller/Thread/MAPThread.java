@@ -1,3 +1,5 @@
+// Thread pour l'objet de classe Map
+
 package controller.Thread;
 
 import view.Frame;
@@ -18,7 +20,10 @@ public class MAPThread implements Runnable {
             } catch(InterruptedException ex) {
                 Thread.currentThread().interrupt();
             }
-            frame.game_panel.update();
+            // toutes les 5 ms, l'écran de jeu se rafraichit pour mettre à jour, les personnages, les objets, les chunks, ...
+            frame.game_panel_1.update();
+            try {frame.game_panel_2.update();}
+            catch (NullPointerException e) {}
         }
     }
 }

@@ -4,7 +4,6 @@ import controller.Thread.MAPThread;
 import controller.Thread.MiniMapThread;
 import model.Map.Map;
 import model.Person.Player.Player;
-import view.Frame;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -17,7 +16,10 @@ public class Game implements Serializable {
     private static final long serialVersionUID = 51L;
     private GameController controller;
     private ArrayList<Map> maps = new ArrayList<>();
-    private Player player;
+    //private Player player;
+    private Player player_1;
+    private Player player_2;
+    private Boolean multiplayer = false;
     // game parameters
     private String difficulty = "normal";
     private int map_size_x = 100;
@@ -29,8 +31,12 @@ public class Game implements Serializable {
     public void setDifficulty(String difficulty) {if (difficulty == "hard" || difficulty == "normal") {this.difficulty = difficulty;}}
     public void setMap_size_x(int size) {this.map_size_x = size;}
     public void setMap_size_y(int size) {this.map_size_y = size;}
-    public Player getPlayer() {return this.player;}
-    public void setPlayer(Player player) {this.player = player;}
+    public Player getPlayer_1() {return this.player_1;}
+    public void setPlayer_1(Player player) {this.player_1 = player;}
+    public Player getPlayer_2() {return this.player_2;}
+    public void setPlayer_2(Player player) {this.player_2 = player;}
+    public void setMultiplayer(Boolean multiplayer) {this.multiplayer = multiplayer;}
+    public Boolean getMultiplayer() {return this.multiplayer;}
     public ArrayList<Map> getMaps() {return maps;}
     public void setMaps(Map map) {this.maps.add(map);}
     public GameController getController() {return this.controller;}
@@ -49,7 +55,7 @@ public class Game implements Serializable {
                 }
             }
         }
-        number_of_villagers -= 1;  // remove 1 because it has counted the player as a villager
+        number_of_villagers -= 2;  // remove 1 because it has counted the player & the seller as a villager
         return number_of_villagers;
     }
 
@@ -60,12 +66,14 @@ public class Game implements Serializable {
         Map map = new Map(map_size_x,map_size_y,25,this);
         maps.add(map);
         map.generate_map();
-        controller.getFrame().start_new_game(this);
+}
+    public void start_threading() {
         //------------- Starting the threads -------------//
         this.map_thread = new Thread(new MAPThread(controller.getFrame()));
         this.mini_map_thread = new Thread(new MiniMapThread(controller.getFrame()));
         map_thread.start();
         mini_map_thread.start();
+        Map map;
         for (int c = 0; c < maps.size(); c++) {  // start the persons threads
             map = maps.get(c);
             for (int i = 0; i < map.getWidth(); i++) {
@@ -76,16 +84,18 @@ public class Game implements Serializable {
                 }
             }
         }
-}
+    }
 
     // mets en pause la partie: arrete les threads
     public void pause() {
-
         System.out.println("pause game");
         Map map = this.maps.get(0);
         this.map_thread.suspend();
         this.mini_map_thread.suspend();
-        this.player.suspendThread();
+        this.player_1.suspendThread();
+        if (multiplayer) {
+            this.player_2.suspendThread();
+        }
         for (int c = 0; c < maps.size(); c++) {  // start the persons threads
             map = maps.get(c);
             for (int i = 0; i < map.getWidth(); i++) {
@@ -104,7 +114,10 @@ public class Game implements Serializable {
         Map map = this.maps.get(0);
         this.map_thread.resume();
         this.mini_map_thread.resume();
-        this.player.resumeThread();
+        this.player_1.resumeThread();
+        if (multiplayer) {
+            this.player_2.resumeThread();
+        }
         for (int c = 0; c < maps.size(); c++) {  // start the persons threads
             map = maps.get(c);
             for (int i = 0; i < map.getWidth(); i++) {

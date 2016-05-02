@@ -1,3 +1,5 @@
+// Classe pour la map principale
+
 package model.Map;
 import model.Chunk.*;
 import model.Game;
@@ -23,8 +25,8 @@ public class Map implements MapInterface, Serializable{
     protected Person persons[][];
     protected Item items[][];
     protected int chunk_size;
-    protected int width;  // in terms of number of chunks
-    protected int height;  // in terms of number of chunks
+    protected int width;  // En termes de nombres de chunks
+    protected int height;  // En termes de nombres de chunks
     protected int number_of_building;
 
     public Map(int width, int height, int chunk_size, Game game) {
@@ -65,8 +67,9 @@ public class Map implements MapInterface, Serializable{
     public int getChunk_size() {return this.chunk_size;}
     public Person[][] getPersons() {return this.persons;}
 
-    public void generate_map() {
-        // grass, water and sand
+    public void generate_map() {  // fonction pour la génération aléatoire de la map
+        System.out.println("generating map");
+        //1/ grass, water et sand
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
                 int random1 = (int) (Math.random() * 4);
@@ -78,7 +81,7 @@ public class Map implements MapInterface, Serializable{
             }
         }
 
-        // buildings
+        //2/ buildings
         int c = 1;
         while (c <= number_of_building) {
             int randomx = (int) (Math.random() * width);
@@ -137,7 +140,7 @@ public class Map implements MapInterface, Serializable{
                 c ++;
             }
         }
-        // trees
+        //3/ trees
         c = 0;
         int number_of_trees = (int) (width/3);
         while (c < number_of_trees) {
@@ -154,7 +157,7 @@ public class Map implements MapInterface, Serializable{
                 c = c + 1;}
             else {continue;}
         }
-        // NPC
+        //4/ NPC
          c = 1;
         int number_of_npc = (int) width/3;
         //int number_of_npc = 100;
@@ -170,25 +173,39 @@ public class Map implements MapInterface, Serializable{
                 c += 1;
             }
         }
-        // Dock & player & chest & seller
+        //5/ Dock & player & chest & seller
         for (int a=1; a <= 10; a++) {
             chunks[(width/4) - a][(int) (height/2)] = new Dock("top");
             chunks[(width/4) - a][(int) (height/2) + 1] = new Dock("top");
             chunks[(width/4) - a][(int) (height/2) + 2] = new Dock("top");
             chunks[(width/4) - a][(int) (height/2) + 3] = new Dock("bottom");
             if (a == 10) {
-                // player
-                Player player;
-                float[] position = new float[2];
-                position[0] = (int) (width/4) - a;
-                position[1] = (int) (height/2 + 3);
-                player = new Player(this, position, Color.lightGray);
-                this.game.setPlayer(player);
+                // player(s)
+                Player player_1;
+                Player player_2;
+                float[] position_1 = new float[2];
+                position_1[0] = (int) (width/4) - a;
+                position_1[1] = (int) (height/2 + 3);
+                player_1 = new Player(this, position_1, Color.lightGray);
+                this.game.setPlayer_1(player_1);
+                System.out.println(player_1);
+                if (game.getMultiplayer()) {
+                    // 2eme joueur si multiplayer
+                    float[] position_2 = new float[2];
+                    position_2 = new float[2];
+                    position_2[0] = (int) (width / 4) - a + 1;
+                    position_2[1] = (int) (height / 2 + 3);
+                    player_2 = new Player(this, position_2, Color.RED);
+                    System.out.println(player_2);
+                    this.game.setPlayer_2(player_2);
+                }
+
                 // chest
                 chunks[(width/4) - a + 1][(height/2 )] = new Chest();
                 this.items[(width/4) - a + 1][(height/2 ) + 1] = new ChestActivator(null);
                 // seller
                 Seller seller;
+                float[] position = new float[2];
                 position = new float[2];
                 position[0] = (int) (width/4) - a;
                 position[1] = (int) (height/2);

@@ -4,6 +4,7 @@ import model.Item.Hazardous.Fire;
 import model.Map.Map;
 import model.Chunk.*;
 import model.Item.*;
+import model.Person.Player.Player;
 
 import java.awt.*;
 import java.io.Serializable;
@@ -101,6 +102,8 @@ public class Person implements Serializable {
             if (this.getClass() == model.Person.Player.Player.class) {
                 map.game.getController().game_over();
             }
+            this.image = null;
+            this.thread = null;
             map.deletPerson(this);  // remove the player
         }
         if (this.health > 100) {  // maximum health is 100
@@ -146,15 +149,16 @@ public class Person implements Serializable {
                     // empêche les déplacements en diagonale
                     dy = 0;
                 }
-                map.getPersons()[(int) position[0]][(int) position[1]] = null;  // person leaves old chunk
+                map.getPersons()[(int) position[0]][(int) position[1]] = null;  // La personne quitte son chunk actuel
                 if (this.health > 0) {
-                    map.getPersons()[(int) position[0] + dx][(int) position[1] + dy] = this;  // person is on the new chunk
+                    map.getPersons()[(int) position[0] + dx][(int) position[1] + dy] = this;
                 }
                 else {return;}
                 int c = 0;
                 int movex = dx;
                 int movey = dy;
                 while (c < 10) {
+                    // animations de déplacements
                     if (movey < 0 && c < 5) {
                         this.image = this.image_up_1;
                     }
@@ -203,7 +207,7 @@ public class Person implements Serializable {
                     this.image = this.image_right;
                 }
                 chunk = map.getChunks()[(int) position[0]][(int) position[1]];
-                if (this.getClass() == model.Person.Player.Player.class) { chunk.interact(); }
+                if (this.getClass() == model.Person.Player.Player.class) { chunk.interact((Player) this); }
                 Item item = map.getItems()[(int) position[0]][(int) position[1]];
                 try {item.interact(this);}
                 catch (NullPointerException e) {}
@@ -239,6 +243,11 @@ public class Person implements Serializable {
 
     // attaque de contact
     public void melee_attack() {
+        // animation
+        if (this.direction[1] == 1) {this.image = this.image_down_1;}
+        else if (this.direction[1] == -1) {this.image = this.image_up_1;}
+        else if (this.direction[1] == 0 && this.direction[0] == 1) {this.image = this.image_right_1;}
+        else if (this.direction[1] == 0 && this.direction[0] == -1) {this.image = this.image_left_1;}
         // get next chunk position
         int target_pos_x = (int) this.position[0] + this.direction[0];
         int target_pos_y = (int) this.position[1] + this.direction[1];
@@ -254,6 +263,16 @@ public class Person implements Serializable {
                 this.setMoney(opponent.getMoney());
                 }
             }
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+        // end animation
+        if (this.direction[1] == 1) {this.image = this.image_down;}
+        else if (this.direction[1] == -1) {this.image = this.image_up;}
+        else if (this.direction[1] == 0 && this.direction[0] == 1) {this.image = this.image_right;}
+        else if (this.direction[1] == 0 && this.direction[0] == -1) {this.image = this.image_left;}
     }
 
     // mets le feu à un chunk

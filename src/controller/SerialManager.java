@@ -1,3 +1,5 @@
+// Ce fichier contient le code nécessaire pour gérer les sauvegardes/chargements
+
 package controller;
 import model.Game;
 
@@ -19,6 +21,7 @@ public class SerialManager {
     public void save_game(Game game) {
     try
     {
+        System.out.println("save game");
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         Date date = new Date();
         String name = dateFormat.format(date);

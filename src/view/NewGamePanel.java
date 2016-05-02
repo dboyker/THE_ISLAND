@@ -21,7 +21,7 @@ public class NewGamePanel extends JPanel {
 
     public NewGamePanel(Game game) {
         this.game = game;
-        this.setBackground(Color.DARK_GRAY);
+        this.setLayout(null);
         back_button = new JButton("back");
         back_button.addMouseListener(new InputListener.ButtonListener(new ButtonCallback.go_to_main_menu()));
 
@@ -74,6 +74,16 @@ public class NewGamePanel extends JPanel {
         class PlayersListener implements ActionListener {
             public void actionPerformed(ActionEvent ex) {
                 String choice = players_button_group.getSelection().getActionCommand();
+                Boolean multiplayer;
+                if (choice == "1") {
+                    multiplayer = false;
+                    System.out.println("1 player");
+                }
+                else {
+                    multiplayer = true;
+                    System.out.println("2 players");
+                }
+                game.setMultiplayer(multiplayer);
             }
         }
         players_button_1.addActionListener(new PlayersListener());
@@ -82,14 +92,37 @@ public class NewGamePanel extends JPanel {
         start_button = new JButton("start");
         start_button.addMouseListener(new InputListener.ButtonListener(new ButtonCallback.start_new_game(this.game)));
         // ajout des éléments au JPanel
-        this.add(back_button);
-        this.add(new JLabel("size: "));
-        this.add(size_button_1);
-        this.add(size_button_2);
-        this.add(new JLabel("difficulty: "));
-        this.add(difficulty_button_1);
-        this.add(difficulty_button_2);
-        this.add(start_button);
+        JPanel control_panel = new JPanel(null);
+        control_panel.setBounds(0, 0, 680, 440);
+        JPanel panel1 = new JPanel();
+        panel1.setBounds(0, 40, 680, 40);
+        panel1.add(new JLabel("size: "));
+        panel1.add(size_button_1);
+        panel1.add(size_button_2);
+        panel1.setBackground(new java.awt.Color(52, 73, 94));
+        control_panel.add(panel1);
+        JPanel panel2 = new JPanel();
+        panel2.setBounds(0, 80, 680, 40);
+        panel2.add(new JLabel("difficulty: "));
+        panel2.add(difficulty_button_1);
+        panel2.add(difficulty_button_2);
+        panel2.setBackground(new java.awt.Color(52, 73, 94));
+        control_panel.add(panel2);
+        JPanel panel3 = new JPanel();
+        panel3.setBounds(0, 120, 680, 40);
+        panel3.add(new JLabel("type of game: "));
+        panel3.add(players_button_1);
+        panel3.add(players_button_2);
+        panel3.setBackground(new java.awt.Color(52, 73, 94));
+        control_panel.add(panel3);
+        control_panel.setBackground(new java.awt.Color(52, 73, 94));
+        this.add(control_panel);
+        JPanel menu_panel = new JPanel();
+        menu_panel.setBackground(new java.awt.Color(44, 61, 79));
+        menu_panel.setBounds(0, 440, 680, 40);
+        menu_panel.add(start_button);
+        menu_panel.add(back_button);
+        this.add(menu_panel);
     }
 }
 

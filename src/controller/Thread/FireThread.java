@@ -1,3 +1,5 @@
+// thread pour les objets de classe Fire
+
 package controller.Thread;
 
 import model.Item.Hazardous.*;
@@ -19,11 +21,12 @@ public class FireThread implements Runnable {
 
     public void run() {
         int c = 1;
-        while (c < 100) {
+        while (c <= 100) { // chaque objet fire n'est actif que pendant 100 itérations
             int pos_x = (int) fire.getPosition()[0];
             int pos_y = (int) fire.getPosition()[1];
             Person victim = map.getPersons()[pos_x][pos_y];
             if (victim != null) {
+                // si une personne se trouve à la même position que l'objet Fire, il se voit affligé des dégâts
                 victim.setHealth(fire.getDamage()/5);
             }
             try {

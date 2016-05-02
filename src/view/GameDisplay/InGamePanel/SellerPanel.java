@@ -5,6 +5,7 @@ import java.awt.*;
 import model.Game;
 import controller.EventListener.InputListener;
 import controller.EventListener.ButtonCallback;
+import view.GameDisplay.GamePanel;
 
 /**
  * Created by davidboyker on 30/04/16.
@@ -12,10 +13,12 @@ import controller.EventListener.ButtonCallback;
 public class SellerPanel extends JPanel implements InGamePanel {
 
     private Game game;
+    private GamePanel game_panel;
 
-    public SellerPanel(Game game) {
+    public SellerPanel(Game game, GamePanel game_panel) {
         this.game = game;
-        this.setBackground(Color.DARK_GRAY);
+        this.game_panel = game_panel;
+        this.setBackground(new java.awt.Color(44, 61, 79));;
     }
 
     public void display() {
@@ -34,7 +37,7 @@ public class SellerPanel extends JPanel implements InGamePanel {
         JButton resume_button = new JButton();
         resume_button.setText("resume");
         resume_button.setFocusable(false);
-        resume_button.addMouseListener(new InputListener.ButtonListener(new ButtonCallback.resume_game(game)));
+        resume_button.addMouseListener(new InputListener.ButtonListener(new ButtonCallback.resume_game(game, game_panel)));
         this.add(button1);
         this.add(button2);
         this.add(button3);

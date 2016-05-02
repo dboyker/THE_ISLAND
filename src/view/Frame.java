@@ -12,9 +12,9 @@ import javax.swing.JPanel;
 public class Frame implements Serializable {
     private JFrame frame;
     private JPanel main_panel;
-
     private JPanel home_panel;
-    public GamePanel game_panel;
+    public GamePanel game_panel_1;
+    public GamePanel game_panel_2;
     public LoadGamePanel load_game_panel;
     public NewGamePanel new_game_panel;
 
@@ -41,6 +41,17 @@ public class Frame implements Serializable {
         main_panel.removeAll();
         home_panel = new HomePanel();
         main_panel.add(home_panel);
+        // change la taille de la frame principale
+        frame.setBounds(100, 100, frame_width, frame_height);
+        // supprime mini map frame if need
+        try {
+            game_panel_1.mini_map_frame.dispose();
+        }
+        catch (NullPointerException e) {}
+        try {
+            game_panel_2.mini_map_frame.dispose();
+        }
+        catch (NullPointerException e) {}
         main_panel.revalidate();
     }
 
@@ -64,9 +75,31 @@ public class Frame implements Serializable {
     public void start_new_game(Game game) {
         frame.addKeyListener(new InputListener.KeyboardListener(game));
         main_panel.removeAll();
-        game_panel = new GamePanel(game);
-        main_panel.add(game_panel);
-        main_panel.revalidate();
+        if (game.getMultiplayer()) {
+            // 2 players
+            System.out.println("2 players");
+            // change la taille de la frame principale
+            int width = frame.getWidth();
+            int height = frame.getHeight();
+            frame.setBounds(100, 100, width*2, height);
+            game_panel_1 = new GamePanel(game, game.getPlayer_1());
+            game_panel_1.setBounds(0,0,width-1,height);
+            game_panel_2 = new GamePanel(game, game.getPlayer_2());
+            game_panel_2.setBounds(width+1,0,width-1,height);
+            JPanel container = new JPanel(null);
+            container.add(game_panel_1);
+            container.add(game_panel_2);
+            main_panel.add(container);
+            main_panel.revalidate();
+        }
+        else {
+            // 1 player
+            System.out.println("1 player");
+            game_panel_1 = new GamePanel(game, game.getPlayer_1());
+            main_panel.add(game_panel_1);
+            main_panel.revalidate();
+        }
+
     }
 }
 
