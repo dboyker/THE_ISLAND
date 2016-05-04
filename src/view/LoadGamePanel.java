@@ -1,8 +1,9 @@
+// classe pour le menu de chargement d'une partie existante
+
 package view;
 
 import controller.EventListener.ButtonCallback;
 import controller.EventListener.InputListener;
-
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
@@ -10,14 +11,13 @@ import java.io.File;
  * Created by davidboyker on 29/03/16.
  */
 
-//to be completed
 
 public class LoadGamePanel extends JPanel {
 
     private JButton back_button;
 
     public LoadGamePanel() {
-        //this.setBackground(Color.DARK_GRAY);
+        // réglages de base
         this.setLayout(null);
         JPanel menu_panel = new JPanel();
         menu_panel.setBackground(Color.DARK_GRAY);
@@ -30,8 +30,7 @@ public class LoadGamePanel extends JPanel {
         JPanel control_panel = new JPanel();
         control_panel.setBounds(0, 0, 680, 440);
         control_panel.setBackground(new java.awt.Color(52, 73, 94));
-
-        //read all files name & display them
+        // lectures des fichiers .SER de sauvegarde et affichages de ces derniers
         File folder = new File("src/saved_games/");
         File[] listOfFiles = folder.listFiles();
         for (int i = 1; i < listOfFiles.length; i++) {
@@ -45,7 +44,6 @@ public class LoadGamePanel extends JPanel {
                 play_load.add(play_label);
                 play_load.add(play_button);
                 control_panel.add(play_load);
-
             }
         }
         this.add(control_panel);

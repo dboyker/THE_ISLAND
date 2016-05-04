@@ -1,9 +1,11 @@
+// Classe pour la frame principale de l'application. Contient les différentes fonctions pour afficher les différentes vues utilisateurs
+
 package view;
-import controller.EventListener.GameController;
+
+import controller.GameController.GameController;
 import controller.EventListener.InputListener;
 import model.Game;
 import view.GameDisplay.GamePanel;
-
 import java.awt.*;
 import java.io.Serializable;
 import javax.swing.JFrame;
@@ -17,14 +19,12 @@ public class Frame implements Serializable {
     public GamePanel game_panel_2;
     public LoadGamePanel load_game_panel;
     public NewGamePanel new_game_panel;
-
     private int frame_width = 680;
     private int frame_height = 500;
 
-    public JFrame getFrame() {return this.frame;}
 
     public void run() {
-        frame = new JFrame("The Island");
+        frame = new JFrame("");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         main_panel = new JPanel(new BorderLayout());
         frame.getContentPane().add(main_panel);

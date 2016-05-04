@@ -10,4 +10,8 @@ import javax.swing.*;
         public Sand() {
             super(new ImageIcon("image/sand.png").getImage(), new java.awt.Color(249, 191, 59),true);
         }
-    }
+
+    @Override
+    public void reset_image() {this.image = new ImageIcon("image/sand.png").getImage();}
+
+}

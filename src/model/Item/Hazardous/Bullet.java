@@ -1,6 +1,5 @@
 package model.Item.Hazardous;
 
-import controller.Thread.BulletThread;
 import model.Chunk.Chunk;
 import model.Map.Map;
 import model.Person.Person;
@@ -12,13 +11,12 @@ import javax.swing.*;
  */
 public class Bullet extends Hazardous {
 
-    private Thread thread;
-    private Map map;
+    private transient Thread thread;
     private float[] direction;
 
-    public Bullet(Map map, float[] position, float[] direction){
+    public Bullet(Map map, Person person, float[] position, float[] direction){
         super("bullet", new ImageIcon("image/bullet.png").getImage(), position);
-        this.damage = -20;
+        this.damage = person.getShoot_damage();
         this.map = map;
         this.direction = direction;
         this.thread = new Thread(new BulletThread(this));
@@ -54,5 +52,10 @@ public class Bullet extends Hazardous {
     public void terminate_thread() {
         map.deleteItem(this);
         this.thread.suspend();
+    }
+
+    @Override
+    public void reset_image() {
+        image = new ImageIcon("image/bullet.png").getImage();
     }
 }

@@ -13,9 +13,8 @@ import java.awt.event.MouseListener;
  * Created by davidboyker on 28/03/16.
  */
 public class InputListener {
-    private static view.Frame frame;
 
-    public InputListener(view.Frame frame) {this.frame = frame;}
+    public InputListener() {}
 
     public static class ButtonListener implements MouseListener {
         private ButtonCallback buttonCallback;
@@ -136,6 +135,7 @@ public class InputListener {
                 if (e.getKeyCode() == KeyEvent.VK_D) {
                     dy = 0;
                     dx = 1;
+                    System.out.println(player_1);
                     player_1.setDx(dx);
                     player_1.setDy(dy);
                 } //key right pressed

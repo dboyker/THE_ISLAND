@@ -1,22 +1,26 @@
+/**
+ * Created by davidboyker on 28/03/16.
+ */
+
+
 // Classe pour la map principale
 
 package model.Map;
+
 import model.Chunk.*;
 import model.Game;
 import model.Item.Activator.ChestActivator;
 import model.Item.Activator.SellerActivator;
 import model.Item.*;
+import model.Item.Collectable.Drug;
+import model.Item.Collectable.MediKit;
+import model.Item.Instantaneous.Coin;
+import model.Item.Instantaneous.Heart;
 import model.Person.NPC.Opponent;
 import model.Person.Person;
 import model.Person.Player.Player;
 import model.Person.NPC.Seller;
-
-import java.awt.*;
 import java.io.Serializable;
-
-/**
- * Created by davidboyker on 28/03/16.
- */
 
 public class Map implements MapInterface, Serializable{
 
@@ -125,7 +129,7 @@ public class Map implements MapInterface, Serializable{
                         }
                     }
                 }
-                // for each building, put a door
+                // Pour chaque building, on crée une porte d'entrée
                 int randomd = (int) (Math.random()*(building_width-2))+1;
                 Door entrance_door = new Door(this);
                 chunks[randomx+randomd][randomy + building_height - 1] = entrance_door;
@@ -134,9 +138,9 @@ public class Map implements MapInterface, Serializable{
                 pos[0] = randomd*magnificient_index;
                 pos[1] = (building_height*magnificient_index)-1;
                 // for each building, create a sub map and link the door
-                BuildingMap building = new BuildingMap(building_width*magnificient_index, building_height*magnificient_index, this.chunk_size, this.game, entrance_door, pos);
+                BuildingMap building = new BuildingMap(building_width*magnificient_index, building_height*magnificient_index, this.chunk_size, this.game);
                 game.setMaps(building);  // add this submap in the array of maps
-                building.generate_map();
+                building.generate_map(entrance_door, pos);
                 c ++;
             }
         }
@@ -169,7 +173,7 @@ public class Map implements MapInterface, Serializable{
                 float[] position = new float[2];
                 position[0] = randomx;
                 position[1] = randomy;
-                Opponent new_opponent = new Opponent(this, position, Color.blue);
+                new Opponent(this, position);
                 c += 1;
             }
         }
@@ -186,7 +190,7 @@ public class Map implements MapInterface, Serializable{
                 float[] position_1 = new float[2];
                 position_1[0] = (int) (width/4) - a;
                 position_1[1] = (int) (height/2 + 3);
-                player_1 = new Player(this, position_1, Color.lightGray);
+                player_1 = new Player(this, position_1);
                 this.game.setPlayer_1(player_1);
                 System.out.println(player_1);
                 if (game.getMultiplayer()) {
@@ -195,21 +199,20 @@ public class Map implements MapInterface, Serializable{
                     position_2 = new float[2];
                     position_2[0] = (int) (width / 4) - a + 1;
                     position_2[1] = (int) (height / 2 + 3);
-                    player_2 = new Player(this, position_2, Color.RED);
+                    player_2 = new Player(this, position_2);
                     System.out.println(player_2);
                     this.game.setPlayer_2(player_2);
                 }
 
                 // chest
-                chunks[(width/4) - a + 1][(height/2 )] = new Chest();
+                this.chunks[(width/4) - a + 1][(height/2 )] = new Chest();
                 this.items[(width/4) - a + 1][(height/2 ) + 1] = new ChestActivator(null);
                 // seller
                 Seller seller;
                 float[] position = new float[2];
-                position = new float[2];
                 position[0] = (int) (width/4) - a;
                 position[1] = (int) (height/2);
-                seller = new Seller(this, position, Color.lightGray);
+                new Seller(this, position);
                 this.items[(int) position[0]][(int) position[1] + 1] = new SellerActivator(null);
 
             }
@@ -226,7 +229,17 @@ public class Map implements MapInterface, Serializable{
             position[0] = randomx;
             position[1] = randomy;
             if (chunks[randomx][randomy].getWalkable() == true) {
-                if (c > 100) {new Heart(this, position);}
+                if (c > 150) {new Heart(this, position);}
+                else if (c < 150 && c > 100) {
+                    Drug drug = new Drug();
+                    drug.setMap(this);
+                    drug.setPosition(position);
+                }
+                else if (c < 100 && c > 50) {
+                    MediKit medi_kit = new MediKit();
+                    medi_kit.setMap(this);
+                    medi_kit.setPosition(position);
+                }
                 else {new Coin(this, position, 30);}
             }
             c ++;

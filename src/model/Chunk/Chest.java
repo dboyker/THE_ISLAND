@@ -5,9 +5,14 @@ import javax.swing.*;
 /**
  * Created by davidboyker on 28/04/16.
  */
-public class Chest extends Chunk{
+public class Chest extends Chunk {
     public Chest() {
         super(null, java.awt.Color.black, false);
-        image = new ImageIcon("image/chest.png").getImage();
+        reset_image();
+    }
+
+    @Override
+    public void reset_image() {
+       image = new ImageIcon("image/chest.png").getImage();
     }
 }

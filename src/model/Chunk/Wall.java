@@ -11,5 +11,4 @@ public class Wall extends Chunk {
     public Wall() {
         super(null, Color.darkGray, false);
     }
-
 }

@@ -1,9 +1,13 @@
 package model.Person;
+import model.Item.Instantaneous.Coin;
+import model.Person.NPC.OpponentThread;
+import model.Person.Player.PlayerThread;
 import model.Item.Hazardous.Bullet;
 import model.Item.Hazardous.Fire;
 import model.Map.Map;
 import model.Chunk.*;
 import model.Item.*;
+import model.Person.NPC.Opponent;
 import model.Person.Player.Player;
 
 import java.awt.*;
@@ -15,12 +19,14 @@ import java.io.Serializable;
 
 public class Person implements Serializable {
 
-    protected Thread thread;
+    protected transient Thread thread;
     protected Map map;
     protected int health;
     protected int money;
     protected int speed = 50;
-    protected Chunk chunk;
+    protected int melee_damage = -10;
+    protected int shoot_damage = -10;
+    protected int fire_damage = -10;
     protected float[] position;
     protected int[] direction;
     protected int dx = 0;
@@ -29,33 +35,88 @@ public class Person implements Serializable {
     protected Boolean fire_attack = false;
     protected Boolean shoot_attack = false;
     protected java.awt.Color color;
-    protected Image image;
-    protected Image image_up;
-    protected Image image_up_1;
-    protected Image image_up_2;
-    protected Image image_down;
-    protected Image image_down_1;
-    protected Image image_down_2;
-    protected Image image_left;
-    protected Image image_left_1;
-    protected Image image_left_2;
-    protected Image image_right;
-    protected Image image_right_1;
-    protected Image image_right_2;
+    // différentes images pour les animations
+    protected transient Image image;
+    protected transient Image image_up;
+    protected transient Image image_up_1;
+    protected transient Image image_up_2;
+    protected transient Image image_down;
+    protected transient Image image_down_1;
+    protected transient Image image_down_2;
+    protected transient Image image_left;
+    protected transient Image image_left_1;
+    protected transient Image image_left_2;
+    protected transient Image image_right;
+    protected transient Image image_right_1;
+    protected transient Image image_right_2;
 
-    public Person(Map map, float[] position, Color color) {
+    public Person(Map map, float[] position) {
         this.map = map;
         this.position = new float[2];
         this.position = position;
-        this.chunk = this.map.getChunks()[(int)position[0]][(int)position[1]];
         this.map.getPersons()[(int)position[0]][(int)position[1]] = this;
         direction = new int[]{0, 1};
-        this.color = color;
+        this.color = Color.red;
     }
+
+    // SET & GET
+    public Image getImage() {return this.image;}
+    public void reset_image() {}
+    public void setPosition(float[] position) {
+        this.position = position;
+        this.map.getPersons()[(int) position[0]][(int) position[1]] = this;
+    }
+    public float[] getPosition() {return this.position;}
+    public void setDx(int dx) {this.dx = dx;}
+    public void setDy(int dy) {this.dy = dy;}
+    public void setMelee_attack(Boolean b) {this.melee_attack = b;}
+    public void setFire_attack(Boolean b) {this.fire_attack = b;}
+    public void setShoot_attack(Boolean b) {this.shoot_attack = b;}
+    public void setMap(Map map) {this.map = map;}
+    public Map getMap() {return this.map;}
+    public Color getColor() {return this.color;}
+    public void setHealth(int change) {
+        this.health += change;
+        if (this.health <= 0) {  // la personne n'a plus de vie
+            this.color = Color.black;
+            float[] pos = new float[2];
+            pos[0] = (int) position[0];
+            pos[1] = (int) position[1];
+            new Coin(map, pos, this.money);  // drop money
+            if (this.getClass() == model.Person.Player.Player.class) {
+                map.game.getController().game_over();
+            }
+            this.image = null;
+            this.thread = null;
+            map.deletPerson(this);
+        }
+        if (this.health > 100) {  // sa santé à un palier à 100
+            this.health = 100;
+        }
+    }
+    public int getHealth() {return this.health;}
+    public int getMoney() {return this.money;}
+    public void setMoney(int money) {this.money += money;}
+    public int getFire_damage() {return this.fire_damage;}
+    public int getShoot_damage() {return this.shoot_damage;}
+    public void setMelee_damage(int c) {this.melee_damage *= c;}
+    public void setFire_damage(int c) {this.fire_damage *= c;}
+    public void setShoot_damage(int c) {this.shoot_damage *= c;}
+    public void setSpeed(int value) {this.speed = value;System.out.println(this.speed);}
+
 
     public void startThread() {
         try {this.thread.start();}
-        catch (NullPointerException e) {}
+        catch (NullPointerException e) {
+            if (this.getClass() == model.Person.Player.Player.class) {
+                this.thread = new Thread(new PlayerThread((Player) this));
+                this.thread.start();
+            }
+            else if (this.getClass() == model.Person.NPC.Opponent.class) {
+                this.thread = new Thread(new OpponentThread((Opponent) this));
+                this.thread.start();
+            }
+        }
     }
 
     public void suspendThread(){
@@ -68,54 +129,8 @@ public class Person implements Serializable {
         catch (NullPointerException e) {}
     }
 
-    public Image getImage() {return this.image;}
-    public void setPosition(float[] position) {
-        this.position = position;
-        this.map.getPersons()[(int) position[0]][(int) position[1]] = this;
-    }
-    public float[] getPosition() {
-        return this.position;
-    }
-    public void setDx(int dx) {this.dx = dx;}
-    public void setDy(int dy) {this.dy = dy;}
-    public void setMelee_attack(Boolean b) {this.melee_attack = b;}
-    public void setFire_attack(Boolean b) {this.fire_attack = b;}
-    public void setShoot_attack(Boolean b) {this.shoot_attack = b;}
-    public void setMap(Map map) {
-        this.map = map;
-    }
-    public Map getMap() {
-        return this.map;
-    }
-    public Color getColor() {
-        return this.color;
-    }
-    public void setHealth(int change) {
-        this.health += change;
-        if (this.health <= 0) {  // dead
-            this.color = Color.black;
-            //this.image = null;
-            float[] pos = new float[2];
-            pos[0] = (int) position[0];
-            pos[1] = (int) position[1];
-            new Coin(map, pos, this.money);  // drop money
-            if (this.getClass() == model.Person.Player.Player.class) {
-                map.game.getController().game_over();
-            }
-            this.image = null;
-            this.thread = null;
-            map.deletPerson(this);  // remove the player
-        }
-        if (this.health > 100) {  // maximum health is 100
-            this.health = 100;
-        }
-    }
-    public int getHealth() {return this.health;}
-    public int getMoney() {return this.money;}
-    public void setMoney(int money) {
-        this.money += money;
-    }
 
+    // fonction de déplacement de l'objet Person
     public void move() {
         if (dx != 0 || dy != 0) {
             if (dx != this.direction[0] || dy != this.direction[1]) { //  changement de direction
@@ -189,7 +204,7 @@ public class Person implements Serializable {
                     position[1] = (float) (Math.round(position[1] * 100.0) / 100.0);  // round to 1 digit
                     c++;
                     try {
-                        Thread.sleep(speed);
+                        Thread.sleep(this.speed);
                     } catch (InterruptedException ex) {
                         Thread.currentThread().interrupt();
                     }
@@ -206,7 +221,7 @@ public class Person implements Serializable {
                 else if (direction[0] > 0) {
                     this.image = this.image_right;
                 }
-                chunk = map.getChunks()[(int) position[0]][(int) position[1]];
+                Chunk chunk = map.getChunks()[(int) position[0]][(int) position[1]];
                 if (this.getClass() == model.Person.Player.Player.class) { chunk.interact((Player) this); }
                 Item item = map.getItems()[(int) position[0]][(int) position[1]];
                 try {item.interact(this);}
@@ -251,17 +266,11 @@ public class Person implements Serializable {
         // get next chunk position
         int target_pos_x = (int) this.position[0] + this.direction[0];
         int target_pos_y = (int) this.position[1] + this.direction[1];
-        float[] position = new float[2];
-        position[0] = target_pos_x;
-        position[1] = target_pos_y;
         Person opponent;
         opponent = map.getPersons()[(int) target_pos_x][(int) target_pos_y];
-        int damage = 10;
+        int damage = this.melee_damage;
         if (opponent != null) {
-            opponent.setHealth(-1 * damage);
-            if (opponent.getHealth() < 0) {  // opponent is killed
-                this.setMoney(opponent.getMoney());
-                }
+            opponent.setHealth(damage);
             }
         try {
             Thread.sleep(200);
@@ -285,7 +294,7 @@ public class Person implements Serializable {
         position[1] = target_pos_y;
         if (map.getChunks()[target_pos_x][target_pos_y].getWalkable()) {
             // put fire on it
-            this.map.getItems()[target_pos_x][target_pos_y] = new Fire(map, position);
+            this.map.getItems()[target_pos_x][target_pos_y] = new Fire(map, this, position);
         }
     }
 
@@ -299,7 +308,7 @@ public class Person implements Serializable {
         float[] direction = new float[2];
         direction[0] = this.direction[0];
         direction[1] = this.direction[1];
-        this.map.getItems()[target_pos_x][target_pos_y] = new Bullet(map, position, direction);
+        this.map.getItems()[target_pos_x][target_pos_y] = new Bullet(map, this, position, direction);
     }
 
 }

@@ -14,7 +14,6 @@ import java.awt.*;
  */
 public class StatusBar extends JPanel {
 
-    private Game game;
     private GamePanel game_panel;
     private JButton inventory_button;
     private JLabel health_label;
@@ -22,7 +21,6 @@ public class StatusBar extends JPanel {
     private JLabel villagers_label;
 
     public StatusBar(Game game, GamePanel game_panel) {
-        this.game = game;
         this.game_panel = game_panel;
         this.setBounds(0,0,680,40);
         this.setBackground(new java.awt.Color(44, 61, 79));
@@ -31,13 +29,13 @@ public class StatusBar extends JPanel {
     public void display() {
         this.removeAll();
         inventory_button = new JButton("inventory");
-        inventory_button.addMouseListener(new InputListener.ButtonListener(new ButtonCallback.show_inventory(game, game_panel)));
+        inventory_button.addMouseListener(new InputListener.ButtonListener(new ButtonCallback.show_inventory(game_panel)));
         inventory_button.setFocusable(false);
         int health = game_panel.getPlayer().getHealth();
         health_label = new JLabel("<3 "+health+"");
         int money = game_panel.getPlayer().getMoney();
         money_label = new JLabel("$ "+money+"");
-        int number_of_villagers = game.count_villagers();  // calcul du nombre de villageois
+        int number_of_villagers = game_panel.getGame().count_villagers();  // calcul du nombre de villageois
         villagers_label = new JLabel("number of villager: "+number_of_villagers+"");
         this.add(inventory_button);
         this.add(health_label);
@@ -50,7 +48,7 @@ public class StatusBar extends JPanel {
         int money = game_panel.getPlayer().getMoney();
         this.health_label.setText("<3 "+health+"");
         this.money_label.setText("$ "+money);
-        int number_of_villagers = game.count_villagers();  // calcul du nombre de villageois
+        int number_of_villagers = game_panel.getGame().count_villagers();  // calcul du nombre de villageois
         this.villagers_label.setText("number of villager: "+number_of_villagers+"");
     }
 

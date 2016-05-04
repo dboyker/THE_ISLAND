@@ -16,30 +16,17 @@ import java.awt.*;
  */
 public class GameScreen extends JPanel {
 
-    private Game game;
-    private Map map;
-    private Chunk[][] chunks;
-    //building
-    private Player player;
-    //items
+    private GamePanel game_panel;
 
-    public GameScreen(Game game, GamePanel game_panel) {
-        this.game = game;
-        this.player = game_panel.getPlayer();
-        this.map = player.getMap();
-        this.chunks = map.getChunks();
-    }
-
-    public Map getMap() {return  this.map; }
-
-    public void setMap(Map map) {
-        this.map = map;
-        this.chunks = map.getChunks();
-        this.repaint();
+    public GameScreen(GamePanel game_panel) {
+        this.game_panel = game_panel;
     }
 
     public void paint(Graphics g)
     {
+        Player player = game_panel.getPlayer();
+        Map map = player.getMap();
+        Chunk[][] chunks = map.getChunks();
         super.paint(g);
         //generate map
         this.setBackground(Color.WHITE);
@@ -101,12 +88,12 @@ public class GameScreen extends JPanel {
             }
         }
         g.drawImage(player.getImage(), (int) ((x - offsetx) * map.getChunk_size()), (int) ((y - offsety) * map.getChunk_size()), map.getChunk_size(), map.getChunk_size(), null);
-        if (game.getMultiplayer()) {
-            if (player == game.getPlayer_1()) {
-                g.drawImage(game.getPlayer_2().getImage(), (int) ((game.getPlayer_2().getPosition()[0] - offsetx) * map.getChunk_size()), (int) ((game.getPlayer_2().getPosition()[1] - offsety) * map.getChunk_size()), map.getChunk_size(), map.getChunk_size(), null);
+        if (game_panel.getGame().getMultiplayer()) {
+            if (player == game_panel.getGame().getPlayer_1()) {
+                g.drawImage(game_panel.getGame().getPlayer_2().getImage(), (int) ((game_panel.getGame().getPlayer_2().getPosition()[0] - offsetx) * map.getChunk_size()), (int) ((game_panel.getGame().getPlayer_2().getPosition()[1] - offsety) * map.getChunk_size()), map.getChunk_size(), map.getChunk_size(), null);
             }
             else {
-                g.drawImage(game.getPlayer_1().getImage(), (int) ((game.getPlayer_1().getPosition()[0] - offsetx) * map.getChunk_size()), (int) ((game.getPlayer_1().getPosition()[1] - offsety) * map.getChunk_size()), map.getChunk_size(), map.getChunk_size(), null);
+                g.drawImage(game_panel.getGame().getPlayer_1().getImage(), (int) ((game_panel.getGame().getPlayer_1().getPosition()[0] - offsetx) * map.getChunk_size()), (int) ((game_panel.getGame().getPlayer_1().getPosition()[1] - offsety) * map.getChunk_size()), map.getChunk_size(), map.getChunk_size(), null);
             }
             }
         }

@@ -1,9 +1,10 @@
+// classe pour le menu de création d'une nouvelle partie
+
 package view;
 
 import controller.EventListener.ButtonCallback;
 import controller.EventListener.InputListener;
 import model.Game;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -14,7 +15,6 @@ import java.awt.event.ActionListener;
  */
 
 public class NewGamePanel extends JPanel {
-
     private JButton back_button;
     private JButton start_button;
     private Game game;
@@ -24,8 +24,7 @@ public class NewGamePanel extends JPanel {
         this.setLayout(null);
         back_button = new JButton("back");
         back_button.addMouseListener(new InputListener.ButtonListener(new ButtonCallback.go_to_main_menu()));
-
-        //réglage taille: 100x100 ou 50x50
+        // bouttons de réglage taille de la carte: 100x100 ou 50x50
         JRadioButton size_button_1 = new JRadioButton("Normal: 100x100");
         size_button_1.setActionCommand("100");
         size_button_1.setSelected(true);
@@ -44,7 +43,7 @@ public class NewGamePanel extends JPanel {
         size_button_1.addActionListener(new SizeListener());
         size_button_2.addActionListener(new SizeListener());
 
-        //réglage difficulté: normal ou hard
+        // bouttons de réglage difficulté: normal ou hard
         JRadioButton difficulty_button_1 = new JRadioButton("Normal");
         difficulty_button_1.setActionCommand("normal");
         difficulty_button_1.setSelected(true);
@@ -62,7 +61,7 @@ public class NewGamePanel extends JPanel {
         difficulty_button_1.addActionListener(new DifficultyListener());
         difficulty_button_2.addActionListener(new DifficultyListener());
 
-        //réglage nombre de joueurs: 1 joueur ou 2 en coopération
+        // bouttons de réglage du nombre de joueurs: 1 joueur ou 2 en coopération
         JRadioButton players_button_1 = new JRadioButton("Single player");
         players_button_1.setActionCommand("1");
         players_button_1.setSelected(true);
@@ -88,10 +87,9 @@ public class NewGamePanel extends JPanel {
         }
         players_button_1.addActionListener(new PlayersListener());
         players_button_2.addActionListener(new PlayersListener());
-        // start button
         start_button = new JButton("start");
         start_button.addMouseListener(new InputListener.ButtonListener(new ButtonCallback.start_new_game(this.game)));
-        // ajout des éléments au JPanel
+        // ajout des différents éléments au JPanel
         JPanel control_panel = new JPanel(null);
         control_panel.setBounds(0, 0, 680, 440);
         JPanel panel1 = new JPanel();
@@ -116,12 +114,12 @@ public class NewGamePanel extends JPanel {
         panel3.setBackground(new java.awt.Color(52, 73, 94));
         control_panel.add(panel3);
         control_panel.setBackground(new java.awt.Color(52, 73, 94));
-        this.add(control_panel);
         JPanel menu_panel = new JPanel();
         menu_panel.setBackground(new java.awt.Color(44, 61, 79));
         menu_panel.setBounds(0, 440, 680, 40);
         menu_panel.add(start_button);
         menu_panel.add(back_button);
+        this.add(control_panel);
         this.add(menu_panel);
     }
 }

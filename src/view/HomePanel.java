@@ -1,8 +1,9 @@
+// classe pour le menu principal
+
 package view;
 
 import controller.EventListener.ButtonCallback;
 import controller.EventListener.InputListener;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -18,8 +19,8 @@ public class HomePanel extends JPanel {
         this.setLayout(null);
         JPanel logo_panel = new JPanel();
         logo_panel.setBounds(0,0,680,440);
-        JLabel label = new JLabel("<html><font color='white'>THE ISLAND</font></html>");
-        label.setFont(new Font("Helvetica", Font.PLAIN, 50));
+        JLabel label = new JLabel("<html><font color='white'>A DUNGEON CRAWLER PROTOTYPE</font><br><font color='white' size=10>David Boyker</font></html>");
+        label.setFont(new Font("HelveticaNeue", Font.PLAIN, 30));
         label.setHorizontalAlignment(SwingConstants.CENTER);
         label.setPreferredSize(new Dimension(680,440));
         logo_panel.setBounds(0,0,680,440);

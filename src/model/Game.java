@@ -1,10 +1,10 @@
 package model;
-import controller.EventListener.GameController;
-import controller.Thread.MAPThread;
-import controller.Thread.MiniMapThread;
+
+import controller.GameController.GameController;
+import controller.GameController.MAPThread;
+import controller.GameController.MiniMapThread;
 import model.Map.Map;
 import model.Person.Player.Player;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -15,8 +15,9 @@ public class Game implements Serializable {
 
     private static final long serialVersionUID = 51L;
     private GameController controller;
+    // maps
     private ArrayList<Map> maps = new ArrayList<>();
-    //private Player player;
+    // players
     private Player player_1;
     private Player player_2;
     private Boolean multiplayer = false;
@@ -25,9 +26,10 @@ public class Game implements Serializable {
     private int map_size_x = 100;
     private int map_size_y = 100;
     // Threads
-    private Thread map_thread;
-    private Thread mini_map_thread;
+    private transient Thread map_thread;
+    private transient Thread mini_map_thread;
 
+    // GET & SET
     public void setDifficulty(String difficulty) {if (difficulty == "hard" || difficulty == "normal") {this.difficulty = difficulty;}}
     public void setMap_size_x(int size) {this.map_size_x = size;}
     public void setMap_size_y(int size) {this.map_size_y = size;}
@@ -37,8 +39,8 @@ public class Game implements Serializable {
     public void setPlayer_2(Player player) {this.player_2 = player;}
     public void setMultiplayer(Boolean multiplayer) {this.multiplayer = multiplayer;}
     public Boolean getMultiplayer() {return this.multiplayer;}
-    public ArrayList<Map> getMaps() {return maps;}
     public void setMaps(Map map) {this.maps.add(map);}
+    public ArrayList<Map> getMaps() {return this.maps;}
     public GameController getController() {return this.controller;}
     public void setController(GameController controller) {this.controller = controller;}
 
@@ -67,6 +69,7 @@ public class Game implements Serializable {
         maps.add(map);
         map.generate_map();
 }
+    // lance les différents threads: pour la map, la mini map, les items et les persons
     public void start_threading() {
         //------------- Starting the threads -------------//
         this.map_thread = new Thread(new MAPThread(controller.getFrame()));

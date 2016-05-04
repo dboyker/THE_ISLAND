@@ -3,30 +3,25 @@
 package model.Map;
 import model.Chunk.*;
 import model.Game;
-import model.Item.Heart;
-import model.Item.Coin;
+import model.Item.Collectable.Drug;
+import model.Item.Collectable.MediKit;
+import model.Item.Instantaneous.Heart;
+import model.Item.Instantaneous.Coin;
 import model.Person.NPC.Opponent;
-
-import java.awt.*;
 
 /**
  * Created by davidboyker on 4/04/16.
  */
 public class BuildingMap extends Map {
 
-    Door exit_door;
-    int[] entrance_door_position;
-
-    public BuildingMap(int width, int height, int chunk_size, Game game, Door entrance_door, int[] entrance_door_position) {
+    public BuildingMap(int width, int height, int chunk_size, Game game) {
         super(width, height, chunk_size, game);
-        this.exit_door = new Door(this);
-        this.exit_door.setLeadTo(entrance_door); // les deux portes sont liées entre elles
-        entrance_door.setLeadTo(exit_door);
-        this.entrance_door_position = entrance_door_position;
     }
 
-    @Override
-    public void generate_map() {  // Cette fonction génère aléatoirement l'intérieur d'un building
+    public void generate_map(Door entrance_door, int[] entrance_door_position) {  // Cette fonction génère aléatoirement l'intérieur d'un building
+        Door exit_door = new Door(this);
+        exit_door.setLeadTo(entrance_door); // les deux portes sont liées entre elles
+        entrance_door.setLeadTo(exit_door);
         chunks[entrance_door_position[0]][entrance_door_position[1]] = exit_door;
         int randomx = (int) (width/2 + Math.random()*width/4 - width/8);
         if (randomx == entrance_door_position[0]) { randomx += 1; }
@@ -55,14 +50,14 @@ public class BuildingMap extends Map {
                 float[] position = new float[2];
                 position[0] = randomx;
                 position[1] = randomy;
-                Opponent new_npc = new Opponent(this, position, Color.blue);
+                Opponent new_npc = new Opponent(this, position);
                 this.persons[randomx][randomy] = new_npc;
                 i ++;
             }
         }
         // Placement des objets
         int c = 1;
-        int number_of_items = 8;
+        int number_of_items = 10;
         while (c <= number_of_items) {
             randomx = (int) (Math.random()*width);
             randomy = (int) (Math.random()*height);
@@ -70,8 +65,18 @@ public class BuildingMap extends Map {
             position[0] = randomx;
             position[1] = randomy;
             if (chunks[randomx][randomy].getWalkable() == true) {
-                if (c > 4) {
+                if (c > 6) {
                     new Heart(this, position);
+                }
+                else if (c <= 6 && c > 4) {
+                    MediKit medi_kit = new MediKit();
+                    medi_kit.setMap(this);
+                    medi_kit.setPosition(position);
+                }
+                else if (c <= 4 && c > 2) {
+                    Drug drug = new Drug();
+                    drug.setMap(this);
+                    drug.setPosition(position);
                 }
                 else {
                     new Coin(this, position, 30);

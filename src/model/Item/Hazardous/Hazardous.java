@@ -20,8 +20,5 @@ public class Hazardous extends Item {
     public int getDamage() {
         return this.damage;
     }
-   /* @Override
-    public void interact(Person person) {
-      person.setHealth(damage);
-   }*/
+
 }

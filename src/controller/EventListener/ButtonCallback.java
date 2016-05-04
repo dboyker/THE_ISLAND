@@ -3,7 +3,7 @@
 package controller.EventListener;
 
 import controller.Main;
-import controller.SerialManager;
+import model.SerialManager;
 import model.Game;
 import model.Item.Collectable.Collectable;
 import model.Person.Player.Inventory;
@@ -39,10 +39,10 @@ public interface ButtonCallback {
         private String name;
         public load_game(String name) {this.name = name;}
         public void execute() {
-            SerialManager serial_manager = new SerialManager(Main.frame);
+            SerialManager serial_manager = new SerialManager();
             Game game = serial_manager.load_game(name);
             game.getController().setFrame(Main.frame);
-            game.start();
+            game.getController().load();
         }
     }
 
@@ -50,72 +50,86 @@ public interface ButtonCallback {
         private Game game;
         public save_game(Game game) {this.game = game;}
         public void execute() {
-            SerialManager serial_manager = new SerialManager(Main.frame);
+            SerialManager serial_manager = new SerialManager();
             serial_manager.save_game(game);
         }
     }
 
     class show_inventory implements ButtonCallback {
-        private Game game;
         private GamePanel game_panel;
-        public show_inventory(Game game, GamePanel game_panel) {
-            this.game = game;
-            this.game_panel = game_panel;
-        }
+        public show_inventory(GamePanel game_panel) {this.game_panel = game_panel;}
         public void execute() {
-            game.pause();
+            game_panel.getGame().pause();
             this.game_panel.inventory_panel.display();
         }
     }
 
 
     class resume_game implements ButtonCallback {
-        private Game game;
         private GamePanel game_panel;
-        public resume_game(Game game, GamePanel game_panel) {
-            this.game = game;
+        public resume_game(GamePanel game_panel) {
             this.game_panel = game_panel;
         }
         public void execute() {
             this.game_panel.inventory_panel.setVisible(false);
             this.game_panel.chest_panel.setVisible(false);
             this.game_panel.seller_panel.setVisible(false);
-            game.resume();
+            game_panel.getGame().resume();
         }
     }
 
     class use_item implements ButtonCallback {
-        private Player player;
         private Collectable item;
         private GamePanel game_panel;
 
-        public use_item(Player player, Collectable item, GamePanel game_panel) {
-            this.player = player;
+        public use_item(Collectable item, GamePanel game_panel) {
             this.item = item;
             this.game_panel = game_panel;
         }
         public void execute() {
-            item.use(player);
-            Inventory inventory = player.getInventory();
+            item.use(game_panel.getPlayer());
+            Inventory inventory = game_panel.getPlayer().getInventory();
+            inventory.removeItem(item);
+            this.game_panel.inventory_panel.update();
+        }
+    }
+
+    class throw_item implements ButtonCallback {
+        private Collectable item;
+        private GamePanel game_panel;
+
+        public throw_item(Collectable item, GamePanel game_panel) {
+            this.item = item;
+            this.game_panel = game_panel;
+        }
+        public void execute() {
+            Inventory inventory = game_panel.getPlayer().getInventory();
             inventory.removeItem(item);
             this.game_panel.inventory_panel.display();
         }
     }
 
-    class throw_item implements ButtonCallback {
-        private Player player;
-        private Collectable item;
+    class upgrade_weapon implements ButtonCallback {
+        private String type;
         private GamePanel game_panel;
 
-        public throw_item(Player player, Collectable item, GamePanel game_panel) {
-            this.item = item;
-            this.player = player;
+        public upgrade_weapon(GamePanel game_panel, String type) {
             this.game_panel = game_panel;
+            this.type = type;
         }
         public void execute() {
-            Inventory inventory = player.getInventory();
-            inventory.removeItem(item);
-            this.game_panel.inventory_panel.display();
+            Player player = game_panel.getPlayer();
+            if (player.getMoney() >= 1000) {  // le joueur a assez d'argent pour upgrader ses armes
+                player.setMoney(-1000);
+                if (type == "melee") {
+                    player.setMelee_damage(2);
+                } else if (type == "fire") {
+                    player.setFire_damage(2);
+                } else if (type == "shoot") {
+                    player.setShoot_damage(2);
+                }
+                this.game_panel.status_bar.update();
+            }
         }
     }
 }

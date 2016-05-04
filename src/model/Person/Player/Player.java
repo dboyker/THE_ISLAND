@@ -1,12 +1,12 @@
+// Classe pour les joueurs
+
 package model.Person.Player;
-import controller.Thread.PlayerThread;
 import model.Item.Collectable.Drug;
 import model.Item.Collectable.MediKit;
 import model.Map.Map;
 import model.Person.Person;
 
 import javax.swing.*;
-import java.awt.*;
 
 /**
  * Created by davidboyker on 28/03/16.
@@ -15,14 +15,24 @@ public class Player extends Person {
 
     private Inventory inventory;
 
-    public Player(Map map, float[] position, Color color) {
-        super(map, position, color);
+    public Player(Map map, float[] position) {
+        super(map, position);
         inventory = new Inventory(this);  // creation d'un inventaire pour le joueur
-        MediKit medi_kit = new MediKit();
-        Drug drug = new Drug();
-        this.inventory.setItems(medi_kit);
-        this.inventory.setItems(drug);
-        this.speed = 30;
+        // objets de base dans l'inventaire
+        this.inventory.setItems(new MediKit());
+        this.inventory.setItems(new Drug());
+        this.speed = 30;  // réglage temps de déplacement. Correspond au temps pour parcourir 1pixel, en ms
+        reset_image();
+        this.health = 100;
+        this.money = 1000;
+        this.thread = new Thread(new PlayerThread(this));  // création d'un thread pour chaque joueur
+    }
+
+    // GET & SET
+    public Inventory getInventory() {return this.inventory;}
+
+    @Override
+    public void reset_image() {
         this.image_up = new ImageIcon("image/player/playeru.png").getImage();
         this.image_up_1 = new ImageIcon("image/player/playeru1.png").getImage();
         this.image_up_2 = new ImageIcon("image/player/playeru2.png").getImage();
@@ -36,11 +46,6 @@ public class Player extends Person {
         this.image_right_1 = new ImageIcon("image/player/playerr1.png").getImage();
         this.image_right_2 = new ImageIcon("image/player/playerr2.png").getImage();
         this.image = this.image_down;
-        this.health = 100;
-        this.money = 100;
-        this.thread = new Thread(new PlayerThread(this));
     }
-
-    public Inventory getInventory() {return this.inventory;}
 
 }

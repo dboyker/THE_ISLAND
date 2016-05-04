@@ -12,7 +12,6 @@ import java.awt.*;
  */
 public class Door extends Chunk {
 
-    protected Map map;
     protected Door leadTo;
 
     public Door(Map map) {
@@ -20,8 +19,11 @@ public class Door extends Chunk {
         this.map = map;
     }
 
+    public void reset_image() {
+        image = new ImageIcon("image/door.png").getImage();
+    }
+
     public void setLeadTo(Door leadTo) {this.leadTo = leadTo;}
-    public Door getLeadTo() {return this.leadTo;}
     public Map getMap() {return this.map;}
 
     public void interact(Player player) {
@@ -39,12 +41,12 @@ public class Door extends Chunk {
                     player.setMap(leadTo.map);
                     player.setPosition(position); // change mini map displayed map
                     if (game.getController().getFrame().game_panel_1.getPlayer() == player) {
-                        game.getController().getFrame().game_panel_1.mini_map.setMap(leadTo.map);
-                        game.getController().getFrame().game_panel_1.game_screen.setMap(newMap);  // make the game screen display the new map
+                       // game.getController().getFrame().game_panel_1.mini_map.setMap(leadTo.map);
+                       // game.getController().getFrame().game_panel_1.game_screen.setMap(newMap);  // make the game screen display the new map
                     }
                     else {
-                        game.getController().getFrame().game_panel_2.mini_map.setMap(leadTo.map);
-                        game.getController().getFrame().game_panel_2.game_screen.setMap(newMap);  // make the game screen display the new map
+                       // game.getController().getFrame().game_panel_2.mini_map.setMap(leadTo.map);
+                       // game.getController().getFrame().game_panel_2.game_screen.setMap(newMap);  // make the game screen display the new map
                     }
                 }
             }

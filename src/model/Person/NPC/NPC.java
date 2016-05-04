@@ -1,11 +1,12 @@
-package model.Person.NPC;
-
 /**
  * Created by davidboyker on 31/03/16.
  */
+
+// Interface pour les PNJ
+
+package model.Person.NPC;
+
  interface NPC {
     Boolean getAttacker();
-    void setAttacker(Boolean attacker);
     Boolean getCoward();
-    void setCoward(Boolean coward);
 }

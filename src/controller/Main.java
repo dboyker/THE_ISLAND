@@ -15,7 +15,6 @@ public class Main {
         frame = new Frame();
         frame.run();
         frame.main_menu();  // affichage du menu principal
-        new InputListener(frame); // add listener for keyboard/mouse events
     }
 }
 
