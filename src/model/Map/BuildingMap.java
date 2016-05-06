@@ -1,6 +1,7 @@
-// Class pour les sous maps secondaires: les building
+// Class pour les cartes secondaires: les building
 
 package model.Map;
+
 import model.Chunk.*;
 import model.Game;
 import model.Item.Collectable.Drug;
@@ -18,6 +19,7 @@ public class BuildingMap extends Map {
         super(width, height, chunk_size, game);
     }
 
+    // ---------- Création de la carte -----------
     public void generate_map(Door entrance_door, int[] entrance_door_position) {  // Cette fonction génère aléatoirement l'intérieur d'un building
         Door exit_door = new Door(this);
         exit_door.setLeadTo(entrance_door); // les deux portes sont liées entre elles

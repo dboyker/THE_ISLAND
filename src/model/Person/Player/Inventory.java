@@ -1,42 +1,47 @@
 // Classe pour l'inventaire dont dispose chaque joueur
 
+/**
+ * Created by davidboyker on 2/04/16.
+ */
+
 package model.Person.Player;
 
 import model.Item.Collectable.Collectable;
 import java.io.Serializable;
+import java.util.ArrayList;
 
-/**
- * Created by davidboyker on 2/04/16.
- */
 public class Inventory implements Serializable {
 
     private Player player;
-    private Collectable[] items;
+    private ArrayList<Collectable> items;
     private int inventory_size;
 
 
-    public Inventory(Player player) {
+    public Inventory(Player player, int inventory_size) {
         this.player = player;
-        inventory_size = 2;
-        items = new Collectable[inventory_size];
+        this.inventory_size = inventory_size;
+        items = new ArrayList<Collectable>();
     }
 
     // GET & SET
     public Player getPlayer() {return this.player;}
-    public Boolean setItems(Collectable item) {
+    public ArrayList<Collectable> getItems() {return this.items;}
+    public Boolean setItems(Collectable item) {  // ajout d'un objet à l'inventaire
         int length = 0;
-        for (int i = 0; i < inventory_size; i++) {if (items[i] != null) {length += 1;}}
-        if (length < inventory_size) {items[length] = item; return true;}
+        for (int i = 0; i<items.size(); i++) {
+            if (items.get(i)!= null) {
+                length += 1;
+            }
+        }
+        if (length < inventory_size) {items.add(length, item); return true;}
         else {return false;}  // pas assez de place pour rajouter objet
     }
-    public Collectable[] getItems() {return this.items;}
 
-
-    public void removeItem(Collectable item) {
-        for (int i = 0; i < inventory_size; i++) {
-            if (items[i] == item) {
-                System.out.println("remove item");
-                items[i] = null;
+    public void remove_item(Collectable item) {  // suppresion d'un objet de l'inventaire
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i) == item) {
+                System.out.println("remove item from inventory");
+                items.set(i,null);
             }
         }
     }

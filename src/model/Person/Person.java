@@ -1,4 +1,9 @@
+/**
+ * Created by davidboyker on 28/03/16.
+ */
+
 package model.Person;
+
 import model.Item.Instantaneous.Coin;
 import model.Person.NPC.OpponentThread;
 import model.Person.Player.PlayerThread;
@@ -9,13 +14,9 @@ import model.Chunk.*;
 import model.Item.*;
 import model.Person.NPC.Opponent;
 import model.Person.Player.Player;
-
 import java.awt.*;
 import java.io.Serializable;
 
-/**
- * Created by davidboyker on 28/03/16.
- */
 
 public class Person implements Serializable {
 
@@ -31,9 +32,11 @@ public class Person implements Serializable {
     protected int[] direction;
     protected int dx = 0;
     protected int dy = 0;
+    // indicateurs d'attaques. Sont modifiés par un threas si PNJ ou par le clavier si joueur. Il dictent le comportement de la fonction attack()
     protected Boolean melee_attack = false;
     protected Boolean fire_attack = false;
     protected Boolean shoot_attack = false;
+    // couleur
     protected java.awt.Color color;
     // différentes images pour les animations
     protected transient Image image;
@@ -59,7 +62,7 @@ public class Person implements Serializable {
         this.color = Color.red;
     }
 
-    // SET & GET
+    // ---------- SET & GET ----------
     public Image getImage() {return this.image;}
     public void reset_image() {}
     public void setPosition(float[] position) {
@@ -67,6 +70,7 @@ public class Person implements Serializable {
         this.map.getPersons()[(int) position[0]][(int) position[1]] = this;
     }
     public float[] getPosition() {return this.position;}
+    public int[] getDirection() {return this.direction;}
     public void setDx(int dx) {this.dx = dx;}
     public void setDy(int dy) {this.dy = dy;}
     public void setMelee_attack(Boolean b) {this.melee_attack = b;}
@@ -83,14 +87,14 @@ public class Person implements Serializable {
             pos[0] = (int) position[0];
             pos[1] = (int) position[1];
             new Coin(map, pos, this.money);  // drop money
-            if (this.getClass() == model.Person.Player.Player.class) {
-                map.game.getController().game_over();
-            }
             this.image = null;
+            if (this.getClass() == model.Person.Player.Player.class) {
+                map.getGame().getController().game_over();
+            }
             this.thread = null;
-            map.deletPerson(this);
+            map.delete_person(this);
         }
-        if (this.health > 100) {  // sa santé à un palier à 100
+        if (this.health > 100) {  // la santé a un palier à 100
             this.health = 100;
         }
     }
@@ -104,7 +108,7 @@ public class Person implements Serializable {
     public void setShoot_damage(int c) {this.shoot_damage *= c;}
     public void setSpeed(int value) {this.speed = value;System.out.println(this.speed);}
 
-
+    // ---------- Threading ----------
     public void startThread() {
         try {this.thread.start();}
         catch (NullPointerException e) {
@@ -129,7 +133,7 @@ public class Person implements Serializable {
         catch (NullPointerException e) {}
     }
 
-
+    // ---------- Déplacements et attaques ----------
     // fonction de déplacement de l'objet Person
     public void move() {
         if (dx != 0 || dy != 0) {
@@ -152,8 +156,16 @@ public class Person implements Serializable {
                     }
                 }
             }
-            Chunk next_chunk = map.getChunks()[(int) (position[0]) + dx][(int) (position[1]) + dy];
-            Person next_person = map.getPersons()[(int) (position[0]) + dx][(int) (position[1]) + dy];
+            Chunk next_chunk;
+            try {
+                next_chunk = map.getChunks()[(int) (position[0]) + dx][(int) (position[1]) + dy];
+            }
+            catch (ArrayIndexOutOfBoundsException e) {next_chunk = null;}
+            Person next_person;
+            try {
+                next_person = map.getPersons()[(int) (position[0]) + dx][(int) (position[1]) + dy];
+            }
+            catch (ArrayIndexOutOfBoundsException e) {next_person = null;}
             if (!next_chunk.getWalkable() || next_person != null) {
                 // impossible to move
                 this.dx = 0;
@@ -224,14 +236,14 @@ public class Person implements Serializable {
                 Chunk chunk = map.getChunks()[(int) position[0]][(int) position[1]];
                 if (this.getClass() == model.Person.Player.Player.class) { chunk.interact((Player) this); }
                 Item item = map.getItems()[(int) position[0]][(int) position[1]];
-                try {item.interact(this);}
-                catch (NullPointerException e) {}
+                if (item != null) {if (this.getClass() == model.Person.Player.Player.class) { item.interact((Player) this); }}
             }
         }
     }
 
-    public void attack() {
+    public void attack() {  // fonction pour l'attaque. Elle lis les préférences d'attaque dictées par le thread de la personne (npc) ou le clavier (player) et lance l'attaque adéquate
         Boolean attack = false;
+        // une seule attaque est possible en même temps
         if (this.melee_attack) {
             melee_attack();
             attack = true;
@@ -244,7 +256,7 @@ public class Person implements Serializable {
             shoot_attack();
             attack = true;
         }
-        if (attack == true) {
+        if (attack) {  // après l'attaque, remise à zéro des indicateurs d'attaque
             this.shoot_attack = false;
             this.fire_attack = false;
             this.melee_attack = false;
@@ -267,7 +279,7 @@ public class Person implements Serializable {
         int target_pos_x = (int) this.position[0] + this.direction[0];
         int target_pos_y = (int) this.position[1] + this.direction[1];
         Person opponent;
-        opponent = map.getPersons()[(int) target_pos_x][(int) target_pos_y];
+        opponent = map.getPersons()[target_pos_x][target_pos_y];
         int damage = this.melee_damage;
         if (opponent != null) {
             opponent.setHealth(damage);

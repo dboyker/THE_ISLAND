@@ -1,12 +1,13 @@
-package model.Chunk;
-
-import javafx.scene.paint.Color;
-
-import javax.swing.*;
+// Classe pour l'herbe, sur la carte
 
 /**
  * Created by davidboyker on 31/03/16.
  */
+
+package model.Chunk;
+
+import javax.swing.*;
+
 public class Grass extends Chunk {
 
     public Grass() {

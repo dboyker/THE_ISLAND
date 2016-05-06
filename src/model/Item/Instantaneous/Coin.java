@@ -1,8 +1,11 @@
+// Classe pour les pièces à ramasser
+
 package model.Item.Instantaneous;
 
 import model.Item.Item;
 import model.Person.Person;
 import model.Map.Map;
+import model.Person.Player.Player;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,9 +24,8 @@ public class Coin extends Item {
         map.getItems()[(int) position[0]][(int) position[1]] = this;
     }
 
-    @Override
-    public void interact(Person person) {
-        person.setMoney(this.value);
-        map.deleteItem(this);
+    public void interact(Player player) {
+        player.setMoney(this.value);
+        map.delete_item(this);
     }
 }

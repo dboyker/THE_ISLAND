@@ -1,3 +1,5 @@
+// classe pour le dock, sur lequel le joueur comme la partie
+
 package model.Chunk;
 
 import javax.swing.*;
@@ -14,7 +16,7 @@ public class Dock extends Chunk {
         this.type = type;
         reset_image();
     }
-
+    @Override
     public void reset_image() {
         if (this.type.equals("bottom")) {image = new ImageIcon("image/dockb.png").getImage();}
         else if (this.type.equals("top")) {image = new ImageIcon("image/dockt.png").getImage();}

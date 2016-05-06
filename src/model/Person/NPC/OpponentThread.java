@@ -1,8 +1,8 @@
+// Thread pour les PNJ de type adversaire (Opponent)
+
 /**
  * Created by davidboyker on 30/03/16.
  */
-
-// Thread pour les PNJ de type adversaire (Opponent)
 
 package model.Person.NPC;
 
@@ -20,14 +20,13 @@ public class OpponentThread implements Runnable {
     public void run() {
         while (true) {
             try {
-                Thread.sleep(500);
+                Thread.sleep(500); // 1/2 seconde de délai entre chaque action
             } catch(InterruptedException ex) {
                 Thread.currentThread().interrupt();
             }
-            Boolean need_to_act = false;
             // si il y a deux joueurs sur la partie, calcul des distances entre ces deux joeurs et le PNJ auquel se thread se rapporte
-            Player player_1 = opponent.getMap().game.getPlayer_1();
-            Player player_2 = opponent.getMap().game.getPlayer_2();
+            Player player_1 = opponent.getMap().getGame().getPlayer_1();
+            Player player_2 = opponent.getMap().getGame().getPlayer_2();
             if (player_2 == null) {player_2 = player_1;}
             Player player;
             int distance_to_player_1 = (int) (Math.abs(player_1.getPosition()[0] - opponent.getPosition()[0]) + Math.abs(player_1.getPosition()[1] - opponent.getPosition()[1]));
@@ -46,6 +45,7 @@ public class OpponentThread implements Runnable {
             float npc_posy = (int) opponent.getPosition()[1];
             // si joueur suffisament proche, le PNJ doit agir
             int number_of_chunks_to_act = 10;
+            Boolean need_to_act = false;
             if (Math.abs(npc_posx - player_posx) < number_of_chunks_to_act && Math.abs(npc_posy - player_posy) < number_of_chunks_to_act) {
                 need_to_act = true; // le joueur est près du PNJ, celui doit faire quelque chose!
             }

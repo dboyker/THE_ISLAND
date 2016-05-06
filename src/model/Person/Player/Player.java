@@ -1,5 +1,9 @@
 // Classe pour les joueurs
 
+/**
+ * Created by davidboyker on 28/03/16.
+ */
+
 package model.Person.Player;
 import model.Item.Collectable.Drug;
 import model.Item.Collectable.MediKit;
@@ -8,16 +12,15 @@ import model.Person.Person;
 
 import javax.swing.*;
 
-/**
- * Created by davidboyker on 28/03/16.
- */
 public class Player extends Person {
 
     private Inventory inventory;
+    private Inventory chest;
 
     public Player(Map map, float[] position) {
         super(map, position);
-        inventory = new Inventory(this);  // creation d'un inventaire pour le joueur
+        inventory = new Inventory(this, 5);  // creation d'un inventaire pour le joueur. contenance de 5 items max
+        chest = new Inventory(this, 100);  // 100 emplacements pour stocker des items
         // objets de base dans l'inventaire
         this.inventory.setItems(new MediKit());
         this.inventory.setItems(new Drug());
@@ -30,6 +33,7 @@ public class Player extends Person {
 
     // GET & SET
     public Inventory getInventory() {return this.inventory;}
+    public Inventory getChest() {return this.chest;}
 
     @Override
     public void reset_image() {
@@ -46,6 +50,20 @@ public class Player extends Person {
         this.image_right_1 = new ImageIcon("image/player/playerr1.png").getImage();
         this.image_right_2 = new ImageIcon("image/player/playerr2.png").getImage();
         this.image = this.image_down;
+    }
+
+    // fonction pour l'amélioration des dégats d'attaque
+    public void upgrade_attack(String type) {
+        if (money >= 1000) {  // le joueur a assez d'argent pour upgrader ses attaques
+            this.setMoney(-1000);
+            if (type == "melee") {
+                this.setMelee_damage(2);
+            } else if (type == "fire") {
+                this.setFire_damage(2);
+            } else if (type == "shoot") {
+                this.setShoot_damage(2);
+            }
+        }
     }
 
 }

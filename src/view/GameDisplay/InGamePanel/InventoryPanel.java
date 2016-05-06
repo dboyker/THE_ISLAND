@@ -1,19 +1,18 @@
+/**
+ * Created by davidboyker on 16/04/16.
+ */
+
 package view.GameDisplay.InGamePanel;
 
 import controller.EventListener.ButtonCallback;
 import controller.EventListener.InputListener;
 import model.Item.Collectable.Collectable;
-import model.Person.Player.Inventory;
-import model.*;
 import view.GameDisplay.GamePanel;
-import view.GameDisplay.InGamePanel.InGamePanel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
-/**
- * Created by davidboyker on 16/04/16.
- */
 public class InventoryPanel extends JPanel implements InGamePanel {
 
     private GamePanel game_panel;
@@ -34,11 +33,11 @@ public class InventoryPanel extends JPanel implements InGamePanel {
         JButton exit_button = new JButton("resume");
         exit_button.addMouseListener(new InputListener.ButtonListener(new ButtonCallback.resume_game(game_panel)));
         exit_button.setFocusable(false);
-        Collectable[] items = game_panel.getPlayer().getInventory().getItems();
+        ArrayList<Collectable> items = game_panel.getPlayer().getInventory().getItems();
         int i;
-        for (i = 0; i < items.length; i++) {
-            if (items[i] != null) {
-                Collectable item = items[i];
+        for (i = 0; i < items.size(); i++) {
+            if (items.get(i) != null) {
+                Collectable item = items.get(i);
                 JLabel label = new JLabel(item.getName());
                 JButton use_button = new JButton("use");
                 use_button.addMouseListener(new InputListener.ButtonListener(new ButtonCallback.use_item(item, game_panel)));

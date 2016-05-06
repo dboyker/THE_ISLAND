@@ -1,6 +1,7 @@
+// Classe thread pour les objets Drug
+
 package model.Item.Collectable;
 
-import model.Item.Collectable.Drug;
 import model.Person.Person;
 
 /**
@@ -17,17 +18,17 @@ public class DrugThread implements Runnable {
     }
 
     public void run() {
-        person.setSpeed(10);
+        person.setSpeed(10);  // augmentation du délai de déplacement du joueur, c'est à dire sa vitesse
         int c = 1;
-        while (c <= 10) {
-            try {
-                Thread.sleep(1000);
-            } catch(InterruptedException ex) {
-                Thread.currentThread().interrupt();
-            }
-            c ++;
+
+        try {
+            Thread.sleep(15000);  // 15 secondes d'effet
+        } catch(InterruptedException ex) {
+            Thread.currentThread().interrupt();
         }
-        person.setSpeed(30);
-        drug.terminate_thread();
+        c ++;
+
+        person.setSpeed(30);  // la vitesse du joueur est remise à zéro
+        drug.terminate_thread();  // fin de l'effet
     }
 }

@@ -1,8 +1,8 @@
+// Interface pour les PNJ
+
 /**
  * Created by davidboyker on 31/03/16.
  */
-
-// Interface pour les PNJ
 
 package model.Person.NPC;
 

@@ -20,7 +20,7 @@ public class StatusBar extends JPanel {
     private JLabel money_label;
     private JLabel villagers_label;
 
-    public StatusBar(Game game, GamePanel game_panel) {
+    public StatusBar(GamePanel game_panel) {
         this.game_panel = game_panel;
         this.setBounds(0,0,680,40);
         this.setBackground(new java.awt.Color(44, 61, 79));
@@ -32,11 +32,11 @@ public class StatusBar extends JPanel {
         inventory_button.addMouseListener(new InputListener.ButtonListener(new ButtonCallback.show_inventory(game_panel)));
         inventory_button.setFocusable(false);
         int health = game_panel.getPlayer().getHealth();
-        health_label = new JLabel("<3 "+health+"");
+        health_label = new JLabel("Life: "+health+"");
         int money = game_panel.getPlayer().getMoney();
-        money_label = new JLabel("$ "+money+"");
+        money_label = new JLabel("Money: "+money+"$");
         int number_of_villagers = game_panel.getGame().count_villagers();  // calcul du nombre de villageois
-        villagers_label = new JLabel("number of villager: "+number_of_villagers+"");
+        villagers_label = new JLabel("Number of villagers: "+number_of_villagers+"");
         this.add(inventory_button);
         this.add(health_label);
         this.add(money_label);
@@ -46,17 +46,17 @@ public class StatusBar extends JPanel {
     public void update() {
         int health = game_panel.getPlayer().getHealth();
         int money = game_panel.getPlayer().getMoney();
-        this.health_label.setText("<3 "+health+"");
-        this.money_label.setText("$ "+money);
+        this.health_label.setText("Life: "+health+"");
+        this.money_label.setText("Money: "+money+"$");
         int number_of_villagers = game_panel.getGame().count_villagers();  // calcul du nombre de villageois
-        this.villagers_label.setText("number of villager: "+number_of_villagers+"");
+        this.villagers_label.setText("Number of villagers: "+number_of_villagers+"");
     }
 
     public void game_over() {
         this.removeAll();
         // pop up de game over
-        // JFrame frame = new JFrame();
-        // JOptionPane.showMessageDialog(frame , "GAME OVER");
+        JFrame frame = new JFrame();
+        JOptionPane.showMessageDialog(frame , "GAME OVER");
     }
 
 }

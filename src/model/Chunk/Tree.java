@@ -1,10 +1,14 @@
-package model.Chunk;
+// Classe pour les arbres, sur la carte
 
-import javax.swing.*;
 
 /**
  * Created by davidboyker on 17/04/16.
  */
+
+package model.Chunk;
+
+import javax.swing.*;
+
 public class Tree extends Chunk {
 
     private String type;

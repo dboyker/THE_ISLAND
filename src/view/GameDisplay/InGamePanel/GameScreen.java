@@ -1,6 +1,9 @@
+/**
+ * Created by davidboyker on 16/04/16.
+ */
+
 package view.GameDisplay.InGamePanel;
 
-import model.Game;
 import model.Chunk.Chunk;
 import model.Map.Map;
 import model.Person.Person;
@@ -11,16 +14,11 @@ import view.GameDisplay.GamePanel;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * Created by davidboyker on 16/04/16.
- */
 public class GameScreen extends JPanel {
 
     private GamePanel game_panel;
 
-    public GameScreen(GamePanel game_panel) {
-        this.game_panel = game_panel;
-    }
+    public GameScreen(GamePanel game_panel) {this.game_panel = game_panel;}
 
     public void paint(Graphics g)
     {
@@ -39,7 +37,7 @@ public class GameScreen extends JPanel {
         for (int i = (int) offsety; i < map.getHeight(); i++) {
             for (int j = (int) offsetx; j < map.getWidth(); j ++) {
                 Color color = Color.white;
-                try {color = chunks[j][i].color;}
+                try {color = chunks[j][i].getColor();}
                 catch (ArrayIndexOutOfBoundsException u) {}
                 g.setColor(color);
                 int chunk_size = map.getChunk_size();

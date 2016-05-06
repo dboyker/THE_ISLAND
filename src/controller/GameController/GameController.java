@@ -1,3 +1,7 @@
+/**
+ * Created by davidboyker on 30/04/16.
+ */
+
 // Classe nécessaire au contrôle d'une partie. Permets de gérer les opérations principales: démarrer, quitter, game over,...
 
 package controller.GameController;
@@ -6,35 +10,26 @@ import model.Game;
 import model.Map.Map;
 import model.Person.Player.Player;
 import view.Frame;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
-/**
- * Created by davidboyker on 30/04/16.
- */
 public class GameController implements Serializable{
 
     private static final long serialVersionUID = 51L;
     private Game game;
-    private Frame frame;
 
-    public GameController(Game game, Frame frame) {
+    public GameController(Game game) {
         this.game = game;
-        this.frame = frame;
     }
-
-    public Frame getFrame() {return this.frame;}
-    public void setFrame(Frame frame) {this.frame = frame;}
 
     public void start() { // démarre une nouvelle partie
         game.start();
-        frame.start_new_game(game);  // affiche le panel du jeu
+        Frame.start_new_game(game);  // affiche le panel du jeu
         game.start_threading();  // lance les thread
     }
 
     public void load() {  // charge une partie en mémoire
-        frame.start_new_game(game);  // affiche le panel du jeu
+        Frame.start_new_game(game);  // affiche le panel du jeu
         ArrayList<Map> maps = game.getMaps();   // reset les images
         for (int c = 0; c < maps.size(); c++) {
             Map map = maps.get(c);
@@ -56,23 +51,32 @@ public class GameController implements Serializable{
     }
 
     // fin de partie
+    public void quit_game() {
+        System.out.println("----------quit game----------");
+        try {game.pause();game = null;}
+        catch (NullPointerException e) {}
+        Frame.main_menu();
+    }
+
+    // game over
     public void game_over() {
-        System.out.println("game over");
-        this.frame.game_panel_1.status_bar.game_over();
+        System.out.println("----------game over----------");
+        Frame.getGame_panel_1().status_bar.game_over();
         if (game.getMultiplayer()) {
-            this.frame.game_panel_2.status_bar.game_over();
+            Frame.getGame_panel_2().status_bar.game_over();
         }
         game.pause();
+        game = null;
     }
 
     // ouverture d'une chest
     public void chest(Player player) {
         System.out.println("chest");
-        if (this.frame.game_panel_1.getPlayer() == player) {
-            this.frame.game_panel_1.chest_panel.display();
+        if (Frame.getGame_panel_1().getPlayer() == player) {
+            Frame.getGame_panel_1().chest_panel.display();
         }
         else {
-            this.frame.game_panel_2.chest_panel.display();
+            Frame.getGame_panel_2().chest_panel.display();
         }
         game.pause();
     }
@@ -80,11 +84,11 @@ public class GameController implements Serializable{
     // interface seller
     public void seller(Player player) {
         System.out.println("seller");
-        if (this.frame.game_panel_1.getPlayer() == player) {
-            this.frame.game_panel_1.seller_panel.display();
+        if (Frame.getGame_panel_1().getPlayer() == player) {
+            Frame.getGame_panel_1().seller_panel.display();
         }
         else {
-            this.frame.game_panel_2.seller_panel.display();
+            Frame.getGame_panel_2().seller_panel.display();
         }
         game.pause();
     }

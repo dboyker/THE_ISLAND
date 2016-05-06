@@ -6,10 +6,10 @@
 
 package model.Person.NPC;
 
+import model.Chunk.Chunk;
 import model.Map.Map;
 import model.Person.Person;
 import model.Person.Player.Player;
-
 import javax.swing.*;
 
 public class Opponent extends Person implements NPC {
@@ -19,9 +19,19 @@ public class Opponent extends Person implements NPC {
     public Opponent(Map map, float[] position) {
         super(map, position);
         double random = (Math.random()*1);
-        if (random > 0.5) {this.attacker = true; this.coward = false;}
+        double proba;
+        if (map.getGame().getDifficulty().equals("hard")) {  // si diffuculté = hard, la probabilité que les opponents soient de type attacker augmente
+            proba = 0.8;  // environ 80% des opponents sont aggressifs vis à vis du joueur
+        }
+        else {
+            proba = 0.5;  // environ 50% des opponents sont aggressifs vis à vis du joueur
+        }
+        if (random > proba) {this.attacker = true; this.coward = false;}
         else {this.attacker = false; this.coward = true;}
-        this.health = 30;
+        if (this.map.getGame().getDifficulty().equals("hard")) {
+            this.health = 50;  // si la partie est en difficulté hard, le joueur a plus de points de vie
+        }
+        else {this.health = 30;}
         this.money = 25;
         reset_image();
         this.thread = new Thread(new OpponentThread(this));
@@ -29,28 +39,39 @@ public class Opponent extends Person implements NPC {
 
     // GET & SET
     public Boolean getAttacker() {return this.attacker;}
-    public void setAttacker(Boolean attacker) {this.attacker = attacker;}
     public Boolean getCoward() {return this.coward;}
-    public void setCoward(Boolean coward) {this.coward = coward;}
 
 
+    // ---------- Fonctions pour l'AI ----------
+    // fonce vers le joueur
     public void go_to_player(Player player) {  // fonction qui dicte les déplacements du PNJ si celui-ci doit aller vers un joueur et l'attaque
-        if (player.getPosition()[0] != this.position[0]) {  // déplacement en X
-            int dx = (int) ((player.getPosition()[0] - this.position[0]) / Math.abs(player.getPosition()[0] - this.position[0]));
-            this.setDx(dx);
-            this.setDy(0);
+        int desired_dx = 0;
+        int desired_dy = 0;
+        if (player.getPosition()[0] != this.position[0]) {  // déplacement désiré en X
+            desired_dx = (int) ((player.getPosition()[0] - this.position[0]) / Math.abs(player.getPosition()[0] - this.position[0]));
         }
-        else if (player.getPosition()[1] != this.position[1]){  // déplacement en Y
-            int dy = (int) ((player.getPosition()[1] - this.position[1]) / Math.abs(player.getPosition()[1] - this.position[1]));
-            this.setDx(0);
-            this.setDy(dy);
+        else if (player.getPosition()[1] != this.position[1]){  // déplacement désiré en Y
+            desired_dy = (int) ((player.getPosition()[1] - this.position[1]) / Math.abs(player.getPosition()[1] - this.position[1]));
         }
+
+        // déplacement en x ou y? test si le npc sait se déplacer en x, sinon déplacement en y
+        Chunk next_chunk = this.map.getChunks()[(int) this.position[0] + desired_dx][(int) this.position[1]];
+        if (next_chunk.getWalkable()) {  // le joueur peut se déplacer en x
+            this.dx = desired_dx;
+            this.dy = desired_dy;
+        }
+        else {
+            this.dx = 0;
+            this.dy = desired_dy;
+        }
+
+
         if (Math.abs(player.getPosition()[0] - this.position[0]) < 2 && Math.abs(player.getPosition()[1] - this.position[1]) < 2) {
             this.melee_attack();  // si le joueur est tout près, attaque
         }
     }
 
-
+    // fuis le joueur
     public void escape_player(Player player) {  // fonction qui dicte les déplacements du PNJ si celui-ci doit fuire un joueur
         int dx = -1 * (int) ((player.getPosition()[0] - this.position[0]) / Math.abs(player.getPosition()[0] - this.position[0]));
         if (!map.getChunks()[(int)this.position[0] + dx][(int)this.position[1]].getWalkable() || dx == 0) {

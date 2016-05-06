@@ -9,9 +9,7 @@ public class PlayerThread implements Runnable {
 
     private Player player;
 
-    public PlayerThread(Player player) {
-        this.player = player;
-    }
+    public PlayerThread(Player player) {this.player = player;}
 
     public void run() {
         while (true) {

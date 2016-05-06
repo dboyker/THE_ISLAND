@@ -12,6 +12,8 @@ import javax.swing.*;
 
 public class Seller extends Person implements NPC {
 
+    private static final long serialVersionUID = 51L;
+
     public Seller(Map map, float[] position) {
         super(map, position);
         reset_image();
@@ -20,9 +22,7 @@ public class Seller extends Person implements NPC {
 
     // GET & SET
     public Boolean getAttacker() {return false;}
-    public void setAttacker(Boolean attacker) {}
     public Boolean getCoward() {return false;}
-    public void setCoward(Boolean coward) {}
 
     @Override
     public void reset_image() {

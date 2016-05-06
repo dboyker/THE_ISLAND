@@ -24,10 +24,10 @@ public class FireThread implements Runnable {
             Person victim = fire.getMap().getPersons()[pos_x][pos_y];
             if (victim != null) {
                 // si une personne se trouve à la même position que l'objet Fire, il se voit affligé des dégâts
-                victim.setHealth(fire.getDamage()/5);
+                victim.setHealth(fire.getDamage()/10);
             }
             try {
-                Thread.sleep(50);
+                Thread.sleep(100); // une personne peut etre blessé jusqu'à 10 fois par seconde par le feu
             } catch(InterruptedException ex) {
                 Thread.currentThread().interrupt();
             }

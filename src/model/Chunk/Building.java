@@ -1,11 +1,14 @@
+// Objets pour l'extérieur des batiments
+
+/**
+ * Created by davidboyker on 31/03/16.
+ */
+
 package model.Chunk;
 
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * Created by davidboyker on 31/03/16.
- */
 public class Building extends Chunk {
 
     private String type;
@@ -16,6 +19,7 @@ public class Building extends Chunk {
             reset_image();
         }
 
+    @Override
     public void reset_image() {
         if (type.equals("rtl")) {this.image = new ImageIcon("image/building/rooftl.png").getImage();}
         else if (type.equals("rtr")) {this.image = new ImageIcon("image/building/rooftr.png").getImage();}

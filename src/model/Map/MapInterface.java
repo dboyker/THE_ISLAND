@@ -11,8 +11,8 @@ import model.Person.Person;
 public interface MapInterface {
     Chunk[][] getChunks();
     Item[][] getItems();
-    void deletPerson(Person person);
-    void deleteItem(Item item);
+    void delete_person(Person person);
+    void delete_item(Item item);
     int getHeight();
     int getWidth();
     int getChunk_size();

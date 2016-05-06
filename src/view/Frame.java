@@ -11,20 +11,23 @@ import java.io.Serializable;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Frame implements Serializable {
-    private JFrame frame;
-    private JPanel main_panel;
-    private JPanel home_panel;
-    public GamePanel game_panel_1;
-    public GamePanel game_panel_2;
-    public LoadGamePanel load_game_panel;
-    public NewGamePanel new_game_panel;
-    private int frame_width = 680;
-    private int frame_height = 500;
+public final class Frame implements Serializable {
+    private static JFrame frame;
+    private static JPanel main_panel;
+    private static JPanel home_panel;
+    private static GamePanel game_panel_1;
+    private static GamePanel game_panel_2;
+    private static LoadGamePanel load_game_panel;
+    private static NewGamePanel new_game_panel;
+    private static int frame_width = 680;
+    private static int frame_height = 500;
 
+    public static GamePanel getGame_panel_1() {return game_panel_1;}
+    public static GamePanel getGame_panel_2() {return game_panel_2;}
 
     public void run() {
         frame = new JFrame("");
+        frame.getContentPane().setBackground(Color.black);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         main_panel = new JPanel(new BorderLayout());
         frame.getContentPane().add(main_panel);
@@ -37,42 +40,33 @@ public class Frame implements Serializable {
     }
 
 
-    public void main_menu() {
+    public static void main_menu() {
         main_panel.removeAll();
         home_panel = new HomePanel();
         main_panel.add(home_panel);
         // change la taille de la frame principale
-        frame.setBounds(100, 100, frame_width, frame_height);
-        // supprime mini map frame if need
-        try {
-            game_panel_1.mini_map_frame.dispose();
-        }
-        catch (NullPointerException e) {}
-        try {
-            game_panel_2.mini_map_frame.dispose();
-        }
-        catch (NullPointerException e) {}
+        frame.setBounds(200, 100, frame_width, frame_height);
         main_panel.revalidate();
     }
 
-    public void load_game_panel() {
+    public static void load_game_panel() {
         main_panel.removeAll();
         load_game_panel = new LoadGamePanel();
         main_panel.add(load_game_panel);
         main_panel.revalidate();
     }
 
-    public void new_game_panel() {
+    public static void new_game_panel() {
         main_panel.removeAll();
         Game game = new Game();
-        GameController controller = new GameController(game, this);
+        GameController controller = new GameController(game);
         game.setController(controller);
         new_game_panel = new NewGamePanel(game);
         main_panel.add(new_game_panel);
         main_panel.revalidate();
     }
 
-    public void start_new_game(Game game) {
+    public static void start_new_game(Game game) {
         frame.addKeyListener(new InputListener.KeyboardListener(game));
         main_panel.removeAll();
         if (game.getMultiplayer()) {
@@ -99,7 +93,6 @@ public class Frame implements Serializable {
             main_panel.add(game_panel_1);
             main_panel.revalidate();
         }
-
     }
 }
 

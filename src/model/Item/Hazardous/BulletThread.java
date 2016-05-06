@@ -2,8 +2,6 @@
 
 package model.Item.Hazardous;
 
-import model.Item.Hazardous.Bullet;
-
 /**
  * Created by davidboyker on 28/04/16.
  */
@@ -15,7 +13,7 @@ public class BulletThread implements Runnable {
 
     public void run() {
         try {
-            Thread.sleep(200);
+            Thread.sleep(200); // délai avant le premier déplacement
         } catch(InterruptedException ex) {
             Thread.currentThread().interrupt();
         }
@@ -25,7 +23,7 @@ public class BulletThread implements Runnable {
             } catch(InterruptedException ex) {
                 Thread.currentThread().interrupt();
             }
-            // move the bullet
+            // déplace le bullet
             bullet.move();
         }
     }

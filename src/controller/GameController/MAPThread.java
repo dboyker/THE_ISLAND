@@ -9,20 +9,19 @@ import view.Frame;
  */
 public class MAPThread implements Runnable {
 
-    private Frame frame;
-
-    public MAPThread(Frame frame) {this.frame = frame;}
+    public MAPThread() {}
 
     public void run() {
         while (true) {
+            // toutes les 5 ms, l'écran de jeu se rafraichit pour mettre à jour, les personnages, les objets, les chunks, ...
             try {
                 Thread.sleep(5);
             } catch(InterruptedException ex) {
                 Thread.currentThread().interrupt();
             }
-            // toutes les 5 ms, l'écran de jeu se rafraichit pour mettre à jour, les personnages, les objets, les chunks, ...
-            frame.game_panel_1.update();
-            try {frame.game_panel_2.update();}
+            // mise à jour des écrans de jeu
+            Frame.getGame_panel_1().update();
+            try {Frame.getGame_panel_2().update();}  // si multijoueur, deuxième écran de jeu
             catch (NullPointerException e) {}
         }
     }
