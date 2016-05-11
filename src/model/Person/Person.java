@@ -157,16 +157,18 @@ public class Person implements Serializable {
                 }
             }
             Chunk next_chunk;
+            Boolean walkable;
             try {
                 next_chunk = map.getChunks()[(int) (position[0]) + dx][(int) (position[1]) + dy];
+                walkable = next_chunk.getWalkable();
             }
-            catch (ArrayIndexOutOfBoundsException e) {next_chunk = null;}
+            catch (ArrayIndexOutOfBoundsException e) {next_chunk = null;walkable=false;}
             Person next_person;
             try {
                 next_person = map.getPersons()[(int) (position[0]) + dx][(int) (position[1]) + dy];
             }
             catch (ArrayIndexOutOfBoundsException e) {next_person = null;}
-            if (!next_chunk.getWalkable() || next_person != null) {
+            if (!walkable || next_person != null) {
                 // impossible to move
                 this.dx = 0;
                 this.dy = 0;
@@ -279,7 +281,10 @@ public class Person implements Serializable {
         int target_pos_x = (int) this.position[0] + this.direction[0];
         int target_pos_y = (int) this.position[1] + this.direction[1];
         Person opponent;
-        opponent = map.getPersons()[target_pos_x][target_pos_y];
+        try {
+            opponent = map.getPersons()[target_pos_x][target_pos_y];
+        }
+        catch (ArrayIndexOutOfBoundsException e) {opponent = null;}
         int damage = this.melee_damage;
         if (opponent != null) {
             opponent.setHealth(damage);

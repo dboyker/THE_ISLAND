@@ -13,6 +13,7 @@ import model.Person.Player.Player;
 import javax.swing.*;
 
 public class Opponent extends Person implements NPC {
+
     private Boolean attacker = false;
     private Boolean coward = false;
 
@@ -55,16 +56,54 @@ public class Opponent extends Person implements NPC {
         }
 
         // déplacement en x ou y? test si le npc sait se déplacer en x, sinon déplacement en y
-        Chunk next_chunk = this.map.getChunks()[(int) this.position[0] + desired_dx][(int) this.position[1]];
-        if (next_chunk.getWalkable()) {  // le joueur peut se déplacer en x
-            this.dx = desired_dx;
-            this.dy = desired_dy;
+        if (desired_dx !=0) {
+            Chunk next_chunk = this.map.getChunks()[(int) this.position[0] + desired_dx][(int) this.position[1]];
+            Person next_person = this.map.getPersons()[(int) this.position[0] + desired_dx][(int) this.position[1]];
+            try {if (next_person.getClass() == model.Person.Player.Player.class) {next_person = null;}}
+            catch (NullPointerException e) {}
+            if (next_chunk.getWalkable() && next_person == null) {  // le joueur peut se déplacer en x
+                this.dx = desired_dx;
+                this.dy = 0;
+            }
+            else {  // déplacement en y
+                next_chunk = this.map.getChunks()[(int) this.position[0]][(int) this.position[1] + 1];
+                next_person = this.map.getPersons()[(int) this.position[0]][(int) this.position[1] + 1];
+                try {if (next_person.getClass() == model.Person.Player.Player.class) {next_person = null;}}
+                catch (NullPointerException e) {}
+                if (next_chunk.getWalkable() && next_person == null) {
+                    this.dx = 0;
+                    this.dy = 1;
+                }
+                else {
+                    this.dx = 0;
+                    this.dy = -1;
+                }
+            }
         }
-        else {
-            this.dx = 0;
-            this.dy = desired_dy;
+        else if (desired_dy !=0) {
+            Chunk next_chunk = this.map.getChunks()[(int) this.position[0]][(int) this.position[1] + desired_dy];
+            Person next_person = this.map.getPersons()[(int) this.position[0]][(int) this.position[1] + desired_dy];
+            try {if (next_person.getClass() == model.Person.Player.Player.class) {next_person = null;}}
+            catch (NullPointerException e) {}
+            if (next_chunk.getWalkable() && next_person == null) {  // le joueur peut se déplacer en y
+                this.dx = 0;
+                this.dy = desired_dy;
+            }
+            else {  // déplacement en x
+                next_chunk = this.map.getChunks()[(int) this.position[0] + 1][(int) this.position[1]];
+                next_person = this.map.getPersons()[(int) this.position[0] + 1][(int) this.position[1]];
+                try {if (next_person.getClass() == model.Person.Player.Player.class) {next_person = null;}}
+                catch (NullPointerException e) {}
+                if (next_chunk.getWalkable() && next_person == null) {
+                    this.dx = 1;
+                    this.dy = 0;
+                }
+                else {
+                    this.dx = -1;
+                    this.dy = 0;
+                }
+            }
         }
-
 
         if (Math.abs(player.getPosition()[0] - this.position[0]) < 2 && Math.abs(player.getPosition()[1] - this.position[1]) < 2) {
             this.melee_attack();  // si le joueur est tout près, attaque
@@ -73,20 +112,56 @@ public class Opponent extends Person implements NPC {
 
     // fuis le joueur
     public void escape_player(Player player) {  // fonction qui dicte les déplacements du PNJ si celui-ci doit fuire un joueur
-        int dx = -1 * (int) ((player.getPosition()[0] - this.position[0]) / Math.abs(player.getPosition()[0] - this.position[0]));
-        if (!map.getChunks()[(int)this.position[0] + dx][(int)this.position[1]].getWalkable() || dx == 0) {
-            int dy = -1 * (int) ((player.getPosition()[1] - this.position[1]) / Math.abs(player.getPosition()[1] - this.position[1]));
-            if (!map.getChunks()[(int)this.position[0]][(int)this.position[1] + dy].getWalkable() || dy == 0) {
-                dx = -1*dx;
-                if (!map.getChunks()[(int)this.position[0] + dx][(int)this.position[1]].getWalkable() || dx == 0) {
-                    dy = -1*dy;
-                    this.setDy(dy);
-                }
-                else {this.setDx(dx);}
-            }
-            else {this.setDy(dy);}
+        int desired_dx = 0;
+        int desired_dy = 0;
+        if (player.getPosition()[0] != this.position[0]) {  // déplacement désiré en X
+            desired_dx = -1 * ((int) ((player.getPosition()[0] - this.position[0]) / Math.abs(player.getPosition()[0] - this.position[0])));
         }
-        else {this.setDx(dx);}
+        else if (player.getPosition()[1] != this.position[1]){  // déplacement désiré en Y
+            desired_dy = -1 * ((int) ((player.getPosition()[1] - this.position[1]) / Math.abs(player.getPosition()[1] - this.position[1])));
+        }
+
+        // déplacement en x ou y? test si le npc sait se déplacer en x, sinon déplacement en y
+        if (desired_dx !=0) {
+            Chunk next_chunk = this.map.getChunks()[(int) this.position[0] + desired_dx][(int) this.position[1]];
+            Person next_person = this.map.getPersons()[(int) this.position[0] + desired_dx][(int) this.position[1]];
+            if (next_chunk.getWalkable() && next_person == null) {  // le joueur peut se déplacer en x
+                this.dx = desired_dx;
+                this.dy = 0;
+            }
+            else {  // déplacement en y
+                next_chunk = this.map.getChunks()[(int) this.position[0]][(int) this.position[1] + 1];
+                next_person = this.map.getPersons()[(int) this.position[0]][(int) this.position[1] + 1];
+                if (next_chunk.getWalkable() && next_person == null) {
+                    this.dx = 0;
+                    this.dy = 1;
+                }
+                else {
+                    this.dx = 0;
+                    this.dy = -1;
+                }
+            }
+        }
+        else if (desired_dy !=0) {
+            Chunk next_chunk = this.map.getChunks()[(int) this.position[0]][(int) this.position[1] + desired_dy];
+            Person next_person = this.map.getPersons()[(int) this.position[0]][(int) this.position[1] + desired_dy];
+            if (next_chunk.getWalkable() && next_person == null) {  // le joueur peut se déplacer en y
+                this.dx = 0;
+                this.dy = desired_dy;
+            }
+            else {  // déplacement en x
+                next_chunk = this.map.getChunks()[(int) this.position[0] + 1][(int) this.position[1]];
+                next_person = this.map.getPersons()[(int) this.position[0] + 1][(int) this.position[1]];
+                if (next_chunk.getWalkable() && next_person == null) {
+                    this.dx = 1;
+                    this.dy = 0;
+                }
+                else {
+                    this.dx = -1;
+                    this.dy = 0;
+                }
+            }
+        }
     }
 
     @Override

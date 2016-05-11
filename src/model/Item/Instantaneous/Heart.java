@@ -20,6 +20,7 @@ public class Heart extends Item {
         map.getItems()[(int) position[0]][(int) position[1]] = this;
     }
 
+    @Override
     public void interact(Player player) {
             player.setHealth(10);
             map.delete_item(this);

@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class GameController implements Serializable{
 
     private static final long serialVersionUID = 51L;
+
     private Game game;
 
     public GameController(Game game) {

@@ -24,6 +24,7 @@ public class Coin extends Item {
         map.getItems()[(int) position[0]][(int) position[1]] = this;
     }
 
+    @Override
     public void interact(Player player) {
         player.setMoney(this.value);
         map.delete_item(this);

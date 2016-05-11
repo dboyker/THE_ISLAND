@@ -2,176 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48c8066e-8c8d-421e-9256-3392b64d00d0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/model/Item/Collectable/MediKitThread.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Chunk/Water.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Person/Person.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/saved_games/2016-05-04 15:23.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/saved_games/2016-05-04 15:31.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/saved_games/2016-05-04 15:00.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/controller/EventListener/InputListener$KeyboardListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/controller/EventListener/InputListener$ButtonListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Item/Hazardous/Fire.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Item/Activator/ChestActivator.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/view/GameDisplay/InGamePanel/StatusBar.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/saved_games/2016-05-04 14:37.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/controller/EventListener/ButtonCallback$go_to_main_menu.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/controller/GameController/GameController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/controller/EventListener/ButtonCallback$start_new_game.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Game.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Item/Collectable/Collectable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Person/NPC/Seller.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/view/GameDisplay/InGamePanel/InGamePanel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Person/NPC/Opponent.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/view/GameDisplay/InGamePanel/MenuPanel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Person/Player/Player.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Item/Item.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Chunk/Floor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/saved_games/2016-05-04 14:31.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/view/NewGamePanel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/view/Frame.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/saved_games/2016-05-04 14:32.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/saved_games/2016-05-04 14:36.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/controller/EventListener/ButtonCallback$go_to_load_menu.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Chunk/Wall.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/SerialManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/saved_games/2016-05-04 15:00.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Map/MapInterface.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/view/NewGamePanel$1PlayersListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/saved_games/2016-05-04 14:37.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Chunk/Tree.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/view/GameDisplay/InGamePanel/GameScreen.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/saved_games/2016-05-04 15:36.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Item/Instantaneous/Coin.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/controller/EventListener/ButtonCallback$go_to_new_game_menu.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/saved_games/2016-05-04 14:38.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/saved_games/2016-05-04 14:40.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/THE_ISLAND.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Map/BuildingMap.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/view/GameDisplay/GamePanel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/saved_games/2016-05-04 14:48.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/saved_games/2016-05-04 15:36.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Chunk/Door.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/saved_games/2016-05-04 14:42.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/saved_games/2016-05-04 15:33.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Chunk/Chunk.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/view/LoadGamePanel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/saved_games/2016-05-04 15:37.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/Item/Activator/ChestActivator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Chunk/Sand.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/saved_games/2016-05-04 14:41.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Chunk/Dock.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Item/Hazardous/FireThread.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/view/NewGamePanel$1SizeListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Person/NPC/OpponentThread.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/controller/EventListener/ButtonCallback$load_game.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/saved_games/2016-05-04 14:36.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/view/NewGamePanel$1DifficultyListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Item/Collectable/MediKit.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Chunk/Grass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/saved_games/2016-05-04 15:37.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Person/NPC/NPC.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/saved_games/2016-05-04 14:32.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/view/GameDisplay/InGamePanel/ChestPanel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/controller/EventListener/InputListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/controller/EventListener/ButtonCallback$use_item.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Person/Player/Inventory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/controller/EventListener/ButtonCallback$upgrade_weapon.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/view/GameDisplay/MiniMap.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/saved_games/2016-05-04 15:31.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/saved_games/2016-05-04 15:41.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/saved_games/2016-05-04 14:41.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/view/HomePanel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/saved_games/2016-05-04 14:48.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Person/Player/PlayerThread.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Map/Map.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/controller/EventListener/ButtonCallback$save_game.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/description.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/saved_games/2016-05-04 14:38.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/controller/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/saved_games/2016-05-04 15:33.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/controller/EventListener/ButtonCallback$throw_item.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/saved_games/2016-05-04 14:42.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/controller/EventListener/ButtonCallback$resume_game.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Item/Hazardous/Hazardous.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Item/Collectable/DrugThread.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/view/GameDisplay/InGamePanel/SellerPanel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/controller/EventListener/ButtonCallback.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/saved_games/2016-05-04 15:23.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Chunk/Chest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/saved_games/2016-05-04 14:40.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Item/Hazardous/Bullet.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Item/Activator/SellerActivator.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/Item/Activator/SellerActivator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/controller/GameController/MiniMapThread.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/view/GameDisplay/MiniMap.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/saved_games/2016-05-04 15:41.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/saved_games/2016-05-04 14:31.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/saved_games/2016-05-04 15:10.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/view/GameDisplay/InGamePanel/InventoryPanel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/controller/GameController/MAPThread.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Item/Hazardous/BulletThread.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Item/Collectable/Drug.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/saved_games/2016-05-04 15:10.ser" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/controller/EventListener/ButtonCallback$show_inventory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Item/Instantaneous/Heart.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/project-template.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/controller/GameController/MiniMapThread.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/THE_ISLAND/model/Chunk/Building.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/HomePanel.java" afterPath="$PROJECT_DIR$/src/view/HomePanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Person/Player/Player.java" afterPath="$PROJECT_DIR$/src/model/Person/Player/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Person/NPC/NPC.java" afterPath="$PROJECT_DIR$/src/model/Person/NPC/NPC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/InGamePanel.java" afterPath="$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/InGamePanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Person/NPC/Seller.java" afterPath="$PROJECT_DIR$/src/model/Person/NPC/Seller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/StatusBar.java" afterPath="$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/StatusBar.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Person/NPC/OpponentThread.java" afterPath="$PROJECT_DIR$/src/model/Person/NPC/OpponentThread.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projet-DavidBoyker/controller/EventListener/ButtonCallback$get_item.class" afterPath="$PROJECT_DIR$/out/production/projet-DavidBoyker/controller/EventListener/ButtonCallback$get_item.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projet-DavidBoyker/controller/EventListener/ButtonCallback$quit_game.class" afterPath="$PROJECT_DIR$/out/production/projet-DavidBoyker/controller/EventListener/ButtonCallback$quit_game.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projet-DavidBoyker/controller/EventListener/ButtonCallback$resume_game.class" afterPath="$PROJECT_DIR$/out/production/projet-DavidBoyker/controller/EventListener/ButtonCallback$resume_game.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projet-DavidBoyker/controller/EventListener/ButtonCallback$save_game.class" afterPath="$PROJECT_DIR$/out/production/projet-DavidBoyker/controller/EventListener/ButtonCallback$save_game.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projet-DavidBoyker/controller/EventListener/ButtonCallback$show_inventory.class" afterPath="$PROJECT_DIR$/out/production/projet-DavidBoyker/controller/EventListener/ButtonCallback$show_inventory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projet-DavidBoyker/controller/EventListener/ButtonCallback$store_item.class" afterPath="$PROJECT_DIR$/out/production/projet-DavidBoyker/controller/EventListener/ButtonCallback$store_item.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projet-DavidBoyker/controller/EventListener/ButtonCallback$throw_item.class" afterPath="$PROJECT_DIR$/out/production/projet-DavidBoyker/controller/EventListener/ButtonCallback$throw_item.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projet-DavidBoyker/controller/EventListener/ButtonCallback$upgrade_attack.class" afterPath="$PROJECT_DIR$/out/production/projet-DavidBoyker/controller/EventListener/ButtonCallback$upgrade_attack.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projet-DavidBoyker/controller/EventListener/ButtonCallback$use_item.class" afterPath="$PROJECT_DIR$/out/production/projet-DavidBoyker/controller/EventListener/ButtonCallback$use_item.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projet-DavidBoyker/controller/GameController/GameController.class" afterPath="$PROJECT_DIR$/out/production/projet-DavidBoyker/controller/GameController/GameController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projet-DavidBoyker/model/Item/Instantaneous/Coin.class" afterPath="$PROJECT_DIR$/out/production/projet-DavidBoyker/model/Item/Instantaneous/Coin.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projet-DavidBoyker/model/Item/Instantaneous/Heart.class" afterPath="$PROJECT_DIR$/out/production/projet-DavidBoyker/model/Item/Instantaneous/Heart.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projet-DavidBoyker/model/Person/NPC/Opponent.class" afterPath="$PROJECT_DIR$/out/production/projet-DavidBoyker/model/Person/NPC/Opponent.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projet-DavidBoyker/model/Person/Person.class" afterPath="$PROJECT_DIR$/out/production/projet-DavidBoyker/model/Person/Person.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projet-DavidBoyker/model/SerialManager.class" afterPath="$PROJECT_DIR$/out/production/projet-DavidBoyker/model/SerialManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projet-DavidBoyker/view/GameDisplay/InGamePanel/ChestPanel.class" afterPath="$PROJECT_DIR$/out/production/projet-DavidBoyker/view/GameDisplay/InGamePanel/ChestPanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projet-DavidBoyker/view/GameDisplay/InGamePanel/InventoryPanel.class" afterPath="$PROJECT_DIR$/out/production/projet-DavidBoyker/view/GameDisplay/InGamePanel/InventoryPanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projet-DavidBoyker/view/GameDisplay/InGamePanel/StatusBar.class" afterPath="$PROJECT_DIR$/out/production/projet-DavidBoyker/view/GameDisplay/InGamePanel/StatusBar.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projet-DavidBoyker/view/NewGamePanel.class" afterPath="$PROJECT_DIR$/out/production/projet-DavidBoyker/view/NewGamePanel.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Chunk/Water.java" afterPath="$PROJECT_DIR$/src/model/Chunk/Water.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Item/Hazardous/Bullet.java" afterPath="$PROJECT_DIR$/src/model/Item/Hazardous/Bullet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/InventoryPanel.java" afterPath="$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/InventoryPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Item/Collectable/DrugThread.java" afterPath="$PROJECT_DIR$/src/model/Item/Collectable/DrugThread.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Person/Player/PlayerThread.java" afterPath="$PROJECT_DIR$/src/model/Person/Player/PlayerThread.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Item/Instantaneous/Heart.java" afterPath="$PROJECT_DIR$/src/model/Item/Instantaneous/Heart.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/GameController/MAPThread.java" afterPath="$PROJECT_DIR$/src/controller/GameController/MAPThread.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/EventListener/ButtonCallback.java" afterPath="$PROJECT_DIR$/src/controller/EventListener/ButtonCallback.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Item/Collectable/Drug.java" afterPath="$PROJECT_DIR$/src/model/Item/Collectable/Drug.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Item/Collectable/MediKit.java" afterPath="$PROJECT_DIR$/src/model/Item/Collectable/MediKit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Person/Person.java" afterPath="$PROJECT_DIR$/src/model/Person/Person.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Item/Hazardous/Fire.java" afterPath="$PROJECT_DIR$/src/model/Item/Hazardous/Fire.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Map/Map.java" afterPath="$PROJECT_DIR$/src/model/Map/Map.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Chunk/Tree.java" afterPath="$PROJECT_DIR$/src/model/Chunk/Tree.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Item/Item.java" afterPath="$PROJECT_DIR$/src/model/Item/Item.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/ChestPanel.java" afterPath="$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/ChestPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Map/BuildingMap.java" afterPath="$PROJECT_DIR$/src/model/Map/BuildingMap.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Person/NPC/Opponent.java" afterPath="$PROJECT_DIR$/src/model/Person/NPC/Opponent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Chunk/Chest.java" afterPath="$PROJECT_DIR$/src/model/Chunk/Chest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Game.java" afterPath="$PROJECT_DIR$/src/model/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/Frame.java" afterPath="$PROJECT_DIR$/src/view/Frame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Chunk/Grass.java" afterPath="$PROJECT_DIR$/src/model/Chunk/Grass.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controller/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Chunk/Building.java" afterPath="$PROJECT_DIR$/src/model/Chunk/Building.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/GameScreen.java" afterPath="$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/GameScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/MenuPanel.java" afterPath="$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/MenuPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Item/Hazardous/Hazardous.java" afterPath="$PROJECT_DIR$/src/model/Item/Hazardous/Hazardous.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Chunk/Wall.java" afterPath="$PROJECT_DIR$/src/model/Chunk/Wall.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Item/Collectable/Collectable.java" afterPath="$PROJECT_DIR$/src/model/Item/Collectable/Collectable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Item/Instantaneous/Coin.java" afterPath="$PROJECT_DIR$/src/model/Item/Instantaneous/Coin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Chunk/Chunk.java" afterPath="$PROJECT_DIR$/src/model/Chunk/Chunk.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Chunk/Floor.java" afterPath="$PROJECT_DIR$/src/model/Chunk/Floor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Chunk/Dock.java" afterPath="$PROJECT_DIR$/src/model/Chunk/Dock.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/SellerPanel.java" afterPath="$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/SellerPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/NewGamePanel.java" afterPath="$PROJECT_DIR$/src/view/NewGamePanel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/GameController/GameController.java" afterPath="$PROJECT_DIR$/src/controller/GameController/GameController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/GameDisplay/GamePanel.java" afterPath="$PROJECT_DIR$/src/view/GameDisplay/GamePanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Item/Hazardous/FireThread.java" afterPath="$PROJECT_DIR$/src/model/Item/Hazardous/FireThread.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Chunk/Door.java" afterPath="$PROJECT_DIR$/src/model/Chunk/Door.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Map/MapInterface.java" afterPath="$PROJECT_DIR$/src/model/Map/MapInterface.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Item/Hazardous/BulletThread.java" afterPath="$PROJECT_DIR$/src/model/Item/Hazardous/BulletThread.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Chunk/Sand.java" afterPath="$PROJECT_DIR$/src/model/Chunk/Sand.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/EventListener/InputListener.java" afterPath="$PROJECT_DIR$/src/controller/EventListener/InputListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Person/Player/Inventory.java" afterPath="$PROJECT_DIR$/src/model/Person/Player/Inventory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Item/Instantaneous/Coin.java" afterPath="$PROJECT_DIR$/src/model/Item/Instantaneous/Coin.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Item/Instantaneous/Heart.java" afterPath="$PROJECT_DIR$/src/model/Item/Instantaneous/Heart.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Person/NPC/Opponent.java" afterPath="$PROJECT_DIR$/src/model/Person/NPC/Opponent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Person/Person.java" afterPath="$PROJECT_DIR$/src/model/Person/Person.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/SerialManager.java" afterPath="$PROJECT_DIR$/src/model/SerialManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/ChestPanel.java" afterPath="$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/ChestPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/InventoryPanel.java" afterPath="$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/InventoryPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/StatusBar.java" afterPath="$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/StatusBar.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/NewGamePanel.java" afterPath="$PROJECT_DIR$/src/view/NewGamePanel.java" />
     </list>
     <ignored path="projet-DavidBoyker.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -205,23 +67,61 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SerialManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/SerialManager.java">
+      <file leaf-file-name="Map.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/model/Map/Map.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="3.4598215">
+              <caret line="173" column="22" selection-start-line="173" selection-start-column="22" selection-end-line="173" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <file leaf-file-name="InGamePanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/InGamePanel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Chunk.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Chunk/Chunk.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Dock.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Chunk/Dock.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Floor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Chunk/Floor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controller/GameController/GameController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -235,6 +135,26 @@
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
       <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/StatusBar.java" />
+        <option value="$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/InventoryPanel.java" />
+        <option value="$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/SellerPanel.java" />
+        <option value="$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/ChestPanel.java" />
+        <option value="$PROJECT_DIR$/src/view/NewGamePanel.java" />
+        <option value="$PROJECT_DIR$/src/model/Item/Hazardous/Fire.java" />
+        <option value="$PROJECT_DIR$/src/model/Item/Instantaneous/Heart.java" />
+        <option value="$PROJECT_DIR$/src/model/Item/Instantaneous/Coin.java" />
+        <option value="$PROJECT_DIR$/src/controller/GameController/GameController.java" />
+        <option value="$PROJECT_DIR$/src/model/Person/NPC/Opponent.java" />
+        <option value="$PROJECT_DIR$/src/controller/EventListener/InputListener.java" />
+        <option value="$PROJECT_DIR$/src/controller/EventListener/ButtonCallback.java" />
+        <option value="$PROJECT_DIR$/src/model/SerialManager.java" />
+        <option value="$PROJECT_DIR$/src/model/Person/Person.java" />
+      </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
@@ -313,7 +233,313 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projet-DavidBoyker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projet-DavidBoyker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GameDisplay" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projet-DavidBoyker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projet-DavidBoyker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GameDisplay" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="InGamePanel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projet-DavidBoyker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projet-DavidBoyker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projet-DavidBoyker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projet-DavidBoyker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Person" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projet-DavidBoyker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projet-DavidBoyker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Person" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Player" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projet-DavidBoyker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projet-DavidBoyker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Person" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NPC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projet-DavidBoyker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projet-DavidBoyker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Map" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projet-DavidBoyker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projet-DavidBoyker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Item" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projet-DavidBoyker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projet-DavidBoyker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Item" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Instantaneous" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projet-DavidBoyker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projet-DavidBoyker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Item" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hazardous" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projet-DavidBoyker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projet-DavidBoyker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Item" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Collectable" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projet-DavidBoyker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projet-DavidBoyker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Chunk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projet-DavidBoyker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projet-DavidBoyker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GameController" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -337,12 +563,14 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="FullScreen" value="true" />
+    <property name="settings.editor.selected.configurable" value="project.propGUI" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RunManager" selected="Application.Unnamed">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -451,6 +679,9 @@
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="48c8066e-8c8d-421e-9256-3392b64d00d0" name="Default" comment="" />
@@ -466,33 +697,43 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15235792" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -500,23 +741,52 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/model/Game.java">
+    <entry file="file://$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/StatusBar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="50" column="34" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/SerialManager.java">
+    <entry file="file://$PROJECT_DIR$/src/view/HomePanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/InventoryPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="93" selection-start-line="40" selection-start-column="93" selection-end-line="40" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/GameScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/SellerPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/ChestPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="42" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/NewGamePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -534,19 +804,374 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/SerialManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/StatusBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.64285713">
+          <caret line="50" column="34" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24436091">
+          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/HomePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33834586">
+          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/SellerPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41353384">
+          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/ChestPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39849624">
+          <caret line="35" column="42" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/NewGamePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.96240604">
+          <caret line="64" column="111" selection-start-line="64" selection-start-column="111" selection-end-line="64" selection-end-column="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Person/NPC/OpponentThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Item/Hazardous/BulletThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Item/Hazardous/FireThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="31" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Item/Hazardous/Fire.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Item/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Item/Instantaneous/Heart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Item/Instantaneous/Coin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Person/NPC/NPC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/Frame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/GameController/MAPThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/GameDisplay/GamePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/InventoryPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="93" selection-start-line="40" selection-start-column="93" selection-end-line="40" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/MenuPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/GameScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Person/Player/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Person/NPC/Opponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#8964#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Item/Hazardous/Bullet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/EventListener/InputListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#8012#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/LoadGamePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="47" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/EventListener/ButtonCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="58" column="54" selection-start-line="58" selection-start-column="54" selection-end-line="58" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#5630#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2082#2083#0" expanded="false" />
+            <element signature="e#2138#2139#0" expanded="false" />
+            <element signature="e#2607#2608#0" expanded="false" />
+            <element signature="e#2659#2660#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/SerialManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="52" selection-start-line="35" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Person/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="286" column="67" selection-start-line="286" selection-start-column="67" selection-end-line="286" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Map/MapInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Chunk/Building.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Chunk/Chest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Item/Collectable/Drug.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/GameController/GameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/GameDisplay/InGamePanel/InGamePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Chunk/Dock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Chunk/Floor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Chunk/Chunk.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Map/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.4598215">
+          <caret line="173" column="22" selection-start-line="173" selection-start-column="22" selection-end-line="173" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

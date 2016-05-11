@@ -55,7 +55,8 @@ public interface ButtonCallback {
         public save_game(Game game) {this.game = game;}
         public void execute() {
             SerialManager serial_manager = new SerialManager();
-            serial_manager.save_game(game);
+            try {serial_manager.save_game(game);}
+            catch (Exception e) {System.out.println("Couldn't save the game. Reason: "+e.getMessage());}
         }
     }
 

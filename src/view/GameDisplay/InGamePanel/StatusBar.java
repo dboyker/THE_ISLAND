@@ -32,7 +32,7 @@ public class StatusBar extends JPanel {
         inventory_button.addMouseListener(new InputListener.ButtonListener(new ButtonCallback.show_inventory(game_panel)));
         inventory_button.setFocusable(false);
         int health = game_panel.getPlayer().getHealth();
-        health_label = new JLabel("Life: "+health+"");
+        health_label = new JLabel("<html><font color='white'>Life: "+health+"</font></html>");
         int money = game_panel.getPlayer().getMoney();
         money_label = new JLabel("Money: "+money+"$");
         int number_of_villagers = game_panel.getGame().count_villagers();  // calcul du nombre de villageois
@@ -41,15 +41,16 @@ public class StatusBar extends JPanel {
         this.add(health_label);
         this.add(money_label);
         this.add(villagers_label);
+        update();
     }
 
     public void update() {
         int health = game_panel.getPlayer().getHealth();
         int money = game_panel.getPlayer().getMoney();
-        this.health_label.setText("Life: "+health+"");
-        this.money_label.setText("Money: "+money+"$");
+        this.health_label.setText("<html><font color='white'>Life: "+health+" | </font></html>");
+        this.money_label.setText("<html><font color='white'>Money: "+money+"$ | </font></html>");
         int number_of_villagers = game_panel.getGame().count_villagers();  // calcul du nombre de villageois
-        this.villagers_label.setText("Number of villagers: "+number_of_villagers+"");
+        this.villagers_label.setText("<html><font color='white'>Number of villagers: "+number_of_villagers+"</font></html>");
     }
 
     public void game_over() {

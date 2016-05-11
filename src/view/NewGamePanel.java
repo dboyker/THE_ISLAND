@@ -25,10 +25,10 @@ public class NewGamePanel extends JPanel {
         back_button = new JButton("back");
         back_button.addMouseListener(new InputListener.ButtonListener(new ButtonCallback.go_to_main_menu()));
         // bouttons de réglage taille de la carte
-        JRadioButton size_button_1 = new JRadioButton("Normal: 100x100");
+        JRadioButton size_button_1 = new JRadioButton("<html><font color='white'>Normal: 100x100</font></html>");
         size_button_1.setActionCommand("100");
         size_button_1.setSelected(true);
-        JRadioButton size_button_2 = new JRadioButton("Small: 50x50");
+        JRadioButton size_button_2 = new JRadioButton("<html><font color='white'>Small: 50x50</font></html>");
         size_button_2.setActionCommand("50");
         ButtonGroup button_size_group = new ButtonGroup();
         button_size_group.add(size_button_1);
@@ -44,10 +44,10 @@ public class NewGamePanel extends JPanel {
         size_button_2.addActionListener(new SizeListener());
 
         // bouttons de réglage difficulté: normal ou hard
-        JRadioButton difficulty_button_1 = new JRadioButton("Normal");
+        JRadioButton difficulty_button_1 = new JRadioButton("<html><font color='white'>Normal</font></html>");
         difficulty_button_1.setActionCommand("normal");
         difficulty_button_1.setSelected(true);
-        JRadioButton difficulty_button_2 = new JRadioButton("Hard");
+        JRadioButton difficulty_button_2 = new JRadioButton("<html><font color='white'>Hard</font></html>");
         difficulty_button_2.setActionCommand("hard");
         ButtonGroup button_difficulty_group = new ButtonGroup();
         button_difficulty_group.add(difficulty_button_1);
@@ -62,10 +62,10 @@ public class NewGamePanel extends JPanel {
         difficulty_button_2.addActionListener(new DifficultyListener());
 
         // bouttons de réglage du nombre de joueurs: 1 joueur ou 2 en coopération
-        JRadioButton players_button_1 = new JRadioButton("Single player");
+        JRadioButton players_button_1 = new JRadioButton("<html><font color='white'>Single player</font></html>");
         players_button_1.setActionCommand("1");
         players_button_1.setSelected(true);
-        JRadioButton players_button_2 = new JRadioButton("2 players in coop");
+        JRadioButton players_button_2 = new JRadioButton("<html><font color='white'>2 players in coop</font></html>");
         players_button_2.setActionCommand("2");
         ButtonGroup players_button_group = new ButtonGroup();
         players_button_group.add(players_button_1);
@@ -94,21 +94,21 @@ public class NewGamePanel extends JPanel {
         control_panel.setBounds(0, 0, 680, 440);
         JPanel panel1 = new JPanel();
         panel1.setBounds(0, 40, 680, 40);
-        panel1.add(new JLabel("size: "));
+        panel1.add(new JLabel("<html><font color='white'>Size: </font></html>"));
         panel1.add(size_button_1);
         panel1.add(size_button_2);
         panel1.setBackground(new java.awt.Color(52, 73, 94));
         control_panel.add(panel1);
         JPanel panel2 = new JPanel();
         panel2.setBounds(0, 80, 680, 40);
-        panel2.add(new JLabel("difficulty: "));
+        panel2.add(new JLabel("<html><font color='white'>Difficulty: </font></html>"));
         panel2.add(difficulty_button_1);
         panel2.add(difficulty_button_2);
         panel2.setBackground(new java.awt.Color(52, 73, 94));
         control_panel.add(panel2);
         JPanel panel3 = new JPanel();
         panel3.setBounds(0, 120, 680, 40);
-        panel3.add(new JLabel("type of game: "));
+        panel3.add(new JLabel("<html><font color='white'>Type of game: </font></html>"));
         panel3.add(players_button_1);
         panel3.add(players_button_2);
         panel3.setBackground(new java.awt.Color(52, 73, 94));

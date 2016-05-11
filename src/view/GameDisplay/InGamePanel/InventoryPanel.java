@@ -38,7 +38,7 @@ public class InventoryPanel extends JPanel implements InGamePanel {
         for (i = 0; i < items.size(); i++) {
             if (items.get(i) != null) {
                 Collectable item = items.get(i);
-                JLabel label = new JLabel(item.getName());
+                JLabel label = new JLabel("<html><font color='white'>"+item.getName()+"</font></html>");
                 JButton use_button = new JButton("use");
                 use_button.addMouseListener(new InputListener.ButtonListener(new ButtonCallback.use_item(item, game_panel)));
                 JButton throw_button = new JButton("throw");

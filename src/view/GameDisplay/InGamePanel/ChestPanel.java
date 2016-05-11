@@ -33,7 +33,7 @@ public class ChestPanel extends JPanel implements InGamePanel{
         for (int i = 0; i < items.size(); i++) {
             if (items.get(i) != null) {
                 Collectable item = items.get(i);
-                JLabel label = new JLabel(item.getName());
+                JLabel label = new JLabel("<html><font color='white'>"+item.getName()+"</font></html>");
                 JButton use_button = new JButton("store");
                 use_button.addMouseListener(new InputListener.ButtonListener(new ButtonCallback.store_item(item, game_panel)));
                 this.add(label);

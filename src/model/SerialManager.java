@@ -2,6 +2,10 @@
 
 package model;
 
+import controller.EventListener.ButtonCallback;
+import controller.EventListener.InputListener;
+
+import javax.swing.*;
 import java.io.*;
 import java.util.Date;
 import java.text.DateFormat;
@@ -14,7 +18,7 @@ public class SerialManager {
 
     public SerialManager() {}
 
-    public void save_game(Game game) {  // fonction pour la sauvegarde d'une partie
+    public void save_game(Game game) throws Exception {  // fonction pour la sauvegarde d'une partie
         try
         {
             System.out.println("save game");
@@ -23,12 +27,21 @@ public class SerialManager {
             String name = dateFormat.format(date);
             // écriture d'une fichier .ser dans le dossier /saved_games
             String path = "src/saved_games/"+name+".ser";
+            File folder = new File("src/saved_games/");
+            File[] listOfFiles = folder.listFiles();
+            for (int i = 1; i < listOfFiles.length; i++) {
+                if (listOfFiles[i].isFile()) {
+                    String existing_name = listOfFiles[i].getName();
+                    if (existing_name.equals(name+".ser")) {  // exception si fichier existe déjà -> overwriting
+                        throw new Exception("new save overwrites previous one");}
+                }
+            }
             File f = new File(path);
             f.getParentFile().mkdirs();
             f.createNewFile();
-            FileOutputStream fileOut = new FileOutputStream("src/saved_games/"+name+".ser");
+            FileOutputStream fileOut = new FileOutputStream(path);
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
-            out.writeObject(game);
+            out.writeObject(game);  // écrite du fichier
             out.close();
             fileOut.close();
         }
@@ -47,9 +60,11 @@ public class SerialManager {
             in.close();
             fileIn.close();
         }
-        catch(IOException i) {System.out.println("something went wrong with loading");i.printStackTrace(); game = new Game();}
-        catch(ClassNotFoundException c) {System.out.println("something went wrong with loading");c.printStackTrace();game = new Game();}
+        // exceptions si problèmes dans le charhement
+        catch(IOException | ClassNotFoundException c) {
+            System.out.println("Problem with loading");
+            game = new Game();
+        }
         return game;
     }
-
 }
